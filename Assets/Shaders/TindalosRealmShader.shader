@@ -2,6 +2,9 @@ Shader "Custom/TindalosRealmShader"
 {
     Properties
     {
+        // Tindalos Properties
+        _OffsetTex ("Offset Texture", 2D) = "white" {}
+
         // Specular vs Metallic workflow
         _WorkflowMode("WorkflowMode", Float) = 1.0
 
@@ -74,35 +77,83 @@ Shader "Custom/TindalosRealmShader"
         // Universal Pipeline tag is required. If Universal render pipeline is not set in the graphics settings
         // this Subshader will fail. One can add a subshader below or fallback to Standard built-in to make this
         // material work with both Universal Render Pipeline and Builtin Unity Pipeline
-        Tags{"RenderType" = "Opaque" "RenderPipeline" = "UniversalPipeline" "UniversalMaterialType" = "Lit" "IgnoreProjector" = "True" "ShaderModel"="4.5"}
+        Tags{"RenderType" = "Opaque" "RenderPipeline" = "UniversalPipeline" "IgnoreProjector" = "True" "ShaderModel"="4.5"}
         LOD 300
 
-        HLSLINCLUDE
-        struct GeomData
+        //------------------------------------------
+        // Tindalos Pass
+        Pass
         {
-            float4 positionCS               : SV_POSITION;
-            float3 positionWS               : TEXCOORD0;  
-            float3 normalWS                 : TEXCOORD1; 
-            float4 tangentWS                : TEXCOORD2; 
-            float3 viewDirectionWS          : TEXCOORD3; 
-            float2 lightmapUV               : TEXCOORD4; 
-            float3 sh                       : TEXCOORD5; 
-            float4 fogFactorAndVertexLight  : TEXCOORD6; 
-            float4 shadowCoord              : TEXCOORD7;
-        };
+            Name "Tindalos Pass"
+            HLSLPROGRAM
+            #include "UnityCG.cginc"
 
-        [maxvertexcount(3)]
-        void geom(triangle GeomData input[3], inout TriangleStream<GeomData> triStream)
-        {
-            GeomData vert0 = input[0];
-            GeomData vert1 = input[1];
-            GeomData vert2 = input[2];
-            triStream.Append(vert0);
-            triStream.Append(vert1);
-            triStream.Append(vert2);
-            triStream.RestartStrip();
+            //--------------------------------------
+            // Tindalos Effects
+            struct appdata
+            {
+                float4 vertex : POSITION;
+                float3 normal : NORMAL;
+                float4 tangent : TANGENT;
+                float2 uv : TEXCOORD0;
+            };
+
+            struct v2f
+            {
+                float2 uv : TEXCOORD0;
+                //UNITY_FOG_COORDS(1)
+                float4 vertex : SV_POSITION;
+            };
+
+            sampler2D _OffsetTex;
+            float4 _OffsetTex_ST;
+
+            /*
+            #define TRANSFORM_TEX(tex,name) (tex.xy * name##_ST.xy + name##_ST.zw)
+
+            static float4x4 unity_MatrixMVP = mul(unity_MatrixVP, unity_ObjectToWorld);
+            #define UNITY_MATRIX_MVP    unity_MatrixMVP
+            // Tranforms position from object to homogenous space
+            inline float4 UnityObjectToClipPos( in float3 pos )
+            {
+            #if defined(UNITY_SINGLE_PASS_STEREO) || defined(UNITY_USE_CONCATENATED_MATRICES)
+                // More efficient than computing M*VP matrix product
+                return mul(UNITY_MATRIX_VP, mul(unity_ObjectToWorld, float4(pos, 1.0)));
+            #else
+                return mul(UNITY_MATRIX_MVP, float4(pos, 1.0));
+            #endif
+            }
+            */
+
+            v2f TindalosVert (appdata v)
+            {
+                v2f o;
+                float2 xyOff = TRANSFORM_TEX(v.uv, _OffsetTex);
+                float4 cOff = tex2Dlod(_OffsetTex, float4(v.uv.x, v.uv.y, 0, 0));
+                float totOff = mul(mul(cOff.x, 5) - 0.5, 2);
+                //float4 vOff = float4(totOff, totOff, totOff, 0);
+                float3 m = mul(v.normal, totOff);
+                o.vertex = UnityObjectToClipPos(v.vertex) + (UnityObjectToClipPos(m));
+                //o.uv = TRANSFORM_TEX(v.uv, _MainTex);
+                //UNITY_TRANSFER_FOG(o,o.vertex);
+                return o;
+            }
+
+            fixed4 frag (v2f i) : SV_Target
+            {
+                //fixed4 col = _BaseColor;
+                // sample the texture
+                //fixed4 col = tex2D(_MainTex, i.uv) + _BaseColor;
+                // apply fog
+                //UNITY_APPLY_FOG(i.fogCoord, col);
+                return fixed4(0, 0, 0, 1);
+            }
+
+            #pragma vertex TindalosVert
+            #pragma fragment frag
+            ENDHLSL
         }
-        ENDHLSL
+
 
         // ------------------------------------------------------------------
         //  Forward pass. Shades all light in a single pass. GI + emission + Fog
@@ -120,6 +171,9 @@ Shader "Custom/TindalosRealmShader"
             HLSLPROGRAM
             #pragma exclude_renderers gles gles3 glcore
             #pragma target 4.5
+
+            //#include "UnityCG.cginc"
+            //#include "HLSLSupport.cginc"
 
             // -------------------------------------
             // Material Keywords
@@ -167,9 +221,13 @@ Shader "Custom/TindalosRealmShader"
             #pragma multi_compile_instancing
             #pragma instancing_options renderinglayer
             #pragma multi_compile _ DOTS_INSTANCING_ON
+            
 
+
+            
+
+            //#pragma vertex TindalosVert
             #pragma vertex LitPassVertex
-            #pragma geometry geom
             #pragma fragment LitPassFragment
 
             #include "Packages/com.unity.render-pipelines.universal/Shaders/LitInput.hlsl"
@@ -208,7 +266,7 @@ Shader "Custom/TindalosRealmShader"
             #pragma multi_compile_vertex _ _CASTING_PUNCTUAL_LIGHT_SHADOW
 
             #pragma vertex ShadowPassVertex
-            #pragma geometry geom
+            //#pragma geometry geom
             #pragma fragment ShadowPassFragment
 
             #include "Packages/com.unity.render-pipelines.universal/Shaders/LitInput.hlsl"
@@ -276,7 +334,7 @@ Shader "Custom/TindalosRealmShader"
             #pragma multi_compile _ DOTS_INSTANCING_ON
 
             #pragma vertex LitGBufferPassVertex
-            #pragma geometry geom
+            //#pragma geometry geom
             #pragma fragment LitGBufferPassFragment
 
             #include "Packages/com.unity.render-pipelines.universal/Shaders/LitInput.hlsl"
@@ -298,7 +356,7 @@ Shader "Custom/TindalosRealmShader"
             #pragma target 4.5
 
             #pragma vertex DepthOnlyVertex
-            #pragma geometry geom
+            //#pragma geometry geom
             #pragma fragment DepthOnlyFragment
 
             // -------------------------------------
@@ -330,7 +388,7 @@ Shader "Custom/TindalosRealmShader"
             #pragma target 4.5
 
             #pragma vertex DepthNormalsVertex
-            #pragma geometry geom
+            //#pragma geometry geom
             #pragma fragment DepthNormalsFragment
 
             // -------------------------------------
@@ -364,7 +422,7 @@ Shader "Custom/TindalosRealmShader"
             #pragma target 4.5
 
             #pragma vertex UniversalVertexMeta
-            #pragma geometry geom
+            //#pragma geometry geom
             #pragma fragment UniversalFragmentMetaLit
 
             #pragma shader_feature EDITOR_VISUALIZATION
@@ -397,7 +455,7 @@ Shader "Custom/TindalosRealmShader"
             #pragma target 4.5
 
             #pragma vertex vert
-            #pragma geometry geom
+            //#pragma geometry geom
             #pragma fragment frag
             #pragma shader_feature_local_fragment _ALPHATEST_ON
             #pragma shader_feature_local_fragment _ALPHAPREMULTIPLY_ON
@@ -406,8 +464,28 @@ Shader "Custom/TindalosRealmShader"
             #include "Packages/com.unity.render-pipelines.universal/Shaders/Utils/Universal2D.hlsl"
             ENDHLSL
         }
+        /*
+        Pass
+        {
+            Name "TindalosGeom"
+            //Tags { "LightMode" = "Universal2D" }
+
+            HLSLPROGRAM
+            //#pragma exclude_renderers gles gles3 glcore
+            //#pragma target 4.5
+            #include "Packages/com.unity.render-pipelines.universal/Shaders/LitInput.hlsl"
+            #include "Packages/com.unity.render-pipelines.universal/Shaders/Utils/Universal2D.hlsl"
+
+
+            #pragma vertex myVert
+            //#pragma geometry geom
+            #pragma fragment myFrag
+            ENDHLSL
+        }
+        */
     }
 
+    /*
     SubShader
     {
         // Universal Pipeline tag is required. If Universal render pipeline is not set in the graphics settings
@@ -479,6 +557,7 @@ Shader "Custom/TindalosRealmShader"
             #pragma multi_compile_fragment _ DEBUG_DISPLAY
 
             #pragma vertex LitPassVertex
+            //#pragma geometry geom
             #pragma fragment LitPassFragment
 
             #include "Packages/com.unity.render-pipelines.universal/Shaders/LitInput.hlsl"
@@ -516,6 +595,7 @@ Shader "Custom/TindalosRealmShader"
             #pragma multi_compile_vertex _ _CASTING_PUNCTUAL_LIGHT_SHADOW
 
             #pragma vertex ShadowPassVertex
+            //#pragma geometry geom
             #pragma fragment ShadowPassFragment
 
             #include "Packages/com.unity.render-pipelines.universal/Shaders/LitInput.hlsl"
@@ -541,6 +621,7 @@ Shader "Custom/TindalosRealmShader"
             #pragma multi_compile_instancing
 
             #pragma vertex DepthOnlyVertex
+            //#pragma geometry geom
             #pragma fragment DepthOnlyFragment
 
             // -------------------------------------
@@ -567,6 +648,7 @@ Shader "Custom/TindalosRealmShader"
             #pragma target 2.0
 
             #pragma vertex DepthNormalsVertex
+            //#pragma geometry geom
             #pragma fragment DepthNormalsFragment
 
             // -------------------------------------
@@ -599,6 +681,7 @@ Shader "Custom/TindalosRealmShader"
             #pragma target 2.0
 
             #pragma vertex UniversalVertexMeta
+            //#pragma geometry geom
             #pragma fragment UniversalFragmentMetaLit
 
             #pragma shader_feature EDITOR_VISUALIZATION
@@ -630,6 +713,7 @@ Shader "Custom/TindalosRealmShader"
             #pragma target 2.0
 
             #pragma vertex vert
+            //#pragma geometry geom
             #pragma fragment frag
             #pragma shader_feature_local_fragment _ALPHATEST_ON
             #pragma shader_feature_local_fragment _ALPHAPREMULTIPLY_ON
@@ -642,4 +726,5 @@ Shader "Custom/TindalosRealmShader"
 
     FallBack "Hidden/Universal Render Pipeline/FallbackError"
     CustomEditor "UnityEditor.Rendering.Universal.ShaderGUI.LitShader"
+    */
 }
