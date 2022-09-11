@@ -82,77 +82,6 @@ Shader "Custom/TindalosRealmShader"
 
         //------------------------------------------
         // Tindalos Pass
-        Pass
-        {
-            Name "Tindalos Pass"
-            HLSLPROGRAM
-            #include "UnityCG.cginc"
-
-            //--------------------------------------
-            // Tindalos Effects
-            struct appdata
-            {
-                float4 vertex : POSITION;
-                float3 normal : NORMAL;
-                float4 tangent : TANGENT;
-                float2 uv : TEXCOORD0;
-            };
-
-            struct v2f
-            {
-                float2 uv : TEXCOORD0;
-                //UNITY_FOG_COORDS(1)
-                float4 vertex : SV_POSITION;
-            };
-
-            sampler2D _OffsetTex;
-            float4 _OffsetTex_ST;
-
-            /*
-            #define TRANSFORM_TEX(tex,name) (tex.xy * name##_ST.xy + name##_ST.zw)
-
-            static float4x4 unity_MatrixMVP = mul(unity_MatrixVP, unity_ObjectToWorld);
-            #define UNITY_MATRIX_MVP    unity_MatrixMVP
-            // Tranforms position from object to homogenous space
-            inline float4 UnityObjectToClipPos( in float3 pos )
-            {
-            #if defined(UNITY_SINGLE_PASS_STEREO) || defined(UNITY_USE_CONCATENATED_MATRICES)
-                // More efficient than computing M*VP matrix product
-                return mul(UNITY_MATRIX_VP, mul(unity_ObjectToWorld, float4(pos, 1.0)));
-            #else
-                return mul(UNITY_MATRIX_MVP, float4(pos, 1.0));
-            #endif
-            }
-            */
-
-            v2f TindalosVert (appdata v)
-            {
-                v2f o;
-                float2 xyOff = TRANSFORM_TEX(v.uv, _OffsetTex);
-                float4 cOff = tex2Dlod(_OffsetTex, float4(v.uv.x, v.uv.y, 0, 0));
-                float totOff = mul(mul(cOff.x, 5) - 0.5, 2);
-                //float4 vOff = float4(totOff, totOff, totOff, 0);
-                float3 m = mul(v.normal, totOff);
-                o.vertex = UnityObjectToClipPos(v.vertex) + (UnityObjectToClipPos(m));
-                //o.uv = TRANSFORM_TEX(v.uv, _MainTex);
-                //UNITY_TRANSFER_FOG(o,o.vertex);
-                return o;
-            }
-
-            fixed4 frag (v2f i) : SV_Target
-            {
-                //fixed4 col = _BaseColor;
-                // sample the texture
-                //fixed4 col = tex2D(_MainTex, i.uv) + _BaseColor;
-                // apply fog
-                //UNITY_APPLY_FOG(i.fogCoord, col);
-                return fixed4(0, 0, 0, 1);
-            }
-
-            #pragma vertex TindalosVert
-            #pragma fragment frag
-            ENDHLSL
-        }
 
 
         // ------------------------------------------------------------------
@@ -222,16 +151,85 @@ Shader "Custom/TindalosRealmShader"
             #pragma instancing_options renderinglayer
             #pragma multi_compile _ DOTS_INSTANCING_ON
             
-
-
-            
-
-            //#pragma vertex TindalosVert
-            #pragma vertex LitPassVertex
-            #pragma fragment LitPassFragment
-
             #include "Packages/com.unity.render-pipelines.universal/Shaders/LitInput.hlsl"
             #include "Packages/com.unity.render-pipelines.universal/Shaders/LitForwardPass.hlsl"
+
+            Varyings TindalosLitPassVertex(Attributes input)
+            {
+                Varyings output = (Varyings)0;
+
+                UNITY_SETUP_INSTANCE_ID(input);
+                UNITY_TRANSFER_INSTANCE_ID(input, output);
+                UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(output);
+
+
+                VertexPositionInputs vertexInput = GetVertexPositionInputs(input.positionOS.xyz);
+                 //+ GetVertexPositionInputs(mul(2, input.normalOS)
+
+                // normalWS and tangentWS already normalize.
+                // this is required to avoid skewing the direction during interpolation
+                // also required for per-vertex lighting and SH evaluation
+                VertexNormalInputs normalInput = GetVertexNormalInputs(input.normalOS, input.tangentOS);
+
+
+
+
+                vertexInput.positionWS += mul(normalInput.normalWS, 2);
+
+
+
+                half3 vertexLight = VertexLighting(vertexInput.positionWS, normalInput.normalWS);
+
+                half fogFactor = 0;
+                #if !defined(_FOG_FRAGMENT)
+                    fogFactor = ComputeFogFactor(vertexInput.positionCS.z);
+                #endif
+
+                output.uv = TRANSFORM_TEX(input.texcoord, _BaseMap);
+
+                // already normalized from normal transform to WS.
+                output.normalWS = normalInput.normalWS;
+            #if defined(REQUIRES_WORLD_SPACE_TANGENT_INTERPOLATOR) || defined(REQUIRES_TANGENT_SPACE_VIEW_DIR_INTERPOLATOR)
+                real sign = input.tangentOS.w * GetOddNegativeScale();
+                half4 tangentWS = half4(normalInput.tangentWS.xyz, sign);
+            #endif
+            #if defined(REQUIRES_WORLD_SPACE_TANGENT_INTERPOLATOR)
+                output.tangentWS = tangentWS;
+            #endif
+
+            #if defined(REQUIRES_TANGENT_SPACE_VIEW_DIR_INTERPOLATOR)
+                half3 viewDirWS = GetWorldSpaceNormalizeViewDir(vertexInput.positionWS);
+                half3 viewDirTS = GetViewDirectionTangentSpace(tangentWS, output.normalWS, viewDirWS);
+                output.viewDirTS = viewDirTS;
+            #endif
+
+                OUTPUT_LIGHTMAP_UV(input.staticLightmapUV, unity_LightmapST, output.staticLightmapUV);
+            #ifdef DYNAMICLIGHTMAP_ON
+                output.dynamicLightmapUV = input.dynamicLightmapUV.xy * unity_DynamicLightmapST.xy + unity_DynamicLightmapST.zw;
+            #endif
+                OUTPUT_SH(output.normalWS.xyz, output.vertexSH);
+            #ifdef _ADDITIONAL_LIGHTS_VERTEX
+                output.fogFactorAndVertexLight = half4(fogFactor, vertexLight);
+            #else
+                output.fogFactor = fogFactor;
+            #endif
+
+            #if defined(REQUIRES_WORLD_SPACE_POS_INTERPOLATOR)
+                output.positionWS = vertexInput.positionWS;
+            #endif
+
+            #if defined(REQUIRES_VERTEX_SHADOW_COORD_INTERPOLATOR)
+                output.shadowCoord = GetShadowCoord(vertexInput);
+            #endif
+
+                output.positionCS = vertexInput.positionCS;
+
+                return output;
+            }
+
+            //#pragma vertex TindalosVert
+            #pragma vertex TindalosLitPassVertex
+            #pragma fragment LitPassFragment
             ENDHLSL
         }
 
@@ -265,12 +263,45 @@ Shader "Custom/TindalosRealmShader"
             // This is used during shadow map generation to differentiate between directional and punctual light shadows, as they use different formulas to apply Normal Bias
             #pragma multi_compile_vertex _ _CASTING_PUNCTUAL_LIGHT_SHADOW
 
-            #pragma vertex ShadowPassVertex
+            #pragma vertex TindalosShadowPassVertex
             //#pragma geometry geom
             #pragma fragment ShadowPassFragment
 
             #include "Packages/com.unity.render-pipelines.universal/Shaders/LitInput.hlsl"
             #include "Packages/com.unity.render-pipelines.universal/Shaders/ShadowCasterPass.hlsl"
+
+            float4 TindalosGetShadowPositionHClip(Attributes input)
+            {
+                float3 positionWS = TransformObjectToWorld(input.positionOS.xyz);
+                float3 normalWS = TransformObjectToWorldNormal(input.normalOS);
+
+            #if _CASTING_PUNCTUAL_LIGHT_SHADOW
+                float3 lightDirectionWS = normalize(_LightPosition - positionWS);
+            #else
+                float3 lightDirectionWS = _LightDirection;
+            #endif
+                
+                positionWS += mul(normalWS, 2);
+                float4 positionCS = TransformWorldToHClip(ApplyShadowBias(positionWS, normalWS, lightDirectionWS));
+
+            #if UNITY_REVERSED_Z
+                positionCS.z = min(positionCS.z, UNITY_NEAR_CLIP_VALUE);
+            #else
+                positionCS.z = max(positionCS.z, UNITY_NEAR_CLIP_VALUE);
+            #endif
+
+                return positionCS;
+            }
+
+            Varyings TindalosShadowPassVertex(Attributes input)
+            {
+                Varyings output;
+                UNITY_SETUP_INSTANCE_ID(input);
+
+                output.uv = TRANSFORM_TEX(input.texcoord, _BaseMap);
+                output.positionCS = TindalosGetShadowPositionHClip(input);
+                return output;
+            }
             ENDHLSL
         }
 
@@ -333,12 +364,77 @@ Shader "Custom/TindalosRealmShader"
             #pragma instancing_options renderinglayer
             #pragma multi_compile _ DOTS_INSTANCING_ON
 
-            #pragma vertex LitGBufferPassVertex
+            #pragma vertex TindalosLitGBufferPassVertex
             //#pragma geometry geom
             #pragma fragment LitGBufferPassFragment
 
             #include "Packages/com.unity.render-pipelines.universal/Shaders/LitInput.hlsl"
             #include "Packages/com.unity.render-pipelines.universal/Shaders/LitGBufferPass.hlsl"
+
+
+            Varyings TindalosLitGBufferPassVertex(Attributes input)
+            {
+                Varyings output = (Varyings)0;
+
+                UNITY_SETUP_INSTANCE_ID(input);
+                UNITY_TRANSFER_INSTANCE_ID(input, output);
+                UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(output);
+
+                VertexPositionInputs vertexInput = GetVertexPositionInputs(input.positionOS.xyz);
+
+                // normalWS and tangentWS already normalize.
+                // this is required to avoid skewing the direction during interpolation
+                // also required for per-vertex lighting and SH evaluation
+                VertexNormalInputs normalInput = GetVertexNormalInputs(input.normalOS, input.tangentOS);
+
+
+                vertexInput.positionWS += mul(normalInput.normalWS, 0.5);
+
+
+                output.uv = TRANSFORM_TEX(input.texcoord, _BaseMap);
+
+                // already normalized from normal transform to WS.
+                output.normalWS = normalInput.normalWS;
+
+                #if defined(REQUIRES_WORLD_SPACE_TANGENT_INTERPOLATOR) || defined(REQUIRES_TANGENT_SPACE_VIEW_DIR_INTERPOLATOR)
+                    real sign = input.tangentOS.w * GetOddNegativeScale();
+                    half4 tangentWS = half4(normalInput.tangentWS.xyz, sign);
+                #endif
+
+                #if defined(REQUIRES_WORLD_SPACE_TANGENT_INTERPOLATOR)
+                    output.tangentWS = tangentWS;
+                #endif
+
+                #if defined(REQUIRES_TANGENT_SPACE_VIEW_DIR_INTERPOLATOR)
+                    half3 viewDirWS = GetWorldSpaceNormalizeViewDir(vertexInput.positionWS);
+                    half3 viewDirTS = GetViewDirectionTangentSpace(tangentWS, output.normalWS, viewDirWS);
+                    output.viewDirTS = viewDirTS;
+                #endif
+
+                OUTPUT_LIGHTMAP_UV(input.staticLightmapUV, unity_LightmapST, output.staticLightmapUV);
+            #ifdef DYNAMICLIGHTMAP_ON
+                output.dynamicLightmapUV = input.dynamicLightmapUV.xy * unity_DynamicLightmapST.xy + unity_DynamicLightmapST.zw;
+            #endif
+                OUTPUT_SH(output.normalWS.xyz, output.vertexSH);
+
+                #ifdef _ADDITIONAL_LIGHTS_VERTEX
+                    half3 vertexLight = VertexLighting(vertexInput.positionWS, normalInput.normalWS);
+                    output.vertexLighting = vertexLight;
+                #endif
+
+                #if defined(REQUIRES_WORLD_SPACE_POS_INTERPOLATOR)
+                    output.positionWS = vertexInput.positionWS;
+                #endif
+
+                #if defined(REQUIRES_VERTEX_SHADOW_COORD_INTERPOLATOR)
+                    output.shadowCoord = GetShadowCoord(vertexInput);
+                #endif
+
+                output.positionCS = vertexInput.positionCS;
+
+                return output;
+            }
+
             ENDHLSL
         }
 
@@ -355,7 +451,7 @@ Shader "Custom/TindalosRealmShader"
             #pragma exclude_renderers gles gles3 glcore
             #pragma target 4.5
 
-            #pragma vertex DepthOnlyVertex
+            #pragma vertex TindalosDepthOnlyVertex
             //#pragma geometry geom
             #pragma fragment DepthOnlyFragment
 
@@ -371,6 +467,28 @@ Shader "Custom/TindalosRealmShader"
 
             #include "Packages/com.unity.render-pipelines.universal/Shaders/LitInput.hlsl"
             #include "Packages/com.unity.render-pipelines.universal/Shaders/DepthOnlyPass.hlsl"
+
+            struct Attrs
+            {
+                float4 position     : POSITION;
+                float3 normal       : NORMAL;
+                float2 texcoord     : TEXCOORD0;
+                UNITY_VERTEX_INPUT_INSTANCE_ID
+            };
+
+            Varyings TindalosDepthOnlyVertex(Attrs input)
+            {
+                Varyings output = (Varyings)0;
+                UNITY_SETUP_INSTANCE_ID(input);
+                UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(output);
+
+                output.uv = TRANSFORM_TEX(input.texcoord, _BaseMap);
+                output.positionCS = TransformObjectToHClip(input.position.xyz);
+                //VertexPositionInput x = TransformObjectToWorld();
+                //output.positionCS = TransformWorldToHClip();
+                return output;
+            }
+
             ENDHLSL
         }
 
@@ -455,34 +573,17 @@ Shader "Custom/TindalosRealmShader"
             #pragma target 4.5
 
             #pragma vertex vert
-            //#pragma geometry geom
             #pragma fragment frag
             #pragma shader_feature_local_fragment _ALPHATEST_ON
             #pragma shader_feature_local_fragment _ALPHAPREMULTIPLY_ON
 
             #include "Packages/com.unity.render-pipelines.universal/Shaders/LitInput.hlsl"
             #include "Packages/com.unity.render-pipelines.universal/Shaders/Utils/Universal2D.hlsl"
+
+
+
             ENDHLSL
         }
-        /*
-        Pass
-        {
-            Name "TindalosGeom"
-            //Tags { "LightMode" = "Universal2D" }
-
-            HLSLPROGRAM
-            //#pragma exclude_renderers gles gles3 glcore
-            //#pragma target 4.5
-            #include "Packages/com.unity.render-pipelines.universal/Shaders/LitInput.hlsl"
-            #include "Packages/com.unity.render-pipelines.universal/Shaders/Utils/Universal2D.hlsl"
-
-
-            #pragma vertex myVert
-            //#pragma geometry geom
-            #pragma fragment myFrag
-            ENDHLSL
-        }
-        */
     }
 
     /*
