@@ -51,6 +51,7 @@ Material:
     - _Metallic: 0
     - _NormalIntensity: 0
     - _Offset: 0
+    - _OilFadeIntensity: 7.33
     - _OilSlickSize: 0.25
     - _QueueControl: 0
     - _QueueOffset: 0
