@@ -1,0 +1,16 @@
+{
+    "name": "Project.Scripts",
+    "rootNamespace": "",
+    "references": [
+        "GUID:3c4b471d796b3ea438c7608faa192882"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
