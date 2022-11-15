@@ -163,7 +163,7 @@ public class MapGenerator : MonoBehaviour
                 a concave mesh collider cannot collide with another concave mesh collider. To fix this,
                 I momentarily make the mesh collider convex before calling the overlap sphere
             */
-            bool isColliding = false;
+            //bool isColliding = false;
             for(int j = 0; j < allPlacedRooms.Count; j++)
             {
                 MeshCollider x = new MeshCollider();
