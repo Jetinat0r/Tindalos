@@ -81,9 +81,9 @@ public class Room : MonoBehaviour
         }
         else if(mapFloors.Count >= numFloors)
         {
-            for(int i = mapFloors.Count; i >= numFloors; i--)
+            for(int i = mapFloors.Count; i > numFloors; i--)
             {
-                mapFloors.RemoveAt(i);
+                mapFloors.RemoveAt(i - 1);
             }
         }
 
