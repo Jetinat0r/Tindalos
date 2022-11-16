@@ -27,11 +27,15 @@ public class RoomLine
     public Vector2 bezierStartHandle;
     public Vector2 bezierEndHandle;
 
-    public RoomLine(Vector2 startPos)
+    [SerializeField, HideInInspector]
+    private int floorNum = 0;
+
+    public RoomLine(Vector2 startPos, int floorNum)
     {
         lineStart = startPos;
-        bezierStartHandle = startPos + new Vector2(Room.GridSize, Room.GridSize);
-        bezierEndHandle = startPos - new Vector2(Room.GridSize, Room.GridSize);
+        bezierStartHandle = startPos + new Vector2(Floor.GridSize, Floor.GridSize);
+        bezierEndHandle = startPos - new Vector2(Floor.GridSize, Floor.GridSize);
+        this.floorNum = floorNum;
     }
 
     public void SetLineType(LineType newType)
@@ -41,13 +45,12 @@ public class RoomLine
             return;
         }
 
-        //TODO: Mess with the line
         CurLineType = newType;
 
         if(CurLineType == LineType.Bezier)
         {
-            bezierStartHandle = lineStart + new Vector2(Room.GridSize, Room.GridSize);
-            bezierEndHandle = lineStart - new Vector2(Room.GridSize, Room.GridSize);
+            bezierStartHandle = lineStart + new Vector2(Floor.GridSize, Floor.GridSize);
+            bezierEndHandle = lineStart - new Vector2(Floor.GridSize, Floor.GridSize);
         }
     }
 
@@ -59,7 +62,11 @@ public class RoomLine
                 return new Vector3[] { Vec2To3(lineStart), Vec2To3(lineEnd) };
 
             case (LineType.Bezier):
-                return Handles.MakeBezierPoints(Vec2To3(lineStart), Vec2To3(lineEnd), Vec2To3(bezierStartHandle), Vec2To3(bezierEndHandle), BezierDivisions);
+                return Handles.MakeBezierPoints(Vec2To3(lineStart),
+                    Vec2To3(lineEnd),
+                    Vec2To3(bezierStartHandle),
+                    Vec2To3(bezierEndHandle),
+                    BezierDivisions);
 
             case(LineType.Door):
             default:
@@ -85,6 +92,6 @@ public class RoomLine
 
     private Vector3 Vec2To3(Vector2 v)
     {
-        return new Vector3(v.x, 0f, v.y);
+        return new Vector3(v.x, Floor.FloorHeight * floorNum, v.y);
     }
 }
