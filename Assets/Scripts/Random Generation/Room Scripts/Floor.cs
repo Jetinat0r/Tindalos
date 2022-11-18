@@ -28,8 +28,6 @@ public class Floor : ISerializationCallbackReceiver
     [Header("Room Painting Vars")]
     public int gridWidth = 10;
     public int gridHeight = 10;
-    [Space(10)]
-    public Vector2 gridOffset = Vector2.zero;
 
 
     //Used to save info for tileGrid
@@ -43,6 +41,8 @@ public class Floor : ISerializationCallbackReceiver
     [SerializeField, HideInInspector]
     private Vector3[] points;
 
+    //Every door on the respective floor
+    public List<Doorway> doorways = new List<Doorway>();
 
     public Floor(int floorNum)
     {
@@ -86,7 +86,7 @@ public class Floor : ISerializationCallbackReceiver
     }
 
     //Used to quickly draw the outline of the grid in Paint mode (sorry DRY)
-    public void DrawGridOutline()
+    public void DrawGridOutline(Vector2 gridOffset)
     {
         if(tileGrid == null)
         {
@@ -115,7 +115,7 @@ public class Floor : ISerializationCallbackReceiver
 
     //Used to toggle on the grid in Line mode
     //Has some weird issues w/ depth and transparency
-    public void DrawGrid()
+    public void DrawGrid(Vector2 gridOffset)
     {
         if (tileGrid == null)
         {
@@ -201,7 +201,21 @@ public class Floor : ISerializationCallbackReceiver
         roomLines.Add(lineThree);
     }
 
+    public void SaveLines()
+    {
+        //TODO: Add lines to a grid map thingy
+        doorways.Clear();
 
+        foreach(RoomLine line in roomLines)
+        {
+            if(line.CurLineType == LineType.Door)
+            {
+                Doorway newDoor = new Doorway(line.lineStart, line.lineEnd);
+                newDoor.Init();
+                doorways.Add(newDoor);
+            }
+        }
+    }
 
 
     //Special Serialization for the Jagged array

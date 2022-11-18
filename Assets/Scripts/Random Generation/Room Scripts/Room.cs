@@ -24,8 +24,7 @@ public class Room : MonoBehaviour
     //Bottom floor as assigned by the random generator
     public int assignedFloor = -1;
 
-    //TODO: Deprecate / move to floor?
-    public List<Doorway> doorways = new List<Doorway>();
+    public Vector2 gridOffset;
 
     //Holds all floors in the room. Updated via the Update Floors button
     public List<Floor> mapFloors = new List<Floor>();
@@ -42,7 +41,7 @@ public class Room : MonoBehaviour
     public LineType curInspectorLineType = LineType.Straight;
     
     
-
+    //TODO: ACCOUNT FOR GRID OFFSETS BEING DIFFERENT AND MESSING W/ MULTI-FLOOR PLACEMENT!!!
 
     private void Start()
     {
@@ -51,18 +50,28 @@ public class Room : MonoBehaviour
 
     public void Init()
     {
-        foreach(Doorway d in doorways)
+        //Do I even bother with this?
+        /*
+        foreach (Floor f in mapFloors)
         {
-            d.Init();
+            foreach (Doorway d in f.doorways)
+            {
+                d.Init();
+            }
         }
+        */
     }
 
     private void Update()
     {
-        foreach(Doorway d in doorways)
+        foreach (Floor f in mapFloors)
         {
-            d.DrawDebugGizmos();
+            foreach (Doorway d in f.doorways)
+            {
+                d.DrawDebugGizmos();
+            }
         }
+        
     }
 
     public void SetupFloors()
@@ -100,11 +109,11 @@ public class Room : MonoBehaviour
         switch (curInspectorMode)
         {
             case (RoomInspectorMode.Paint):
-                CurFloor.DrawGridOutline();
+                CurFloor.DrawGridOutline(gridOffset);
                 break;
 
             case (RoomInspectorMode.Lines):
-                CurFloor.DrawGrid();
+                CurFloor.DrawGrid(gridOffset);
                 break;
 
             case (RoomInspectorMode.View):

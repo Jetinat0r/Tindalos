@@ -59,6 +59,7 @@ public class RoomLine
         switch (CurLineType)
         {
             case (LineType.Straight):
+            case (LineType.Door):
                 return new Vector3[] { Vec2To3(lineStart), Vec2To3(lineEnd) };
 
             case (LineType.Bezier):
@@ -68,7 +69,6 @@ public class RoomLine
                     Vec2To3(bezierEndHandle),
                     BezierDivisions);
 
-            case(LineType.Door):
             default:
                 return new Vector3[0];
         }

@@ -39,7 +39,7 @@ public class RoomMapEditorGizmos : Editor
             case (Room.RoomInspectorMode.Paint):
                 if (room.CurFloor.tileGrid != null)
                 {
-                    DrawGrid(room, Floor.GridSize, new Color(1f, 1f, 1f, 0.45f));
+                    DrawGrid(room, Floor.GridSize);
                 }
 
                 DrawPaintingButtons(room);
@@ -146,7 +146,7 @@ public class RoomMapEditorGizmos : Editor
     }
 
 
-    private void DrawGrid(Room room, float spacing, Color color)
+    private void DrawGrid(Room room, float spacing)
     {
         int widthDivs = Mathf.CeilToInt(room.CurFloor.tileGrid.Length);
         int heightDivs = Mathf.CeilToInt(room.CurFloor.tileGrid[0].Length);
@@ -181,9 +181,9 @@ public class RoomMapEditorGizmos : Editor
                 }
                 
                 //Create a button to click to paint the current tile
-                if(Handles.Button(new Vector3((spacing * i + (spacing * 0.5f)) + room.CurFloor.gridOffset.x,
+                if(Handles.Button(new Vector3((spacing * i + (spacing * 0.5f)) + room.gridOffset.x,
                     Floor.FloorHeight * room.curInspectedFloor,
-                    (spacing * j + (spacing * 0.5f)) + room.CurFloor.gridOffset.y),
+                    (spacing * j + (spacing * 0.5f)) + room.gridOffset.y),
                     Quaternion.identity,
                     spacing,
                     spacing,
@@ -481,7 +481,7 @@ public class RoomMapEditorGizmos : Editor
                         if (curPointIndex == 0)
                         {
                             //Edge case for deleting point 1
-                            room.CurFloor.roomLines[room.CurFloor.roomLines.Count - 1].lineEnd = room.CurFloor.roomLines[curPointIndex + 1].lineStart;
+                            room.CurFloor.roomLines[^1].lineEnd = room.CurFloor.roomLines[curPointIndex + 1].lineStart;
                         }
                         else if (curPointIndex == room.CurFloor.roomLines.Count - 1)
                         {
@@ -508,7 +508,7 @@ public class RoomMapEditorGizmos : Editor
 
             if (GUILayout.Button("Save Lines"))
             {
-                //TODO: Save lines
+                room.CurFloor.SaveLines();
 
                 UpdatePrefab();
             }
@@ -679,6 +679,46 @@ public class RoomMapEditorGizmos : Editor
                     break;
 
                 case (LineType.Door):
+                    if (i == 0)
+                    {
+                        Handles.color = Color.yellow;
+                    }
+                    else if (i == 1)
+                    {
+                        Handles.color = Color.red;
+                    }
+                    else
+                    {
+                        Handles.color = Color.green;
+                    }
+                    Vector3[] doorPoints = line.GetDrawPoints();
+                    if (room.curInspectorLineType != LineType.Edit)
+                    {
+                        Vector3 newStraightPos = Handles.FreeMoveHandle(doorPoints[0],
+                                Quaternion.identity,
+                                Floor.GridSize / 2,
+                                new Vector3(Floor.GridSize, Floor.GridSize, Floor.GridSize),
+                                Handles.RectangleHandleCap);
+
+                        Vector2 convertedHeadPos = new Vector2(newStraightPos.x, newStraightPos.z);
+                        if (convertedHeadPos != line.lineStart)
+                        {
+                            MoveLine(room, i, convertedHeadPos);
+                            UpdatePrefab();
+                        }
+                    }
+                    else
+                    {
+                        if (Handles.Button(doorPoints[0],
+                            Quaternion.identity,
+                            Floor.GridSize / 2,
+                            Floor.GridSize / 2,
+                            Handles.CubeHandleCap))
+                        {
+                            curPointIndex = i;
+                        }
+                    }
+
                     Handles.color = Color.red;
                     Handles.DrawAAPolyLine(line.GetDrawPoints());
                     break;
@@ -701,7 +741,7 @@ public class RoomMapEditorGizmos : Editor
         //Update previous
         if(index == 0)
         {
-            room.CurFloor.roomLines[room.CurFloor.roomLines.Count - 1].lineEnd = room.CurFloor.roomLines[index].lineStart;
+            room.CurFloor.roomLines[^1].lineEnd = room.CurFloor.roomLines[index].lineStart;
         }
         else
         {

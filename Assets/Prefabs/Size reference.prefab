@@ -112,12 +112,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numFloors: 4
   assignedFloor: -1
-  doorways: []
+  gridOffset: {x: -0.5, y: -0.5}
   mapFloors:
   - floorNum: 0
     gridWidth: 10
     gridHeight: 10
-    gridOffset: {x: 0, y: 0}
     serializable:
       HorizontalSize: 10
       VerticalSizes: 0a0000000a0000000a0000000a0000000a0000000a0000000a0000000a0000000a0000000a000000
@@ -139,19 +138,19 @@ MonoBehaviour:
         Element: 0
       - Index0: 0
         Index1: 5
-        Element: 0
+        Element: 2
       - Index0: 0
         Index1: 6
-        Element: 0
+        Element: 2
       - Index0: 0
         Index1: 7
-        Element: 0
+        Element: 1
       - Index0: 0
         Index1: 8
-        Element: 0
+        Element: 1
       - Index0: 0
         Index1: 9
-        Element: 0
+        Element: 1
       - Index0: 1
         Index1: 0
         Element: 0
@@ -169,19 +168,19 @@ MonoBehaviour:
         Element: 0
       - Index0: 1
         Index1: 5
-        Element: 0
+        Element: 2
       - Index0: 1
         Index1: 6
         Element: 0
       - Index0: 1
         Index1: 7
-        Element: 0
+        Element: 1
       - Index0: 1
         Index1: 8
-        Element: 0
+        Element: 1
       - Index0: 1
         Index1: 9
-        Element: 0
+        Element: 1
       - Index0: 2
         Index1: 0
         Element: 0
@@ -196,16 +195,16 @@ MonoBehaviour:
         Element: 0
       - Index0: 2
         Index1: 4
-        Element: 0
+        Element: 1
       - Index0: 2
         Index1: 5
-        Element: 0
+        Element: 2
       - Index0: 2
         Index1: 6
-        Element: 0
+        Element: 1
       - Index0: 2
         Index1: 7
-        Element: 0
+        Element: 1
       - Index0: 2
         Index1: 8
         Element: 0
@@ -223,22 +222,22 @@ MonoBehaviour:
         Element: 0
       - Index0: 3
         Index1: 3
-        Element: 0
+        Element: 1
       - Index0: 3
         Index1: 4
-        Element: 0
+        Element: 1
       - Index0: 3
         Index1: 5
-        Element: 0
+        Element: 2
       - Index0: 3
         Index1: 6
-        Element: 0
+        Element: 1
       - Index0: 3
         Index1: 7
-        Element: 0
+        Element: 2
       - Index0: 3
         Index1: 8
-        Element: 0
+        Element: 2
       - Index0: 3
         Index1: 9
         Element: 0
@@ -259,16 +258,16 @@ MonoBehaviour:
         Element: 0
       - Index0: 4
         Index1: 5
-        Element: 0
+        Element: 1
       - Index0: 4
         Index1: 6
         Element: 0
       - Index0: 4
         Index1: 7
-        Element: 0
+        Element: 2
       - Index0: 4
         Index1: 8
-        Element: 0
+        Element: 2
       - Index0: 4
         Index1: 9
         Element: 0
@@ -286,7 +285,7 @@ MonoBehaviour:
         Element: 0
       - Index0: 5
         Index1: 4
-        Element: 0
+        Element: 1
       - Index0: 5
         Index1: 5
         Element: 0
@@ -313,7 +312,7 @@ MonoBehaviour:
         Element: 0
       - Index0: 6
         Index1: 3
-        Element: 0
+        Element: 1
       - Index0: 6
         Index1: 4
         Element: 2
@@ -340,7 +339,7 @@ MonoBehaviour:
         Element: 0
       - Index0: 7
         Index1: 2
-        Element: 2
+        Element: 1
       - Index0: 7
         Index1: 3
         Element: 0
@@ -367,7 +366,7 @@ MonoBehaviour:
         Element: 0
       - Index0: 8
         Index1: 1
-        Element: 0
+        Element: 1
       - Index0: 8
         Index1: 2
         Element: 0
@@ -394,7 +393,7 @@ MonoBehaviour:
         Element: 0
       - Index0: 9
         Index1: 0
-        Element: 0
+        Element: 1
       - Index0: 9
         Index1: 1
         Element: 0
@@ -424,429 +423,711 @@ MonoBehaviour:
         Element: 0
     roomLines:
     - <CurLineType>k__BackingField: 0
-      lineStart: {x: 0, y: 0}
-      lineEnd: {x: 1, y: 0}
+      lineStart: {x: -0.5, y: 0.5}
+      lineEnd: {x: 0.5, y: 0.5}
       bezierStartHandle: {x: 0.1, y: 0.1}
       bezierEndHandle: {x: -0.1, y: -0.1}
       floorNum: 0
     - <CurLineType>k__BackingField: 0
-      lineStart: {x: 1, y: 0}
-      lineEnd: {x: 0.85076296, y: -0.6744623}
+      lineStart: {x: 0.5, y: 0.5}
+      lineEnd: {x: 0.5, y: -0.5}
       bezierStartHandle: {x: 1.1, y: 0.1}
       bezierEndHandle: {x: 0.9, y: -0.1}
       floorNum: 0
     - <CurLineType>k__BackingField: 0
-      lineStart: {x: 0.85076296, y: -0.6744623}
-      lineEnd: {x: 0, y: 0}
+      lineStart: {x: 0.5, y: -0.5}
+      lineEnd: {x: -0.5, y: -0.5}
       bezierStartHandle: {x: 0.6, y: -0.9}
       bezierEndHandle: {x: 0.4, y: -1.1}
       floorNum: 0
+    - <CurLineType>k__BackingField: 0
+      lineStart: {x: -0.5, y: -0.5}
+      lineEnd: {x: -0.5, y: 0.5}
+      bezierStartHandle: {x: 0.12917733, y: 0.07082266}
+      bezierEndHandle: {x: -0.07082266, y: -0.12917733}
+      floorNum: 0
     points: []
+    doorways: []
   - floorNum: 1
-    gridWidth: 10
-    gridHeight: 10
-    gridOffset: {x: 0, y: 0}
+    gridWidth: 12
+    gridHeight: 11
     serializable:
-      HorizontalSize: 10
-      VerticalSizes: 0a0000000a0000000a0000000a0000000a0000000a0000000a0000000a0000000a0000000a000000
+      HorizontalSize: 12
+      VerticalSizes: 0b0000000b0000000b0000000b0000000b0000000b0000000b0000000b0000000b0000000b0000000b0000000b000000
       Array:
       - Index0: 0
         Index1: 0
-        Element: 0
+        Element: 2
       - Index0: 0
         Index1: 1
-        Element: 0
+        Element: 2
       - Index0: 0
         Index1: 2
-        Element: 0
+        Element: 2
       - Index0: 0
         Index1: 3
-        Element: 0
+        Element: 2
       - Index0: 0
         Index1: 4
-        Element: 0
+        Element: 2
       - Index0: 0
         Index1: 5
-        Element: 0
+        Element: 2
       - Index0: 0
         Index1: 6
-        Element: 0
+        Element: 2
       - Index0: 0
         Index1: 7
-        Element: 0
+        Element: 2
       - Index0: 0
         Index1: 8
-        Element: 0
+        Element: 2
       - Index0: 0
         Index1: 9
+        Element: 1
+      - Index0: 0
+        Index1: 10
         Element: 0
       - Index0: 1
         Index1: 0
-        Element: 0
+        Element: 2
       - Index0: 1
         Index1: 1
-        Element: 0
+        Element: 2
       - Index0: 1
         Index1: 2
-        Element: 0
+        Element: 2
       - Index0: 1
         Index1: 3
-        Element: 0
+        Element: 2
       - Index0: 1
         Index1: 4
-        Element: 0
+        Element: 2
       - Index0: 1
         Index1: 5
-        Element: 0
+        Element: 2
       - Index0: 1
         Index1: 6
-        Element: 0
+        Element: 2
       - Index0: 1
         Index1: 7
-        Element: 0
+        Element: 2
       - Index0: 1
         Index1: 8
-        Element: 0
+        Element: 2
       - Index0: 1
         Index1: 9
+        Element: 1
+      - Index0: 1
+        Index1: 10
         Element: 0
       - Index0: 2
         Index1: 0
-        Element: 0
+        Element: 2
       - Index0: 2
         Index1: 1
-        Element: 0
+        Element: 2
       - Index0: 2
         Index1: 2
-        Element: 0
+        Element: 2
       - Index0: 2
         Index1: 3
-        Element: 0
+        Element: 2
       - Index0: 2
         Index1: 4
-        Element: 0
+        Element: 2
       - Index0: 2
         Index1: 5
-        Element: 0
+        Element: 2
       - Index0: 2
         Index1: 6
-        Element: 0
+        Element: 2
       - Index0: 2
         Index1: 7
-        Element: 0
+        Element: 2
       - Index0: 2
         Index1: 8
-        Element: 0
+        Element: 2
       - Index0: 2
         Index1: 9
+        Element: 1
+      - Index0: 2
+        Index1: 10
         Element: 0
       - Index0: 3
         Index1: 0
-        Element: 0
+        Element: 2
       - Index0: 3
         Index1: 1
-        Element: 0
+        Element: 2
       - Index0: 3
         Index1: 2
-        Element: 0
+        Element: 2
       - Index0: 3
         Index1: 3
-        Element: 0
+        Element: 2
       - Index0: 3
         Index1: 4
-        Element: 0
+        Element: 2
       - Index0: 3
         Index1: 5
-        Element: 0
+        Element: 2
       - Index0: 3
         Index1: 6
-        Element: 0
+        Element: 2
       - Index0: 3
         Index1: 7
-        Element: 0
+        Element: 2
       - Index0: 3
         Index1: 8
-        Element: 0
+        Element: 2
       - Index0: 3
         Index1: 9
+        Element: 1
+      - Index0: 3
+        Index1: 10
         Element: 0
       - Index0: 4
         Index1: 0
-        Element: 0
+        Element: 2
       - Index0: 4
         Index1: 1
-        Element: 0
+        Element: 2
       - Index0: 4
         Index1: 2
-        Element: 0
+        Element: 2
       - Index0: 4
         Index1: 3
-        Element: 0
+        Element: 2
       - Index0: 4
         Index1: 4
-        Element: 0
+        Element: 2
       - Index0: 4
         Index1: 5
-        Element: 0
+        Element: 2
       - Index0: 4
         Index1: 6
-        Element: 0
+        Element: 2
       - Index0: 4
         Index1: 7
-        Element: 0
+        Element: 2
       - Index0: 4
         Index1: 8
-        Element: 0
+        Element: 2
       - Index0: 4
         Index1: 9
+        Element: 1
+      - Index0: 4
+        Index1: 10
         Element: 0
       - Index0: 5
         Index1: 0
-        Element: 0
+        Element: 2
       - Index0: 5
         Index1: 1
-        Element: 0
+        Element: 2
       - Index0: 5
         Index1: 2
-        Element: 0
+        Element: 2
       - Index0: 5
         Index1: 3
-        Element: 0
+        Element: 2
       - Index0: 5
         Index1: 4
-        Element: 0
+        Element: 2
       - Index0: 5
         Index1: 5
-        Element: 0
+        Element: 2
       - Index0: 5
         Index1: 6
-        Element: 0
+        Element: 2
       - Index0: 5
         Index1: 7
-        Element: 0
+        Element: 2
       - Index0: 5
         Index1: 8
-        Element: 0
+        Element: 2
       - Index0: 5
         Index1: 9
+        Element: 1
+      - Index0: 5
+        Index1: 10
         Element: 0
       - Index0: 6
         Index1: 0
-        Element: 0
+        Element: 2
       - Index0: 6
         Index1: 1
-        Element: 0
+        Element: 2
       - Index0: 6
         Index1: 2
-        Element: 0
+        Element: 2
       - Index0: 6
         Index1: 3
-        Element: 0
+        Element: 2
       - Index0: 6
         Index1: 4
-        Element: 0
+        Element: 2
       - Index0: 6
         Index1: 5
-        Element: 0
+        Element: 2
       - Index0: 6
         Index1: 6
-        Element: 0
+        Element: 2
       - Index0: 6
         Index1: 7
-        Element: 0
+        Element: 2
       - Index0: 6
         Index1: 8
-        Element: 0
+        Element: 2
       - Index0: 6
         Index1: 9
+        Element: 1
+      - Index0: 6
+        Index1: 10
         Element: 0
       - Index0: 7
         Index1: 0
-        Element: 0
+        Element: 2
       - Index0: 7
         Index1: 1
-        Element: 0
+        Element: 2
       - Index0: 7
         Index1: 2
-        Element: 0
+        Element: 2
       - Index0: 7
         Index1: 3
-        Element: 0
+        Element: 2
       - Index0: 7
         Index1: 4
-        Element: 0
+        Element: 2
       - Index0: 7
         Index1: 5
-        Element: 0
+        Element: 2
       - Index0: 7
         Index1: 6
-        Element: 0
+        Element: 2
       - Index0: 7
         Index1: 7
-        Element: 0
+        Element: 2
       - Index0: 7
         Index1: 8
-        Element: 0
+        Element: 2
       - Index0: 7
         Index1: 9
+        Element: 1
+      - Index0: 7
+        Index1: 10
         Element: 0
       - Index0: 8
         Index1: 0
-        Element: 0
+        Element: 2
       - Index0: 8
         Index1: 1
-        Element: 0
+        Element: 2
       - Index0: 8
         Index1: 2
-        Element: 0
+        Element: 2
       - Index0: 8
         Index1: 3
-        Element: 0
+        Element: 2
       - Index0: 8
         Index1: 4
-        Element: 0
+        Element: 2
       - Index0: 8
         Index1: 5
-        Element: 0
+        Element: 2
       - Index0: 8
         Index1: 6
-        Element: 0
+        Element: 2
       - Index0: 8
         Index1: 7
-        Element: 0
+        Element: 2
       - Index0: 8
         Index1: 8
-        Element: 0
+        Element: 2
       - Index0: 8
         Index1: 9
+        Element: 1
+      - Index0: 8
+        Index1: 10
         Element: 0
       - Index0: 9
         Index1: 0
-        Element: 0
+        Element: 2
       - Index0: 9
         Index1: 1
-        Element: 0
+        Element: 2
       - Index0: 9
         Index1: 2
-        Element: 0
+        Element: 2
       - Index0: 9
         Index1: 3
-        Element: 0
+        Element: 2
       - Index0: 9
         Index1: 4
-        Element: 0
+        Element: 2
       - Index0: 9
         Index1: 5
-        Element: 0
+        Element: 2
       - Index0: 9
         Index1: 6
-        Element: 0
+        Element: 2
       - Index0: 9
         Index1: 7
-        Element: 0
+        Element: 2
       - Index0: 9
         Index1: 8
-        Element: 0
+        Element: 2
       - Index0: 9
         Index1: 9
+        Element: 1
+      - Index0: 9
+        Index1: 10
+        Element: 0
+      - Index0: 10
+        Index1: 0
+        Element: 1
+      - Index0: 10
+        Index1: 1
+        Element: 1
+      - Index0: 10
+        Index1: 2
+        Element: 1
+      - Index0: 10
+        Index1: 3
+        Element: 1
+      - Index0: 10
+        Index1: 4
+        Element: 1
+      - Index0: 10
+        Index1: 5
+        Element: 1
+      - Index0: 10
+        Index1: 6
+        Element: 1
+      - Index0: 10
+        Index1: 7
+        Element: 1
+      - Index0: 10
+        Index1: 8
+        Element: 1
+      - Index0: 10
+        Index1: 9
+        Element: 1
+      - Index0: 10
+        Index1: 10
+        Element: 0
+      - Index0: 11
+        Index1: 0
+        Element: 0
+      - Index0: 11
+        Index1: 1
+        Element: 0
+      - Index0: 11
+        Index1: 2
+        Element: 0
+      - Index0: 11
+        Index1: 3
+        Element: 0
+      - Index0: 11
+        Index1: 4
+        Element: 0
+      - Index0: 11
+        Index1: 5
+        Element: 0
+      - Index0: 11
+        Index1: 6
+        Element: 0
+      - Index0: 11
+        Index1: 7
+        Element: 0
+      - Index0: 11
+        Index1: 8
+        Element: 0
+      - Index0: 11
+        Index1: 9
+        Element: 0
+      - Index0: 11
+        Index1: 10
         Element: 0
     roomLines:
     - <CurLineType>k__BackingField: 0
-      lineStart: {x: 0, y: 0}
-      lineEnd: {x: 1, y: 0}
+      lineStart: {x: -1.4341371, y: 1.4662145}
+      lineEnd: {x: -1.3108447, y: 1.883744}
       bezierStartHandle: {x: 0.1, y: 0.1}
       bezierEndHandle: {x: -0.1, y: -0.1}
       floorNum: 1
     - <CurLineType>k__BackingField: 0
-      lineStart: {x: 1, y: 0}
-      lineEnd: {x: 0.5, y: -1}
+      lineStart: {x: -1.3108447, y: 1.883744}
+      lineEnd: {x: -0.7584491, y: 1.8262293}
+      bezierStartHandle: {x: -0.22354788, y: 0.9639329}
+      bezierEndHandle: {x: -0.42354786, y: 0.7639328}
+      floorNum: 1
+    - <CurLineType>k__BackingField: 2
+      lineStart: {x: -0.7584491, y: 1.8262293}
+      lineEnd: {x: 0.0062844036, y: 1.6013683}
+      bezierStartHandle: {x: -0.500366, y: 1.6686127}
+      bezierEndHandle: {x: -0.700366, y: 1.4686127}
+      floorNum: 1
+    - <CurLineType>k__BackingField: 0
+      lineStart: {x: 0.0062844036, y: 1.6013683}
+      lineEnd: {x: 0.58087176, y: 1.6323926}
+      bezierStartHandle: {x: 0.1062844, y: 1.7013683}
+      bezierEndHandle: {x: -0.0937156, y: 1.5013683}
+      floorNum: 1
+    - <CurLineType>k__BackingField: 0
+      lineStart: {x: 0.58087176, y: 1.6323926}
+      lineEnd: {x: 1.0737548, y: 1.2721276}
       bezierStartHandle: {x: 1.1, y: 0.1}
       bezierEndHandle: {x: 0.9, y: -0.1}
       floorNum: 1
+    - <CurLineType>k__BackingField: 1
+      lineStart: {x: 1.0737548, y: 1.2721276}
+      lineEnd: {x: 0.28199917, y: 0.9365238}
+      bezierStartHandle: {x: 1.4660416, y: 0.9499361}
+      bezierEndHandle: {x: 0.5632885, y: 1.2843745}
+      floorNum: 1
+    - <CurLineType>k__BackingField: 1
+      lineStart: {x: 0.28199917, y: 0.9365238}
+      lineEnd: {x: -0.8139179, y: 1.0285027}
+      bezierStartHandle: {x: 0.871047, y: 0.8093557}
+      bezierEndHandle: {x: -0.7064987, y: 0.6566032}
+      floorNum: 1
     - <CurLineType>k__BackingField: 0
-      lineStart: {x: 0.5, y: -1}
-      lineEnd: {x: 0, y: 0}
+      lineStart: {x: -0.8139179, y: 1.0285027}
+      lineEnd: {x: -1.0043846, y: 0.79441375}
+      bezierStartHandle: {x: 0.301437, y: 0.9554933}
+      bezierEndHandle: {x: 0.10143698, y: 0.7554932}
+      floorNum: 1
+    - <CurLineType>k__BackingField: 2
+      lineStart: {x: -1.0043846, y: 0.79441375}
+      lineEnd: {x: -1.3413002, y: 0.7951529}
       bezierStartHandle: {x: 0.6, y: -0.9}
       bezierEndHandle: {x: 0.4, y: -1.1}
       floorNum: 1
+    - <CurLineType>k__BackingField: 0
+      lineStart: {x: -1.3413002, y: 0.7951529}
+      lineEnd: {x: -1.330365, y: 1.0136561}
+      bezierStartHandle: {x: -0.32774663, y: 1.1268767}
+      bezierEndHandle: {x: -0.5277466, y: 0.92687666}
+      floorNum: 1
+    - <CurLineType>k__BackingField: 1
+      lineStart: {x: -1.330365, y: 1.0136561}
+      lineEnd: {x: -1.4341371, y: 1.4662145}
+      bezierStartHandle: {x: -1.9312778, y: 0.7435042}
+      bezierEndHandle: {x: -2.1007829, y: 1.5395491}
+      floorNum: 1
     points: []
+    doorways:
+    - leftEdge: {x: -0.7584491, y: 1.8262293, z: 0}
+      rightEdge: {x: 0.0062844036, y: 1.6013683, z: 0}
+      doorType: 0
+      width: 0.7647335
+      height: -0.22486103
+      direction: {x: 0, y: 1, z: 0, w: -0.00000004371139}
+    - leftEdge: {x: -1.0043846, y: 0.79441375, z: 0}
+      rightEdge: {x: -1.3413002, y: 0.7951529, z: 0}
+      doorType: 0
+      width: 0.3369156
+      height: 0.0007391572
+      direction: {x: 0, y: 1, z: 0, w: -0.00000004371139}
   - floorNum: 2
-    gridWidth: 10
-    gridHeight: 10
-    gridOffset: {x: 0, y: 0}
+    gridWidth: 20
+    gridHeight: 30
     serializable:
-      HorizontalSize: 10
-      VerticalSizes: 0a0000000a0000000a0000000a0000000a0000000a0000000a0000000a0000000a0000000a000000
+      HorizontalSize: 20
+      VerticalSizes: 1e0000001e0000001e0000001e0000001e0000001e0000001e0000001e0000001e0000001e0000001e0000001e0000001e0000001e0000001e0000001e0000001e0000001e0000001e0000001e000000
       Array:
       - Index0: 0
         Index1: 0
-        Element: 0
+        Element: 1
       - Index0: 0
         Index1: 1
-        Element: 0
+        Element: 1
       - Index0: 0
         Index1: 2
-        Element: 0
+        Element: 1
       - Index0: 0
         Index1: 3
-        Element: 0
+        Element: 1
       - Index0: 0
-        Index1: 4
-        Element: 0
-      - Index0: 0
-        Index1: 5
-        Element: 0
-      - Index0: 0
-        Index1: 6
-        Element: 0
-      - Index0: 0
-        Index1: 7
-        Element: 0
-      - Index0: 0
-        Index1: 8
-        Element: 0
-      - Index0: 0
-        Index1: 9
-        Element: 0
-      - Index0: 1
-        Index1: 0
-        Element: 0
-      - Index0: 1
-        Index1: 1
-        Element: 0
-      - Index0: 1
-        Index1: 2
-        Element: 0
-      - Index0: 1
-        Index1: 3
-        Element: 0
-      - Index0: 1
         Index1: 4
         Element: 1
-      - Index0: 1
+      - Index0: 0
         Index1: 5
         Element: 1
+      - Index0: 0
+        Index1: 6
+        Element: 1
+      - Index0: 0
+        Index1: 7
+        Element: 1
+      - Index0: 0
+        Index1: 8
+        Element: 1
+      - Index0: 0
+        Index1: 9
+        Element: 1
+      - Index0: 0
+        Index1: 10
+        Element: 1
+      - Index0: 0
+        Index1: 11
+        Element: 1
+      - Index0: 0
+        Index1: 12
+        Element: 1
+      - Index0: 0
+        Index1: 13
+        Element: 1
+      - Index0: 0
+        Index1: 14
+        Element: 1
+      - Index0: 0
+        Index1: 15
+        Element: 1
+      - Index0: 0
+        Index1: 16
+        Element: 1
+      - Index0: 0
+        Index1: 17
+        Element: 1
+      - Index0: 0
+        Index1: 18
+        Element: 1
+      - Index0: 0
+        Index1: 19
+        Element: 1
+      - Index0: 0
+        Index1: 20
+        Element: 1
+      - Index0: 0
+        Index1: 21
+        Element: 1
+      - Index0: 0
+        Index1: 22
+        Element: 1
+      - Index0: 0
+        Index1: 23
+        Element: 1
+      - Index0: 0
+        Index1: 24
+        Element: 1
+      - Index0: 0
+        Index1: 25
+        Element: 1
+      - Index0: 0
+        Index1: 26
+        Element: 1
+      - Index0: 0
+        Index1: 27
+        Element: 1
+      - Index0: 0
+        Index1: 28
+        Element: 1
+      - Index0: 0
+        Index1: 29
+        Element: 1
+      - Index0: 1
+        Index1: 0
+        Element: 1
+      - Index0: 1
+        Index1: 1
+        Element: 2
+      - Index0: 1
+        Index1: 2
+        Element: 2
+      - Index0: 1
+        Index1: 3
+        Element: 2
+      - Index0: 1
+        Index1: 4
+        Element: 2
+      - Index0: 1
+        Index1: 5
+        Element: 2
       - Index0: 1
         Index1: 6
-        Element: 0
+        Element: 2
       - Index0: 1
         Index1: 7
-        Element: 0
+        Element: 2
       - Index0: 1
         Index1: 8
-        Element: 0
+        Element: 2
       - Index0: 1
         Index1: 9
-        Element: 0
+        Element: 2
+      - Index0: 1
+        Index1: 10
+        Element: 2
+      - Index0: 1
+        Index1: 11
+        Element: 2
+      - Index0: 1
+        Index1: 12
+        Element: 2
+      - Index0: 1
+        Index1: 13
+        Element: 2
+      - Index0: 1
+        Index1: 14
+        Element: 2
+      - Index0: 1
+        Index1: 15
+        Element: 2
+      - Index0: 1
+        Index1: 16
+        Element: 2
+      - Index0: 1
+        Index1: 17
+        Element: 2
+      - Index0: 1
+        Index1: 18
+        Element: 2
+      - Index0: 1
+        Index1: 19
+        Element: 2
+      - Index0: 1
+        Index1: 20
+        Element: 2
+      - Index0: 1
+        Index1: 21
+        Element: 2
+      - Index0: 1
+        Index1: 22
+        Element: 2
+      - Index0: 1
+        Index1: 23
+        Element: 2
+      - Index0: 1
+        Index1: 24
+        Element: 2
+      - Index0: 1
+        Index1: 25
+        Element: 2
+      - Index0: 1
+        Index1: 26
+        Element: 2
+      - Index0: 1
+        Index1: 27
+        Element: 2
+      - Index0: 1
+        Index1: 28
+        Element: 2
+      - Index0: 1
+        Index1: 29
+        Element: 1
       - Index0: 2
         Index1: 0
-        Element: 0
+        Element: 1
       - Index0: 2
         Index1: 1
-        Element: 0
+        Element: 2
       - Index0: 2
         Index1: 2
-        Element: 0
+        Element: 2
       - Index0: 2
         Index1: 3
         Element: 2
@@ -858,28 +1139,88 @@ MonoBehaviour:
         Element: 2
       - Index0: 2
         Index1: 6
-        Element: 0
+        Element: 2
       - Index0: 2
         Index1: 7
-        Element: 0
+        Element: 2
       - Index0: 2
         Index1: 8
-        Element: 0
+        Element: 2
       - Index0: 2
         Index1: 9
-        Element: 0
+        Element: 2
+      - Index0: 2
+        Index1: 10
+        Element: 2
+      - Index0: 2
+        Index1: 11
+        Element: 2
+      - Index0: 2
+        Index1: 12
+        Element: 2
+      - Index0: 2
+        Index1: 13
+        Element: 2
+      - Index0: 2
+        Index1: 14
+        Element: 2
+      - Index0: 2
+        Index1: 15
+        Element: 2
+      - Index0: 2
+        Index1: 16
+        Element: 2
+      - Index0: 2
+        Index1: 17
+        Element: 2
+      - Index0: 2
+        Index1: 18
+        Element: 2
+      - Index0: 2
+        Index1: 19
+        Element: 2
+      - Index0: 2
+        Index1: 20
+        Element: 2
+      - Index0: 2
+        Index1: 21
+        Element: 2
+      - Index0: 2
+        Index1: 22
+        Element: 2
+      - Index0: 2
+        Index1: 23
+        Element: 2
+      - Index0: 2
+        Index1: 24
+        Element: 2
+      - Index0: 2
+        Index1: 25
+        Element: 2
+      - Index0: 2
+        Index1: 26
+        Element: 2
+      - Index0: 2
+        Index1: 27
+        Element: 2
+      - Index0: 2
+        Index1: 28
+        Element: 2
+      - Index0: 2
+        Index1: 29
+        Element: 1
       - Index0: 3
         Index1: 0
-        Element: 0
+        Element: 1
       - Index0: 3
         Index1: 1
-        Element: 0
+        Element: 2
       - Index0: 3
         Index1: 2
-        Element: 0
+        Element: 2
       - Index0: 3
         Index1: 3
-        Element: 0
+        Element: 2
       - Index0: 3
         Index1: 4
         Element: 2
@@ -888,220 +1229,1558 @@ MonoBehaviour:
         Element: 2
       - Index0: 3
         Index1: 6
-        Element: 0
+        Element: 2
       - Index0: 3
         Index1: 7
-        Element: 0
+        Element: 2
       - Index0: 3
         Index1: 8
-        Element: 0
+        Element: 2
       - Index0: 3
         Index1: 9
-        Element: 0
+        Element: 2
+      - Index0: 3
+        Index1: 10
+        Element: 2
+      - Index0: 3
+        Index1: 11
+        Element: 2
+      - Index0: 3
+        Index1: 12
+        Element: 2
+      - Index0: 3
+        Index1: 13
+        Element: 2
+      - Index0: 3
+        Index1: 14
+        Element: 2
+      - Index0: 3
+        Index1: 15
+        Element: 2
+      - Index0: 3
+        Index1: 16
+        Element: 2
+      - Index0: 3
+        Index1: 17
+        Element: 2
+      - Index0: 3
+        Index1: 18
+        Element: 2
+      - Index0: 3
+        Index1: 19
+        Element: 2
+      - Index0: 3
+        Index1: 20
+        Element: 2
+      - Index0: 3
+        Index1: 21
+        Element: 2
+      - Index0: 3
+        Index1: 22
+        Element: 2
+      - Index0: 3
+        Index1: 23
+        Element: 2
+      - Index0: 3
+        Index1: 24
+        Element: 2
+      - Index0: 3
+        Index1: 25
+        Element: 2
+      - Index0: 3
+        Index1: 26
+        Element: 2
+      - Index0: 3
+        Index1: 27
+        Element: 2
+      - Index0: 3
+        Index1: 28
+        Element: 2
+      - Index0: 3
+        Index1: 29
+        Element: 1
       - Index0: 4
         Index1: 0
-        Element: 0
+        Element: 1
       - Index0: 4
         Index1: 1
-        Element: 0
+        Element: 2
       - Index0: 4
         Index1: 2
-        Element: 0
+        Element: 2
       - Index0: 4
         Index1: 3
-        Element: 0
+        Element: 2
       - Index0: 4
         Index1: 4
-        Element: 0
+        Element: 2
       - Index0: 4
         Index1: 5
-        Element: 0
+        Element: 2
       - Index0: 4
         Index1: 6
-        Element: 0
+        Element: 2
       - Index0: 4
         Index1: 7
-        Element: 0
+        Element: 2
       - Index0: 4
         Index1: 8
-        Element: 0
+        Element: 2
       - Index0: 4
         Index1: 9
-        Element: 0
+        Element: 2
+      - Index0: 4
+        Index1: 10
+        Element: 2
+      - Index0: 4
+        Index1: 11
+        Element: 2
+      - Index0: 4
+        Index1: 12
+        Element: 2
+      - Index0: 4
+        Index1: 13
+        Element: 2
+      - Index0: 4
+        Index1: 14
+        Element: 2
+      - Index0: 4
+        Index1: 15
+        Element: 2
+      - Index0: 4
+        Index1: 16
+        Element: 2
+      - Index0: 4
+        Index1: 17
+        Element: 2
+      - Index0: 4
+        Index1: 18
+        Element: 2
+      - Index0: 4
+        Index1: 19
+        Element: 2
+      - Index0: 4
+        Index1: 20
+        Element: 2
+      - Index0: 4
+        Index1: 21
+        Element: 2
+      - Index0: 4
+        Index1: 22
+        Element: 2
+      - Index0: 4
+        Index1: 23
+        Element: 2
+      - Index0: 4
+        Index1: 24
+        Element: 2
+      - Index0: 4
+        Index1: 25
+        Element: 2
+      - Index0: 4
+        Index1: 26
+        Element: 2
+      - Index0: 4
+        Index1: 27
+        Element: 2
+      - Index0: 4
+        Index1: 28
+        Element: 2
+      - Index0: 4
+        Index1: 29
+        Element: 1
       - Index0: 5
         Index1: 0
-        Element: 0
+        Element: 1
       - Index0: 5
         Index1: 1
-        Element: 0
+        Element: 2
       - Index0: 5
         Index1: 2
-        Element: 0
+        Element: 2
       - Index0: 5
         Index1: 3
-        Element: 0
+        Element: 2
       - Index0: 5
         Index1: 4
-        Element: 0
+        Element: 2
       - Index0: 5
         Index1: 5
-        Element: 0
+        Element: 2
       - Index0: 5
         Index1: 6
-        Element: 0
+        Element: 2
       - Index0: 5
         Index1: 7
-        Element: 0
+        Element: 2
       - Index0: 5
         Index1: 8
-        Element: 0
+        Element: 2
       - Index0: 5
         Index1: 9
-        Element: 0
+        Element: 2
+      - Index0: 5
+        Index1: 10
+        Element: 2
+      - Index0: 5
+        Index1: 11
+        Element: 2
+      - Index0: 5
+        Index1: 12
+        Element: 2
+      - Index0: 5
+        Index1: 13
+        Element: 2
+      - Index0: 5
+        Index1: 14
+        Element: 2
+      - Index0: 5
+        Index1: 15
+        Element: 2
+      - Index0: 5
+        Index1: 16
+        Element: 2
+      - Index0: 5
+        Index1: 17
+        Element: 2
+      - Index0: 5
+        Index1: 18
+        Element: 2
+      - Index0: 5
+        Index1: 19
+        Element: 2
+      - Index0: 5
+        Index1: 20
+        Element: 2
+      - Index0: 5
+        Index1: 21
+        Element: 2
+      - Index0: 5
+        Index1: 22
+        Element: 2
+      - Index0: 5
+        Index1: 23
+        Element: 2
+      - Index0: 5
+        Index1: 24
+        Element: 2
+      - Index0: 5
+        Index1: 25
+        Element: 2
+      - Index0: 5
+        Index1: 26
+        Element: 2
+      - Index0: 5
+        Index1: 27
+        Element: 2
+      - Index0: 5
+        Index1: 28
+        Element: 1
+      - Index0: 5
+        Index1: 29
+        Element: 1
       - Index0: 6
         Index1: 0
-        Element: 0
+        Element: 1
       - Index0: 6
         Index1: 1
-        Element: 0
+        Element: 2
       - Index0: 6
         Index1: 2
-        Element: 0
+        Element: 2
       - Index0: 6
         Index1: 3
-        Element: 0
+        Element: 2
       - Index0: 6
         Index1: 4
-        Element: 0
+        Element: 2
       - Index0: 6
         Index1: 5
-        Element: 0
+        Element: 2
       - Index0: 6
         Index1: 6
-        Element: 0
+        Element: 2
       - Index0: 6
         Index1: 7
-        Element: 0
+        Element: 2
       - Index0: 6
         Index1: 8
-        Element: 0
+        Element: 2
       - Index0: 6
         Index1: 9
+        Element: 2
+      - Index0: 6
+        Index1: 10
+        Element: 2
+      - Index0: 6
+        Index1: 11
+        Element: 2
+      - Index0: 6
+        Index1: 12
+        Element: 2
+      - Index0: 6
+        Index1: 13
+        Element: 2
+      - Index0: 6
+        Index1: 14
+        Element: 2
+      - Index0: 6
+        Index1: 15
+        Element: 2
+      - Index0: 6
+        Index1: 16
+        Element: 2
+      - Index0: 6
+        Index1: 17
+        Element: 2
+      - Index0: 6
+        Index1: 18
+        Element: 2
+      - Index0: 6
+        Index1: 19
+        Element: 2
+      - Index0: 6
+        Index1: 20
+        Element: 2
+      - Index0: 6
+        Index1: 21
+        Element: 2
+      - Index0: 6
+        Index1: 22
+        Element: 2
+      - Index0: 6
+        Index1: 23
+        Element: 2
+      - Index0: 6
+        Index1: 24
+        Element: 2
+      - Index0: 6
+        Index1: 25
+        Element: 2
+      - Index0: 6
+        Index1: 26
+        Element: 2
+      - Index0: 6
+        Index1: 27
+        Element: 2
+      - Index0: 6
+        Index1: 28
+        Element: 1
+      - Index0: 6
+        Index1: 29
         Element: 0
       - Index0: 7
         Index1: 0
-        Element: 0
+        Element: 1
       - Index0: 7
         Index1: 1
-        Element: 0
+        Element: 2
       - Index0: 7
         Index1: 2
-        Element: 0
+        Element: 2
       - Index0: 7
         Index1: 3
-        Element: 0
+        Element: 2
       - Index0: 7
         Index1: 4
-        Element: 0
+        Element: 2
       - Index0: 7
         Index1: 5
-        Element: 0
+        Element: 2
       - Index0: 7
         Index1: 6
-        Element: 0
+        Element: 2
       - Index0: 7
         Index1: 7
-        Element: 0
+        Element: 2
       - Index0: 7
         Index1: 8
-        Element: 0
+        Element: 2
       - Index0: 7
         Index1: 9
+        Element: 2
+      - Index0: 7
+        Index1: 10
+        Element: 2
+      - Index0: 7
+        Index1: 11
+        Element: 2
+      - Index0: 7
+        Index1: 12
+        Element: 2
+      - Index0: 7
+        Index1: 13
+        Element: 2
+      - Index0: 7
+        Index1: 14
+        Element: 2
+      - Index0: 7
+        Index1: 15
+        Element: 2
+      - Index0: 7
+        Index1: 16
+        Element: 2
+      - Index0: 7
+        Index1: 17
+        Element: 2
+      - Index0: 7
+        Index1: 18
+        Element: 2
+      - Index0: 7
+        Index1: 19
+        Element: 2
+      - Index0: 7
+        Index1: 20
+        Element: 2
+      - Index0: 7
+        Index1: 21
+        Element: 2
+      - Index0: 7
+        Index1: 22
+        Element: 2
+      - Index0: 7
+        Index1: 23
+        Element: 2
+      - Index0: 7
+        Index1: 24
+        Element: 2
+      - Index0: 7
+        Index1: 25
+        Element: 2
+      - Index0: 7
+        Index1: 26
+        Element: 2
+      - Index0: 7
+        Index1: 27
+        Element: 2
+      - Index0: 7
+        Index1: 28
+        Element: 1
+      - Index0: 7
+        Index1: 29
         Element: 0
       - Index0: 8
         Index1: 0
-        Element: 0
+        Element: 1
       - Index0: 8
         Index1: 1
-        Element: 0
+        Element: 2
       - Index0: 8
         Index1: 2
-        Element: 0
+        Element: 2
       - Index0: 8
         Index1: 3
-        Element: 0
+        Element: 2
       - Index0: 8
         Index1: 4
-        Element: 0
+        Element: 2
       - Index0: 8
         Index1: 5
-        Element: 0
+        Element: 2
       - Index0: 8
         Index1: 6
-        Element: 0
+        Element: 2
       - Index0: 8
         Index1: 7
-        Element: 0
+        Element: 2
       - Index0: 8
         Index1: 8
-        Element: 0
+        Element: 2
       - Index0: 8
         Index1: 9
+        Element: 2
+      - Index0: 8
+        Index1: 10
+        Element: 2
+      - Index0: 8
+        Index1: 11
+        Element: 2
+      - Index0: 8
+        Index1: 12
+        Element: 2
+      - Index0: 8
+        Index1: 13
+        Element: 2
+      - Index0: 8
+        Index1: 14
+        Element: 2
+      - Index0: 8
+        Index1: 15
+        Element: 2
+      - Index0: 8
+        Index1: 16
+        Element: 2
+      - Index0: 8
+        Index1: 17
+        Element: 2
+      - Index0: 8
+        Index1: 18
+        Element: 2
+      - Index0: 8
+        Index1: 19
+        Element: 2
+      - Index0: 8
+        Index1: 20
+        Element: 2
+      - Index0: 8
+        Index1: 21
+        Element: 2
+      - Index0: 8
+        Index1: 22
+        Element: 2
+      - Index0: 8
+        Index1: 23
+        Element: 2
+      - Index0: 8
+        Index1: 24
+        Element: 2
+      - Index0: 8
+        Index1: 25
+        Element: 2
+      - Index0: 8
+        Index1: 26
+        Element: 2
+      - Index0: 8
+        Index1: 27
+        Element: 2
+      - Index0: 8
+        Index1: 28
+        Element: 1
+      - Index0: 8
+        Index1: 29
         Element: 0
       - Index0: 9
         Index1: 0
-        Element: 0
+        Element: 1
       - Index0: 9
         Index1: 1
-        Element: 0
+        Element: 2
       - Index0: 9
         Index1: 2
-        Element: 0
+        Element: 2
       - Index0: 9
         Index1: 3
-        Element: 0
+        Element: 2
       - Index0: 9
         Index1: 4
-        Element: 0
+        Element: 2
       - Index0: 9
         Index1: 5
-        Element: 0
+        Element: 2
       - Index0: 9
         Index1: 6
-        Element: 0
+        Element: 2
       - Index0: 9
         Index1: 7
-        Element: 0
+        Element: 2
       - Index0: 9
         Index1: 8
-        Element: 0
+        Element: 2
       - Index0: 9
         Index1: 9
+        Element: 2
+      - Index0: 9
+        Index1: 10
+        Element: 2
+      - Index0: 9
+        Index1: 11
+        Element: 2
+      - Index0: 9
+        Index1: 12
+        Element: 2
+      - Index0: 9
+        Index1: 13
+        Element: 2
+      - Index0: 9
+        Index1: 14
+        Element: 2
+      - Index0: 9
+        Index1: 15
+        Element: 2
+      - Index0: 9
+        Index1: 16
+        Element: 2
+      - Index0: 9
+        Index1: 17
+        Element: 2
+      - Index0: 9
+        Index1: 18
+        Element: 2
+      - Index0: 9
+        Index1: 19
+        Element: 2
+      - Index0: 9
+        Index1: 20
+        Element: 2
+      - Index0: 9
+        Index1: 21
+        Element: 2
+      - Index0: 9
+        Index1: 22
+        Element: 2
+      - Index0: 9
+        Index1: 23
+        Element: 2
+      - Index0: 9
+        Index1: 24
+        Element: 2
+      - Index0: 9
+        Index1: 25
+        Element: 2
+      - Index0: 9
+        Index1: 26
+        Element: 2
+      - Index0: 9
+        Index1: 27
+        Element: 2
+      - Index0: 9
+        Index1: 28
+        Element: 1
+      - Index0: 9
+        Index1: 29
+        Element: 0
+      - Index0: 10
+        Index1: 0
+        Element: 1
+      - Index0: 10
+        Index1: 1
+        Element: 2
+      - Index0: 10
+        Index1: 2
+        Element: 2
+      - Index0: 10
+        Index1: 3
+        Element: 2
+      - Index0: 10
+        Index1: 4
+        Element: 2
+      - Index0: 10
+        Index1: 5
+        Element: 2
+      - Index0: 10
+        Index1: 6
+        Element: 2
+      - Index0: 10
+        Index1: 7
+        Element: 2
+      - Index0: 10
+        Index1: 8
+        Element: 2
+      - Index0: 10
+        Index1: 9
+        Element: 2
+      - Index0: 10
+        Index1: 10
+        Element: 2
+      - Index0: 10
+        Index1: 11
+        Element: 2
+      - Index0: 10
+        Index1: 12
+        Element: 2
+      - Index0: 10
+        Index1: 13
+        Element: 2
+      - Index0: 10
+        Index1: 14
+        Element: 2
+      - Index0: 10
+        Index1: 15
+        Element: 2
+      - Index0: 10
+        Index1: 16
+        Element: 2
+      - Index0: 10
+        Index1: 17
+        Element: 2
+      - Index0: 10
+        Index1: 18
+        Element: 2
+      - Index0: 10
+        Index1: 19
+        Element: 2
+      - Index0: 10
+        Index1: 20
+        Element: 2
+      - Index0: 10
+        Index1: 21
+        Element: 2
+      - Index0: 10
+        Index1: 22
+        Element: 2
+      - Index0: 10
+        Index1: 23
+        Element: 2
+      - Index0: 10
+        Index1: 24
+        Element: 2
+      - Index0: 10
+        Index1: 25
+        Element: 2
+      - Index0: 10
+        Index1: 26
+        Element: 2
+      - Index0: 10
+        Index1: 27
+        Element: 2
+      - Index0: 10
+        Index1: 28
+        Element: 1
+      - Index0: 10
+        Index1: 29
+        Element: 0
+      - Index0: 11
+        Index1: 0
+        Element: 1
+      - Index0: 11
+        Index1: 1
+        Element: 2
+      - Index0: 11
+        Index1: 2
+        Element: 2
+      - Index0: 11
+        Index1: 3
+        Element: 2
+      - Index0: 11
+        Index1: 4
+        Element: 2
+      - Index0: 11
+        Index1: 5
+        Element: 2
+      - Index0: 11
+        Index1: 6
+        Element: 2
+      - Index0: 11
+        Index1: 7
+        Element: 2
+      - Index0: 11
+        Index1: 8
+        Element: 2
+      - Index0: 11
+        Index1: 9
+        Element: 2
+      - Index0: 11
+        Index1: 10
+        Element: 2
+      - Index0: 11
+        Index1: 11
+        Element: 2
+      - Index0: 11
+        Index1: 12
+        Element: 2
+      - Index0: 11
+        Index1: 13
+        Element: 2
+      - Index0: 11
+        Index1: 14
+        Element: 2
+      - Index0: 11
+        Index1: 15
+        Element: 2
+      - Index0: 11
+        Index1: 16
+        Element: 2
+      - Index0: 11
+        Index1: 17
+        Element: 2
+      - Index0: 11
+        Index1: 18
+        Element: 2
+      - Index0: 11
+        Index1: 19
+        Element: 2
+      - Index0: 11
+        Index1: 20
+        Element: 2
+      - Index0: 11
+        Index1: 21
+        Element: 2
+      - Index0: 11
+        Index1: 22
+        Element: 2
+      - Index0: 11
+        Index1: 23
+        Element: 2
+      - Index0: 11
+        Index1: 24
+        Element: 2
+      - Index0: 11
+        Index1: 25
+        Element: 2
+      - Index0: 11
+        Index1: 26
+        Element: 2
+      - Index0: 11
+        Index1: 27
+        Element: 2
+      - Index0: 11
+        Index1: 28
+        Element: 1
+      - Index0: 11
+        Index1: 29
+        Element: 0
+      - Index0: 12
+        Index1: 0
+        Element: 1
+      - Index0: 12
+        Index1: 1
+        Element: 2
+      - Index0: 12
+        Index1: 2
+        Element: 2
+      - Index0: 12
+        Index1: 3
+        Element: 2
+      - Index0: 12
+        Index1: 4
+        Element: 2
+      - Index0: 12
+        Index1: 5
+        Element: 2
+      - Index0: 12
+        Index1: 6
+        Element: 2
+      - Index0: 12
+        Index1: 7
+        Element: 2
+      - Index0: 12
+        Index1: 8
+        Element: 2
+      - Index0: 12
+        Index1: 9
+        Element: 2
+      - Index0: 12
+        Index1: 10
+        Element: 2
+      - Index0: 12
+        Index1: 11
+        Element: 2
+      - Index0: 12
+        Index1: 12
+        Element: 2
+      - Index0: 12
+        Index1: 13
+        Element: 2
+      - Index0: 12
+        Index1: 14
+        Element: 2
+      - Index0: 12
+        Index1: 15
+        Element: 2
+      - Index0: 12
+        Index1: 16
+        Element: 2
+      - Index0: 12
+        Index1: 17
+        Element: 2
+      - Index0: 12
+        Index1: 18
+        Element: 2
+      - Index0: 12
+        Index1: 19
+        Element: 2
+      - Index0: 12
+        Index1: 20
+        Element: 2
+      - Index0: 12
+        Index1: 21
+        Element: 2
+      - Index0: 12
+        Index1: 22
+        Element: 2
+      - Index0: 12
+        Index1: 23
+        Element: 2
+      - Index0: 12
+        Index1: 24
+        Element: 2
+      - Index0: 12
+        Index1: 25
+        Element: 2
+      - Index0: 12
+        Index1: 26
+        Element: 2
+      - Index0: 12
+        Index1: 27
+        Element: 2
+      - Index0: 12
+        Index1: 28
+        Element: 1
+      - Index0: 12
+        Index1: 29
+        Element: 0
+      - Index0: 13
+        Index1: 0
+        Element: 1
+      - Index0: 13
+        Index1: 1
+        Element: 2
+      - Index0: 13
+        Index1: 2
+        Element: 2
+      - Index0: 13
+        Index1: 3
+        Element: 2
+      - Index0: 13
+        Index1: 4
+        Element: 2
+      - Index0: 13
+        Index1: 5
+        Element: 2
+      - Index0: 13
+        Index1: 6
+        Element: 2
+      - Index0: 13
+        Index1: 7
+        Element: 2
+      - Index0: 13
+        Index1: 8
+        Element: 2
+      - Index0: 13
+        Index1: 9
+        Element: 2
+      - Index0: 13
+        Index1: 10
+        Element: 2
+      - Index0: 13
+        Index1: 11
+        Element: 2
+      - Index0: 13
+        Index1: 12
+        Element: 2
+      - Index0: 13
+        Index1: 13
+        Element: 2
+      - Index0: 13
+        Index1: 14
+        Element: 2
+      - Index0: 13
+        Index1: 15
+        Element: 2
+      - Index0: 13
+        Index1: 16
+        Element: 2
+      - Index0: 13
+        Index1: 17
+        Element: 2
+      - Index0: 13
+        Index1: 18
+        Element: 2
+      - Index0: 13
+        Index1: 19
+        Element: 2
+      - Index0: 13
+        Index1: 20
+        Element: 2
+      - Index0: 13
+        Index1: 21
+        Element: 2
+      - Index0: 13
+        Index1: 22
+        Element: 2
+      - Index0: 13
+        Index1: 23
+        Element: 2
+      - Index0: 13
+        Index1: 24
+        Element: 2
+      - Index0: 13
+        Index1: 25
+        Element: 2
+      - Index0: 13
+        Index1: 26
+        Element: 2
+      - Index0: 13
+        Index1: 27
+        Element: 2
+      - Index0: 13
+        Index1: 28
+        Element: 1
+      - Index0: 13
+        Index1: 29
+        Element: 0
+      - Index0: 14
+        Index1: 0
+        Element: 1
+      - Index0: 14
+        Index1: 1
+        Element: 2
+      - Index0: 14
+        Index1: 2
+        Element: 2
+      - Index0: 14
+        Index1: 3
+        Element: 2
+      - Index0: 14
+        Index1: 4
+        Element: 2
+      - Index0: 14
+        Index1: 5
+        Element: 2
+      - Index0: 14
+        Index1: 6
+        Element: 2
+      - Index0: 14
+        Index1: 7
+        Element: 2
+      - Index0: 14
+        Index1: 8
+        Element: 2
+      - Index0: 14
+        Index1: 9
+        Element: 2
+      - Index0: 14
+        Index1: 10
+        Element: 2
+      - Index0: 14
+        Index1: 11
+        Element: 2
+      - Index0: 14
+        Index1: 12
+        Element: 2
+      - Index0: 14
+        Index1: 13
+        Element: 2
+      - Index0: 14
+        Index1: 14
+        Element: 2
+      - Index0: 14
+        Index1: 15
+        Element: 2
+      - Index0: 14
+        Index1: 16
+        Element: 2
+      - Index0: 14
+        Index1: 17
+        Element: 2
+      - Index0: 14
+        Index1: 18
+        Element: 2
+      - Index0: 14
+        Index1: 19
+        Element: 2
+      - Index0: 14
+        Index1: 20
+        Element: 2
+      - Index0: 14
+        Index1: 21
+        Element: 2
+      - Index0: 14
+        Index1: 22
+        Element: 2
+      - Index0: 14
+        Index1: 23
+        Element: 2
+      - Index0: 14
+        Index1: 24
+        Element: 2
+      - Index0: 14
+        Index1: 25
+        Element: 2
+      - Index0: 14
+        Index1: 26
+        Element: 2
+      - Index0: 14
+        Index1: 27
+        Element: 2
+      - Index0: 14
+        Index1: 28
+        Element: 1
+      - Index0: 14
+        Index1: 29
+        Element: 0
+      - Index0: 15
+        Index1: 0
+        Element: 1
+      - Index0: 15
+        Index1: 1
+        Element: 2
+      - Index0: 15
+        Index1: 2
+        Element: 2
+      - Index0: 15
+        Index1: 3
+        Element: 2
+      - Index0: 15
+        Index1: 4
+        Element: 2
+      - Index0: 15
+        Index1: 5
+        Element: 2
+      - Index0: 15
+        Index1: 6
+        Element: 2
+      - Index0: 15
+        Index1: 7
+        Element: 2
+      - Index0: 15
+        Index1: 8
+        Element: 2
+      - Index0: 15
+        Index1: 9
+        Element: 2
+      - Index0: 15
+        Index1: 10
+        Element: 2
+      - Index0: 15
+        Index1: 11
+        Element: 2
+      - Index0: 15
+        Index1: 12
+        Element: 2
+      - Index0: 15
+        Index1: 13
+        Element: 2
+      - Index0: 15
+        Index1: 14
+        Element: 2
+      - Index0: 15
+        Index1: 15
+        Element: 2
+      - Index0: 15
+        Index1: 16
+        Element: 2
+      - Index0: 15
+        Index1: 17
+        Element: 2
+      - Index0: 15
+        Index1: 18
+        Element: 2
+      - Index0: 15
+        Index1: 19
+        Element: 2
+      - Index0: 15
+        Index1: 20
+        Element: 2
+      - Index0: 15
+        Index1: 21
+        Element: 2
+      - Index0: 15
+        Index1: 22
+        Element: 2
+      - Index0: 15
+        Index1: 23
+        Element: 2
+      - Index0: 15
+        Index1: 24
+        Element: 2
+      - Index0: 15
+        Index1: 25
+        Element: 2
+      - Index0: 15
+        Index1: 26
+        Element: 2
+      - Index0: 15
+        Index1: 27
+        Element: 2
+      - Index0: 15
+        Index1: 28
+        Element: 1
+      - Index0: 15
+        Index1: 29
+        Element: 0
+      - Index0: 16
+        Index1: 0
+        Element: 1
+      - Index0: 16
+        Index1: 1
+        Element: 2
+      - Index0: 16
+        Index1: 2
+        Element: 2
+      - Index0: 16
+        Index1: 3
+        Element: 2
+      - Index0: 16
+        Index1: 4
+        Element: 2
+      - Index0: 16
+        Index1: 5
+        Element: 2
+      - Index0: 16
+        Index1: 6
+        Element: 2
+      - Index0: 16
+        Index1: 7
+        Element: 2
+      - Index0: 16
+        Index1: 8
+        Element: 2
+      - Index0: 16
+        Index1: 9
+        Element: 2
+      - Index0: 16
+        Index1: 10
+        Element: 2
+      - Index0: 16
+        Index1: 11
+        Element: 2
+      - Index0: 16
+        Index1: 12
+        Element: 2
+      - Index0: 16
+        Index1: 13
+        Element: 2
+      - Index0: 16
+        Index1: 14
+        Element: 2
+      - Index0: 16
+        Index1: 15
+        Element: 2
+      - Index0: 16
+        Index1: 16
+        Element: 2
+      - Index0: 16
+        Index1: 17
+        Element: 2
+      - Index0: 16
+        Index1: 18
+        Element: 2
+      - Index0: 16
+        Index1: 19
+        Element: 2
+      - Index0: 16
+        Index1: 20
+        Element: 2
+      - Index0: 16
+        Index1: 21
+        Element: 2
+      - Index0: 16
+        Index1: 22
+        Element: 2
+      - Index0: 16
+        Index1: 23
+        Element: 2
+      - Index0: 16
+        Index1: 24
+        Element: 2
+      - Index0: 16
+        Index1: 25
+        Element: 2
+      - Index0: 16
+        Index1: 26
+        Element: 2
+      - Index0: 16
+        Index1: 27
+        Element: 2
+      - Index0: 16
+        Index1: 28
+        Element: 1
+      - Index0: 16
+        Index1: 29
+        Element: 0
+      - Index0: 17
+        Index1: 0
+        Element: 1
+      - Index0: 17
+        Index1: 1
+        Element: 2
+      - Index0: 17
+        Index1: 2
+        Element: 2
+      - Index0: 17
+        Index1: 3
+        Element: 2
+      - Index0: 17
+        Index1: 4
+        Element: 2
+      - Index0: 17
+        Index1: 5
+        Element: 2
+      - Index0: 17
+        Index1: 6
+        Element: 2
+      - Index0: 17
+        Index1: 7
+        Element: 2
+      - Index0: 17
+        Index1: 8
+        Element: 2
+      - Index0: 17
+        Index1: 9
+        Element: 2
+      - Index0: 17
+        Index1: 10
+        Element: 2
+      - Index0: 17
+        Index1: 11
+        Element: 2
+      - Index0: 17
+        Index1: 12
+        Element: 2
+      - Index0: 17
+        Index1: 13
+        Element: 2
+      - Index0: 17
+        Index1: 14
+        Element: 2
+      - Index0: 17
+        Index1: 15
+        Element: 2
+      - Index0: 17
+        Index1: 16
+        Element: 2
+      - Index0: 17
+        Index1: 17
+        Element: 2
+      - Index0: 17
+        Index1: 18
+        Element: 2
+      - Index0: 17
+        Index1: 19
+        Element: 2
+      - Index0: 17
+        Index1: 20
+        Element: 2
+      - Index0: 17
+        Index1: 21
+        Element: 2
+      - Index0: 17
+        Index1: 22
+        Element: 2
+      - Index0: 17
+        Index1: 23
+        Element: 2
+      - Index0: 17
+        Index1: 24
+        Element: 2
+      - Index0: 17
+        Index1: 25
+        Element: 2
+      - Index0: 17
+        Index1: 26
+        Element: 2
+      - Index0: 17
+        Index1: 27
+        Element: 2
+      - Index0: 17
+        Index1: 28
+        Element: 1
+      - Index0: 17
+        Index1: 29
+        Element: 0
+      - Index0: 18
+        Index1: 0
+        Element: 1
+      - Index0: 18
+        Index1: 1
+        Element: 2
+      - Index0: 18
+        Index1: 2
+        Element: 2
+      - Index0: 18
+        Index1: 3
+        Element: 2
+      - Index0: 18
+        Index1: 4
+        Element: 2
+      - Index0: 18
+        Index1: 5
+        Element: 2
+      - Index0: 18
+        Index1: 6
+        Element: 2
+      - Index0: 18
+        Index1: 7
+        Element: 2
+      - Index0: 18
+        Index1: 8
+        Element: 2
+      - Index0: 18
+        Index1: 9
+        Element: 2
+      - Index0: 18
+        Index1: 10
+        Element: 2
+      - Index0: 18
+        Index1: 11
+        Element: 2
+      - Index0: 18
+        Index1: 12
+        Element: 2
+      - Index0: 18
+        Index1: 13
+        Element: 2
+      - Index0: 18
+        Index1: 14
+        Element: 2
+      - Index0: 18
+        Index1: 15
+        Element: 2
+      - Index0: 18
+        Index1: 16
+        Element: 2
+      - Index0: 18
+        Index1: 17
+        Element: 2
+      - Index0: 18
+        Index1: 18
+        Element: 2
+      - Index0: 18
+        Index1: 19
+        Element: 2
+      - Index0: 18
+        Index1: 20
+        Element: 2
+      - Index0: 18
+        Index1: 21
+        Element: 2
+      - Index0: 18
+        Index1: 22
+        Element: 2
+      - Index0: 18
+        Index1: 23
+        Element: 2
+      - Index0: 18
+        Index1: 24
+        Element: 2
+      - Index0: 18
+        Index1: 25
+        Element: 2
+      - Index0: 18
+        Index1: 26
+        Element: 2
+      - Index0: 18
+        Index1: 27
+        Element: 2
+      - Index0: 18
+        Index1: 28
+        Element: 1
+      - Index0: 18
+        Index1: 29
+        Element: 0
+      - Index0: 19
+        Index1: 0
+        Element: 1
+      - Index0: 19
+        Index1: 1
+        Element: 1
+      - Index0: 19
+        Index1: 2
+        Element: 1
+      - Index0: 19
+        Index1: 3
+        Element: 1
+      - Index0: 19
+        Index1: 4
+        Element: 1
+      - Index0: 19
+        Index1: 5
+        Element: 1
+      - Index0: 19
+        Index1: 6
+        Element: 1
+      - Index0: 19
+        Index1: 7
+        Element: 1
+      - Index0: 19
+        Index1: 8
+        Element: 1
+      - Index0: 19
+        Index1: 9
+        Element: 1
+      - Index0: 19
+        Index1: 10
+        Element: 1
+      - Index0: 19
+        Index1: 11
+        Element: 1
+      - Index0: 19
+        Index1: 12
+        Element: 1
+      - Index0: 19
+        Index1: 13
+        Element: 1
+      - Index0: 19
+        Index1: 14
+        Element: 1
+      - Index0: 19
+        Index1: 15
+        Element: 1
+      - Index0: 19
+        Index1: 16
+        Element: 1
+      - Index0: 19
+        Index1: 17
+        Element: 1
+      - Index0: 19
+        Index1: 18
+        Element: 1
+      - Index0: 19
+        Index1: 19
+        Element: 1
+      - Index0: 19
+        Index1: 20
+        Element: 1
+      - Index0: 19
+        Index1: 21
+        Element: 1
+      - Index0: 19
+        Index1: 22
+        Element: 1
+      - Index0: 19
+        Index1: 23
+        Element: 1
+      - Index0: 19
+        Index1: 24
+        Element: 1
+      - Index0: 19
+        Index1: 25
+        Element: 1
+      - Index0: 19
+        Index1: 26
+        Element: 1
+      - Index0: 19
+        Index1: 27
+        Element: 1
+      - Index0: 19
+        Index1: 28
+        Element: 1
+      - Index0: 19
+        Index1: 29
         Element: 0
     roomLines:
     - <CurLineType>k__BackingField: 0
-      lineStart: {x: 0, y: 0}
-      lineEnd: {x: 1, y: 0}
+      lineStart: {x: -0.45552307, y: 2.4364607}
+      lineEnd: {x: -0.12873971, y: 2.449169}
       bezierStartHandle: {x: 0.1, y: 0.1}
       bezierEndHandle: {x: -0.1, y: -0.1}
       floorNum: 2
-    - <CurLineType>k__BackingField: 0
-      lineStart: {x: 1, y: 0}
-      lineEnd: {x: 0.5, y: -1}
-      bezierStartHandle: {x: 1.1, y: 0.1}
-      bezierEndHandle: {x: 0.9, y: -0.1}
+    - <CurLineType>k__BackingField: 1
+      lineStart: {x: -0.12873971, y: 2.449169}
+      lineEnd: {x: 0.15121096, y: 2.3426175}
+      bezierStartHandle: {x: -0.028739713, y: 2.5491688}
+      bezierEndHandle: {x: 0.025415123, y: 2.374585}
       floorNum: 2
     - <CurLineType>k__BackingField: 0
-      lineStart: {x: 0.5, y: -1}
-      lineEnd: {x: 0, y: 0}
+      lineStart: {x: 0.15121096, y: 2.3426175}
+      lineEnd: {x: 1.4499326, y: 2.3518784}
+      bezierStartHandle: {x: 0.016117781, y: 1.7627532}
+      bezierEndHandle: {x: -0.18388222, y: 1.5627532}
+      floorNum: 2
+    - <CurLineType>k__BackingField: 0
+      lineStart: {x: 1.4499326, y: 2.3518784}
+      lineEnd: {x: 1.4455141, y: -0.46099305}
+      bezierStartHandle: {x: -0.025828443, y: 1.5242131}
+      bezierEndHandle: {x: -0.22582844, y: 1.324213}
+      floorNum: 2
+    - <CurLineType>k__BackingField: 0
+      lineStart: {x: 1.4455141, y: -0.46099305}
+      lineEnd: {x: -0.4584213, y: -0.46717972}
+      bezierStartHandle: {x: -0.055662476, y: 1.3545526}
+      bezierEndHandle: {x: -0.25566247, y: 1.1545526}
+      floorNum: 2
+    - <CurLineType>k__BackingField: 0
+      lineStart: {x: -0.4584213, y: -0.46717972}
+      lineEnd: {x: -0.45552307, y: 2.4364607}
       bezierStartHandle: {x: 0.6, y: -0.9}
       bezierEndHandle: {x: 0.4, y: -1.1}
       floorNum: 2
     points: []
+    doorways: []
   - floorNum: 3
     gridWidth: 10
     gridHeight: 10
-    gridOffset: {x: 0, y: 0}
     serializable:
       HorizontalSize: 10
       VerticalSizes: 0a0000000a0000000a0000000a0000000a0000000a0000000a0000000a0000000a0000000a000000
@@ -1426,7 +3105,8 @@ MonoBehaviour:
       bezierEndHandle: {x: 0.4, y: -1.1}
       floorNum: 3
     points: []
-  curInspectedFloor: 0
-  curPaintState: 1
-  curInspectorMode: 1
+    doorways: []
+  curInspectedFloor: 1
+  curPaintState: 0
+  curInspectorMode: 2
   curInspectorLineType: 0
