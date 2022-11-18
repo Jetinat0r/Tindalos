@@ -27,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4727097786640180313}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0.00000017881393, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -421,6 +421,7 @@ MonoBehaviour:
       - Index0: 9
         Index1: 9
         Element: 0
+    partialTileData: []
     roomLines:
     - <CurLineType>k__BackingField: 0
       lineStart: {x: -0.5, y: 0.5}
@@ -851,15 +852,92 @@ MonoBehaviour:
       - Index0: 11
         Index1: 10
         Element: 0
+    partialTileData:
+    - xIndex: 0
+      yIndex: 9
+      lines: []
+    - xIndex: 1
+      yIndex: 9
+      lines: []
+    - xIndex: 2
+      yIndex: 9
+      lines: []
+    - xIndex: 3
+      yIndex: 9
+      lines: []
+    - xIndex: 4
+      yIndex: 9
+      lines: []
+    - xIndex: 5
+      yIndex: 9
+      lines: []
+    - xIndex: 6
+      yIndex: 9
+      lines:
+      - list:
+        - {x: 0.373442, y: 0.43224907}
+        - {x: -0.006621182, y: 0.3776074}
+    - xIndex: 7
+      yIndex: 9
+      lines:
+      - list:
+        - {x: 0.373442, y: 0.43224907}
+        - {x: -0.006621182, y: 0.3776074}
+    - xIndex: 8
+      yIndex: 9
+      lines:
+      - list:
+        - {x: 0.6940156, y: 0.4841491}
+        - {x: 0.373442, y: 0.43224907}
+        - {x: -0.006621182, y: 0.3776074}
+    - xIndex: 9
+      yIndex: 9
+      lines:
+      - list:
+        - {x: 0.6940156, y: 0.4841491}
+        - {x: 0.373442, y: 0.43224907}
+    - xIndex: 10
+      yIndex: 0
+      lines: []
+    - xIndex: 10
+      yIndex: 1
+      lines: []
+    - xIndex: 10
+      yIndex: 2
+      lines: []
+    - xIndex: 10
+      yIndex: 3
+      lines: []
+    - xIndex: 10
+      yIndex: 4
+      lines: []
+    - xIndex: 10
+      yIndex: 5
+      lines: []
+    - xIndex: 10
+      yIndex: 6
+      lines: []
+    - xIndex: 10
+      yIndex: 7
+      lines: []
+    - xIndex: 10
+      yIndex: 8
+      lines: []
+    - xIndex: 10
+      yIndex: 9
+      lines:
+      - list:
+        - {x: 0.6940156, y: 0.4841491}
+        - {x: 0.373442, y: 0.43224907}
     roomLines:
     - <CurLineType>k__BackingField: 0
-      lineStart: {x: -1.4341371, y: 1.4662145}
-      lineEnd: {x: -1.3108447, y: 1.883744}
+      lineStart: {x: -0.933973, y: 0.9522561}
+      lineEnd: {x: -0.6210991, y: 0.9900205}
       bezierStartHandle: {x: 0.1, y: 0.1}
       bezierEndHandle: {x: -0.1, y: -0.1}
       floorNum: 1
     - <CurLineType>k__BackingField: 0
-      lineStart: {x: -1.3108447, y: 1.883744}
+      lineStart: {x: -0.6210991, y: 0.9900205}
       lineEnd: {x: -0.7584491, y: 1.8262293}
       bezierStartHandle: {x: -0.22354788, y: 0.9639329}
       bezierEndHandle: {x: -0.42354786, y: 0.7639328}
@@ -884,39 +962,51 @@ MonoBehaviour:
       floorNum: 1
     - <CurLineType>k__BackingField: 1
       lineStart: {x: 1.0737548, y: 1.2721276}
-      lineEnd: {x: 0.28199917, y: 0.9365238}
-      bezierStartHandle: {x: 1.4660416, y: 0.9499361}
-      bezierEndHandle: {x: 0.5632885, y: 1.2843745}
+      lineEnd: {x: 1.2814958, y: 0.940819}
+      bezierStartHandle: {x: 1.6764302, y: 1.3120006}
+      bezierEndHandle: {x: 1.8696558, y: 1.0593075}
       floorNum: 1
     - <CurLineType>k__BackingField: 1
-      lineStart: {x: 0.28199917, y: 0.9365238}
-      lineEnd: {x: -0.8139179, y: 1.0285027}
-      bezierStartHandle: {x: 0.871047, y: 0.8093557}
-      bezierEndHandle: {x: -0.7064987, y: 0.6566032}
+      lineStart: {x: 1.2814958, y: 0.940819}
+      lineEnd: {x: -0.4499674, y: 0.32009304}
+      bezierStartHandle: {x: 1.7971919, y: 0.7973958}
+      bezierEndHandle: {x: 1.9312934, y: 0.615065}
       floorNum: 1
     - <CurLineType>k__BackingField: 0
-      lineStart: {x: -0.8139179, y: 1.0285027}
-      lineEnd: {x: -1.0043846, y: 0.79441375}
+      lineStart: {x: -0.4499674, y: 0.32009304}
+      lineEnd: {x: -0.6376829, y: 0.49254948}
       bezierStartHandle: {x: 0.301437, y: 0.9554933}
       bezierEndHandle: {x: 0.10143698, y: 0.7554932}
       floorNum: 1
     - <CurLineType>k__BackingField: 2
-      lineStart: {x: -1.0043846, y: 0.79441375}
-      lineEnd: {x: -1.3413002, y: 0.7951529}
+      lineStart: {x: -0.6376829, y: 0.49254948}
+      lineEnd: {x: -0.7487714, y: 0.7000168}
       bezierStartHandle: {x: 0.6, y: -0.9}
       bezierEndHandle: {x: 0.4, y: -1.1}
       floorNum: 1
     - <CurLineType>k__BackingField: 0
-      lineStart: {x: -1.3413002, y: 0.7951529}
-      lineEnd: {x: -1.330365, y: 1.0136561}
+      lineStart: {x: -0.7487714, y: 0.7000168}
+      lineEnd: {x: -1.5322385, y: 0.1289082}
       bezierStartHandle: {x: -0.32774663, y: 1.1268767}
       bezierEndHandle: {x: -0.5277466, y: 0.92687666}
       floorNum: 1
-    - <CurLineType>k__BackingField: 1
-      lineStart: {x: -1.330365, y: 1.0136561}
-      lineEnd: {x: -1.4341371, y: 1.4662145}
+    - <CurLineType>k__BackingField: 0
+      lineStart: {x: -1.5322385, y: 0.1289082}
+      lineEnd: {x: -1.9199585, y: 0.55306023}
       bezierStartHandle: {x: -1.9312778, y: 0.7435042}
       bezierEndHandle: {x: -2.1007829, y: 1.5395491}
+      floorNum: 1
+    - <CurLineType>k__BackingField: 0
+      lineStart: {x: -1.9199585, y: 0.55306023}
+      lineEnd: {x: -1.3835638, y: 0.7527179}
+      bezierStartHandle: {x: -1.5570608, y: 1.1077042}
+      bezierEndHandle: {x: -1.7570609, y: 0.9077041}
+      floorNum: 1
+    - <CurLineType>k__BackingField: 0
+      lineStart: {x: -1.3835638, y: 0.7527179}
+      lineEnd: {x: -0.933973, y: 0.9522561}
+      bezierStartHandle: {x: -2.010498, y: 1.0994431}
+      bezierEndHandle: {x: -2.2104979, y: 0.8994431}
       floorNum: 1
     points: []
     doorways:
@@ -926,11 +1016,11 @@ MonoBehaviour:
       width: 0.7647335
       height: -0.22486103
       direction: {x: 0, y: 1, z: 0, w: -0.00000004371139}
-    - leftEdge: {x: -1.0043846, y: 0.79441375, z: 0}
-      rightEdge: {x: -1.3413002, y: 0.7951529, z: 0}
+    - leftEdge: {x: -0.6376829, y: 0.49254948, z: 0}
+      rightEdge: {x: -0.7487714, y: 0.7000168, z: 0}
       doorType: 0
-      width: 0.3369156
-      height: 0.0007391572
+      width: 0.111088514
+      height: 0.20746732
       direction: {x: 0, y: 1, z: 0, w: -0.00000004371139}
   - floorNum: 2
     gridWidth: 20
@@ -2739,6 +2829,7 @@ MonoBehaviour:
       - Index0: 19
         Index1: 29
         Element: 0
+    partialTileData: []
     roomLines:
     - <CurLineType>k__BackingField: 0
       lineStart: {x: -0.45552307, y: 2.4364607}
@@ -3085,6 +3176,7 @@ MonoBehaviour:
       - Index0: 9
         Index1: 9
         Element: 0
+    partialTileData: []
     roomLines:
     - <CurLineType>k__BackingField: 0
       lineStart: {x: 0, y: 0}

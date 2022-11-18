@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using static Jagged2DArraySerializer;
+using static ListWrappers;
 
 [Serializable]
 public enum TileState
@@ -16,6 +17,27 @@ public enum TileState
 [Serializable]
 public class Floor : ISerializationCallbackReceiver
 {
+    [Serializable]
+    public class ConflictingTileData
+    {
+        public ConflictingTileData(int x, int y)
+        {
+            xIndex = x;
+            yIndex = y;
+
+            lines = new List<Vector2ListWrapper>();
+        }
+
+        //Where on the tileGrid does this fall?
+        public int xIndex;
+        public int yIndex;
+
+        //Stores the points of each non-consecutive line passing through the given tile
+        //List 1: Non-consecutive lines
+        //List 2: Points on each line
+        public List<Vector2ListWrapper> lines;
+    }
+
     public const float FloorHeight = 1f;
 
     [SerializeField, HideInInspector]
@@ -34,6 +56,8 @@ public class Floor : ISerializationCallbackReceiver
     [SerializeField, HideInInspector]
     private Jagged2DArrayPackage<TileState> serializable;
     public TileState[][] tileGrid;
+    //[SerializeField, HideInInspector]
+    public List<ConflictingTileData> partialTileData;
     
 
     // ----------- Lines ------------
@@ -201,19 +225,172 @@ public class Floor : ISerializationCallbackReceiver
         roomLines.Add(lineThree);
     }
 
-    public void SaveLines()
+    //WARNING: Abandon all hope, ye who enter here
+    public void SaveLines(Vector2 gridOffset)
     {
-        //TODO: Add lines to a grid map thingy
+        //Generates doorways from lines
         doorways.Clear();
 
-        foreach(RoomLine line in roomLines)
+        //Also collects points!
+        List<Vector2> points = new List<Vector2>();
+        foreach (RoomLine line in roomLines)
         {
-            if(line.CurLineType == LineType.Door)
+            if (line.CurLineType == LineType.Door)
             {
                 Doorway newDoor = new Doorway(line.lineStart, line.lineEnd);
                 newDoor.Init();
                 doorways.Add(newDoor);
             }
+
+            Vector3[] curLinePoints = line.GetCollisionPoints();
+            for (int i = 0; i < curLinePoints.Length; i++)
+            {
+                points.Add(new Vector2(curLinePoints[i].x, curLinePoints[i].z));
+            }
+        }
+
+        //Clean up duplicate points
+        for (int i = 0; i < points.Count - 1; i++)
+        {
+            if (points[i] == points[i + 1])
+            {
+                points.RemoveAt(i);
+                i--;
+            }
+        }
+
+        //Clean up final point if duplicate
+        if (points[0] == points[^1])
+        {
+            points.RemoveAt(points.Count - 1);
+        }
+
+        //Generates collision data for partial tiles
+        partialTileData.Clear();
+
+        //Generates a list of rects to check and the data associated with them
+        List<Tuple<Rect, ConflictingTileData>> partialTiles = new List<Tuple<Rect, ConflictingTileData>>();
+        for(int i = 0; i < tileGrid.Length; i++)
+        {
+            for(int j = 0; j < tileGrid[i].Length; j++)
+            {
+                if (tileGrid[i][j] == TileState.Partial)
+                {
+                    Rect newRect = new Rect();
+                    Vector2 bottomLeft = new Vector2(gridOffset.x + (i * GridSize), gridOffset.y + (j * GridSize));
+                    Vector2 topRight = new Vector2(gridOffset.x + ((i + 1) * GridSize), gridOffset.y + ((j + 1) * GridSize));
+
+                    newRect.yMin = bottomLeft.y;
+                    newRect.xMin = bottomLeft.x;
+                    newRect.yMax = topRight.y;
+                    newRect.xMax = topRight.x;
+
+                    partialTiles.Add(new Tuple<Rect, ConflictingTileData>(newRect, new ConflictingTileData(i, j)));
+                }
+            }
+        }
+
+
+        //Index in partial tiles of the last rect that had a point inserted
+        int lastRectInserted = -1;
+
+        //Finds lines with points inside rects and adds them to the data
+        for(int i = 0; i < points.Count; i++)
+        {
+            bool rectFound = false;
+            for(int j = 0; j < partialTiles.Count; j++)
+            {
+                if (partialTiles[j].Item1.Contains(points[i]))
+                {
+                    if(lastRectInserted == j)
+                    {
+                        //Continue adding
+                        partialTiles[j].Item2.lines[^1].list.Add(points[i]);
+                    }
+                    else
+                    {
+                        if(lastRectInserted != -1)
+                        {
+                            //Custom end to old line
+                            partialTiles[lastRectInserted].Item2.lines[^1].list.Add(points[i]);
+                        }
+
+                        //New line in rect
+                        partialTiles[j].Item2.lines.Add(new Vector2ListWrapper());
+
+                        if(i == 0)
+                        {
+                            //If at beginning of list, wrap around
+                            partialTiles[j].Item2.lines[^1].list.Add(points[^1]);
+                        }
+                        else
+                        {
+                            //Else, get previous point
+                            partialTiles[j].Item2.lines[^1].list.Add(points[i - 1]);
+                        }
+
+                        //Add current point
+                        partialTiles[j].Item2.lines[^1].list.Add(points[i]);
+                    }
+
+                    lastRectInserted = j;
+                    rectFound = true;
+
+                    break; //One point will never be in two different grids
+                }
+            }
+
+            if (!rectFound)
+            {
+                if(lastRectInserted != -1)
+                {
+                    //Cap off line
+                    partialTiles[lastRectInserted].Item2.lines[^1].list.Add(points[i]);
+                    lastRectInserted = -1;
+                }
+            }
+            else if (i == points.Count)
+            {
+                //If the final point was inserted into a tile, we need to make POSITIVE we cap it off
+                partialTiles[lastRectInserted].Item2.lines[^1].list.Add(points[0]);
+            }
+        }
+
+        //Finds lines without points inside rects and adds them to the data
+        for(int i = 0; i < points.Count; i++)
+        {
+            Vector2 point1 = points[i];
+            Vector2 point2;
+            if(i == points.Count - 1)
+            {
+                point2 = points[0];
+            }
+            else
+            {
+                point2 = points[i + 1];
+            }
+
+            //Do checking!
+            for (int j = 0; j < partialTiles.Count; j++)
+            {
+                Rect curRect = partialTiles[j].Item1;
+                //If the point is contained in the tile, iit's already handled
+                if (!curRect.Contains(point1) && !curRect.Contains(point2))
+                {
+                    if (LineCollisionUtils.LineIntersectsRect(point1, point2, curRect))
+                    {
+                        partialTiles[j].Item2.lines.Add(new Vector2ListWrapper());
+                        partialTiles[j].Item2.lines[^1].list.Add(point1);
+                        partialTiles[j].Item2.lines[^1].list.Add(point2);
+                    }
+                }
+            }
+        }
+        
+        //Finally add the partial tile data to the list
+        for(int i = 0; i < partialTiles.Count; i++)
+        {
+            partialTileData.Add(partialTiles[i].Item2);
         }
     }
 

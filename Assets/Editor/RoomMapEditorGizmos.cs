@@ -6,11 +6,6 @@ using UnityEngine;
 [CustomEditor(typeof(Room))]
 public class RoomMapEditorGizmos : Editor
 {
-    //TODO: Add button "Assign Tiles" to lines window. When pressed, runs through each line and
-    //      determines which "partial" tiles it runs through
-    //      even better, we can assign 3 points (entry, mid, exit) during this step to save even
-    //      more time later (still feels like collisions, but maybe it'll be ok?)
-
     private int curPointIndex = -1;
 
     private void OnSceneGUI()
@@ -508,7 +503,7 @@ public class RoomMapEditorGizmos : Editor
 
             if (GUILayout.Button("Save Lines"))
             {
-                room.CurFloor.SaveLines();
+                room.CurFloor.SaveLines(room.gridOffset);
 
                 UpdatePrefab();
             }
