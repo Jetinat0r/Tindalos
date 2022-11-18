@@ -56,7 +56,7 @@ public class Floor : ISerializationCallbackReceiver
     [SerializeField, HideInInspector]
     private Jagged2DArrayPackage<TileState> serializable;
     public TileState[][] tileGrid;
-    //[SerializeField, HideInInspector]
+    [SerializeField, HideInInspector]
     public List<ConflictingTileData> partialTileData;
     
 
@@ -290,99 +290,19 @@ public class Floor : ISerializationCallbackReceiver
             }
         }
 
-
-        //Index in partial tiles of the last rect that had a point inserted
-        int lastRectInserted = -1;
-
-        //Finds lines with points inside rects and adds them to the data
-        for(int i = 0; i < points.Count; i++)
-        {
-            bool rectFound = false;
-            for(int j = 0; j < partialTiles.Count; j++)
-            {
-                if (partialTiles[j].Item1.Contains(points[i]))
-                {
-                    if(lastRectInserted == j)
-                    {
-                        //Continue adding
-                        partialTiles[j].Item2.lines[^1].list.Add(points[i]);
-                    }
-                    else
-                    {
-                        if(lastRectInserted != -1)
-                        {
-                            //Custom end to old line
-                            partialTiles[lastRectInserted].Item2.lines[^1].list.Add(points[i]);
-                        }
-
-                        //New line in rect
-                        partialTiles[j].Item2.lines.Add(new Vector2ListWrapper());
-
-                        if(i == 0)
-                        {
-                            //If at beginning of list, wrap around
-                            partialTiles[j].Item2.lines[^1].list.Add(points[^1]);
-                        }
-                        else
-                        {
-                            //Else, get previous point
-                            partialTiles[j].Item2.lines[^1].list.Add(points[i - 1]);
-                        }
-
-                        //Add current point
-                        partialTiles[j].Item2.lines[^1].list.Add(points[i]);
-                    }
-
-                    lastRectInserted = j;
-                    rectFound = true;
-
-                    break; //One point will never be in two different grids
-                }
-            }
-
-            if (!rectFound)
-            {
-                if(lastRectInserted != -1)
-                {
-                    //Cap off line
-                    partialTiles[lastRectInserted].Item2.lines[^1].list.Add(points[i]);
-                    lastRectInserted = -1;
-                }
-            }
-            else if (i == points.Count)
-            {
-                //If the final point was inserted into a tile, we need to make POSITIVE we cap it off
-                partialTiles[lastRectInserted].Item2.lines[^1].list.Add(points[0]);
-            }
-        }
-
-        //Finds lines without points inside rects and adds them to the data
+        //Finds every line that intersects with each tile, and adds it to that respective tile's collision data
         for(int i = 0; i < points.Count; i++)
         {
             Vector2 point1 = points[i];
-            Vector2 point2;
-            if(i == points.Count - 1)
-            {
-                point2 = points[0];
-            }
-            else
-            {
-                point2 = points[i + 1];
-            }
+            Vector2 point2 = (i != points.Count - 1) ? points[i + 1] : points[0];
 
-            //Do checking!
-            for (int j = 0; j < partialTiles.Count; j++)
+            foreach (Tuple<Rect, ConflictingTileData> tuple in partialTiles)
             {
-                Rect curRect = partialTiles[j].Item1;
-                //If the point is contained in the tile, iit's already handled
-                if (!curRect.Contains(point1) && !curRect.Contains(point2))
+                if(LineCollisionUtils.LineIntersectsRect(point1, point2, tuple.Item1))
                 {
-                    if (LineCollisionUtils.LineIntersectsRect(point1, point2, curRect))
-                    {
-                        partialTiles[j].Item2.lines.Add(new Vector2ListWrapper());
-                        partialTiles[j].Item2.lines[^1].list.Add(point1);
-                        partialTiles[j].Item2.lines[^1].list.Add(point2);
-                    }
+                    tuple.Item2.lines.Add(new Vector2ListWrapper());
+                    tuple.Item2.lines[^1].list.Add(point1);
+                    tuple.Item2.lines[^1].list.Add(point2);
                 }
             }
         }

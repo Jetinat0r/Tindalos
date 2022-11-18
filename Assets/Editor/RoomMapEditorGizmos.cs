@@ -16,15 +16,8 @@ public class RoomMapEditorGizmos : Editor
             return;
         }
 
-        DrawFloorButtons(room);
-
-        if(room.mapFloors == null || room.mapFloors.Count == 0)
-        {
-            return;
-        }
-
-        DrawModeButtons(room);
-
+        //Above other things to maintain correct draw order
+        //Draws Line stuff
         switch (room.curInspectorMode)
         {
             case (Room.RoomInspectorMode.View):
@@ -41,11 +34,11 @@ public class RoomMapEditorGizmos : Editor
                 break;
 
             case (Room.RoomInspectorMode.Lines):
-                if(room.CurFloor.roomLines != null && room.CurFloor.roomLines.Count >= 3)
+                if (room.CurFloor.roomLines != null && room.CurFloor.roomLines.Count >= 3)
                 {
                     DrawLines(room);
 
-                    if(room.curInspectorLineType == LineType.Add)
+                    if (room.curInspectorLineType == LineType.Add)
                     {
                         DrawNewPointHandle(room);
                     }
@@ -58,6 +51,15 @@ public class RoomMapEditorGizmos : Editor
                 Debug.LogError("Invalid Room Inspector Mode, something went horribly wrong!");
                 break;
         }
+
+        DrawFloorButtons(room);
+
+        if(room.mapFloors == null || room.mapFloors.Count == 0)
+        {
+            return;
+        }
+
+        DrawModeButtons(room);
     }
 
 
