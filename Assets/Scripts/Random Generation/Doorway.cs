@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using JetEngine;
 
 [Serializable]
 public enum DoorType
@@ -64,5 +65,40 @@ public class Doorway
     {
         Vector3 doorCenter = (rightEdge - leftEdge) / 2;
         Debug.DrawRay(doorCenter + leftEdge, direction * Vector3.forward * 3, Color.red);
+    }
+}
+
+public static class DoorwayTypeExtensions
+{
+    public static Vector2 FixEndPoint(this DoorType doorType, Vector2 startPoint, Vector2 endPoint)
+    {
+        float doorSize;
+        float validAngles;
+
+        //Assign vars based on door type
+        switch (doorType)
+        {
+            case (DoorType.Normal):
+                doorSize = 1f;
+                validAngles = 45f;
+                break;
+
+            default:
+                doorSize = 1f;
+                validAngles = 90f;
+                Debug.LogError("Door type does not have vars in FixEndPoint extension method!");
+                break;
+        }
+
+        //Get the current angle that the two given points create
+        Vector2 direction = endPoint - startPoint;
+        float curAngle = Mathf.Rad2Deg * Mathf.Atan2(direction.y, direction.x);
+
+        //Get the clamped angle based on the assigned vars above
+        float closestAngle = MathUtils.GetClosestEvenDivisor(curAngle, validAngles);
+        Debug.Log(closestAngle);
+
+        //Construct a new point based off of the given points and derived vars
+        return startPoint + new Vector2(doorSize * Mathf.Cos(Mathf.Deg2Rad * closestAngle), doorSize * Mathf.Sin(Mathf.Deg2Rad * closestAngle));
     }
 }

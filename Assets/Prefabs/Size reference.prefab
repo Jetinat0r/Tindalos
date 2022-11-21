@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4727097786640180313}
   m_LocalRotation: {x: -0, y: -0.00000017881393, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -424,24 +424,28 @@ MonoBehaviour:
     partialTileData: []
     roomLines:
     - <CurLineType>k__BackingField: 0
+      <CurDoorType>k__BackingField: 0
       lineStart: {x: -0.5, y: 0.5}
       lineEnd: {x: 0.5, y: 0.5}
       bezierStartHandle: {x: 0.1, y: 0.1}
       bezierEndHandle: {x: -0.1, y: -0.1}
       floorNum: 0
     - <CurLineType>k__BackingField: 0
+      <CurDoorType>k__BackingField: 0
       lineStart: {x: 0.5, y: 0.5}
       lineEnd: {x: 0.5, y: -0.5}
       bezierStartHandle: {x: 1.1, y: 0.1}
       bezierEndHandle: {x: 0.9, y: -0.1}
       floorNum: 0
     - <CurLineType>k__BackingField: 0
+      <CurDoorType>k__BackingField: 0
       lineStart: {x: 0.5, y: -0.5}
       lineEnd: {x: -0.5, y: -0.5}
       bezierStartHandle: {x: 0.6, y: -0.9}
       bezierEndHandle: {x: 0.4, y: -1.1}
       floorNum: 0
     - <CurLineType>k__BackingField: 0
+      <CurDoorType>k__BackingField: 0
       lineStart: {x: -0.5, y: -0.5}
       lineEnd: {x: -0.5, y: 0.5}
       bezierStartHandle: {x: 0.12917733, y: 0.07082266}
@@ -450,11 +454,11 @@ MonoBehaviour:
     points: []
     doorways: []
   - floorNum: 1
-    gridWidth: 12
-    gridHeight: 11
+    gridWidth: 10
+    gridHeight: 10
     serializable:
-      HorizontalSize: 12
-      VerticalSizes: 0b0000000b0000000b0000000b0000000b0000000b0000000b0000000b0000000b0000000b0000000b0000000b000000
+      HorizontalSize: 10
+      VerticalSizes: 0a0000000a0000000a0000000a0000000a0000000a0000000a0000000a0000000a0000000a000000
       Array:
       - Index0: 0
         Index1: 0
@@ -485,10 +489,7 @@ MonoBehaviour:
         Element: 2
       - Index0: 0
         Index1: 9
-        Element: 1
-      - Index0: 0
-        Index1: 10
-        Element: 0
+        Element: 2
       - Index0: 1
         Index1: 0
         Element: 2
@@ -518,10 +519,7 @@ MonoBehaviour:
         Element: 2
       - Index0: 1
         Index1: 9
-        Element: 1
-      - Index0: 1
-        Index1: 10
-        Element: 0
+        Element: 2
       - Index0: 2
         Index1: 0
         Element: 2
@@ -545,16 +543,13 @@ MonoBehaviour:
         Element: 2
       - Index0: 2
         Index1: 7
-        Element: 0
+        Element: 2
       - Index0: 2
         Index1: 8
         Element: 2
       - Index0: 2
         Index1: 9
-        Element: 1
-      - Index0: 2
-        Index1: 10
-        Element: 0
+        Element: 2
       - Index0: 3
         Index1: 0
         Element: 2
@@ -578,16 +573,13 @@ MonoBehaviour:
         Element: 2
       - Index0: 3
         Index1: 7
-        Element: 0
+        Element: 2
       - Index0: 3
         Index1: 8
         Element: 2
       - Index0: 3
         Index1: 9
-        Element: 1
-      - Index0: 3
-        Index1: 10
-        Element: 0
+        Element: 2
       - Index0: 4
         Index1: 0
         Element: 2
@@ -617,10 +609,7 @@ MonoBehaviour:
         Element: 2
       - Index0: 4
         Index1: 9
-        Element: 1
-      - Index0: 4
-        Index1: 10
-        Element: 0
+        Element: 2
       - Index0: 5
         Index1: 0
         Element: 2
@@ -650,10 +639,7 @@ MonoBehaviour:
         Element: 2
       - Index0: 5
         Index1: 9
-        Element: 1
-      - Index0: 5
-        Index1: 10
-        Element: 0
+        Element: 2
       - Index0: 6
         Index1: 0
         Element: 2
@@ -683,10 +669,7 @@ MonoBehaviour:
         Element: 2
       - Index0: 6
         Index1: 9
-        Element: 1
-      - Index0: 6
-        Index1: 10
-        Element: 0
+        Element: 2
       - Index0: 7
         Index1: 0
         Element: 2
@@ -716,10 +699,7 @@ MonoBehaviour:
         Element: 2
       - Index0: 7
         Index1: 9
-        Element: 1
-      - Index0: 7
-        Index1: 10
-        Element: 0
+        Element: 2
       - Index0: 8
         Index1: 0
         Element: 2
@@ -749,10 +729,7 @@ MonoBehaviour:
         Element: 2
       - Index0: 8
         Index1: 9
-        Element: 1
-      - Index0: 8
-        Index1: 10
-        Element: 0
+        Element: 2
       - Index0: 9
         Index1: 0
         Element: 2
@@ -782,76 +759,7 @@ MonoBehaviour:
         Element: 2
       - Index0: 9
         Index1: 9
-        Element: 1
-      - Index0: 9
-        Index1: 10
-        Element: 0
-      - Index0: 10
-        Index1: 0
-        Element: 1
-      - Index0: 10
-        Index1: 1
-        Element: 1
-      - Index0: 10
-        Index1: 2
-        Element: 1
-      - Index0: 10
-        Index1: 3
-        Element: 1
-      - Index0: 10
-        Index1: 4
-        Element: 1
-      - Index0: 10
-        Index1: 5
-        Element: 1
-      - Index0: 10
-        Index1: 6
-        Element: 1
-      - Index0: 10
-        Index1: 7
-        Element: 1
-      - Index0: 10
-        Index1: 8
-        Element: 1
-      - Index0: 10
-        Index1: 9
-        Element: 1
-      - Index0: 10
-        Index1: 10
-        Element: 0
-      - Index0: 11
-        Index1: 0
-        Element: 0
-      - Index0: 11
-        Index1: 1
-        Element: 0
-      - Index0: 11
-        Index1: 2
-        Element: 0
-      - Index0: 11
-        Index1: 3
-        Element: 0
-      - Index0: 11
-        Index1: 4
-        Element: 0
-      - Index0: 11
-        Index1: 5
-        Element: 0
-      - Index0: 11
-        Index1: 6
-        Element: 0
-      - Index0: 11
-        Index1: 7
-        Element: 0
-      - Index0: 11
-        Index1: 8
-        Element: 0
-      - Index0: 11
-        Index1: 9
-        Element: 0
-      - Index0: 11
-        Index1: 10
-        Element: 0
+        Element: 2
     partialTileData:
     - xIndex: 0
       yIndex: 9
@@ -962,89 +870,40 @@ MonoBehaviour:
       yIndex: 9
       lines: []
     roomLines:
-    - <CurLineType>k__BackingField: 2
-      lineStart: {x: -0.66878664, y: 0.60938305}
-      lineEnd: {x: -0.48437065, y: 0.71114296}
+    - <CurLineType>k__BackingField: 0
+      <CurDoorType>k__BackingField: 0
+      lineStart: {x: -0.5, y: 0.5}
+      lineEnd: {x: 0.5, y: 0.5}
       bezierStartHandle: {x: 0.1, y: 0.1}
       bezierEndHandle: {x: -0.1, y: -0.1}
       floorNum: 1
     - <CurLineType>k__BackingField: 0
-      lineStart: {x: -0.48437065, y: 0.71114296}
-      lineEnd: {x: -0.21110043, y: 0.8392704}
-      bezierStartHandle: {x: -0.22354788, y: 0.9639329}
-      bezierEndHandle: {x: -0.42354786, y: 0.7639328}
-      floorNum: 1
-    - <CurLineType>k__BackingField: 1
-      lineStart: {x: -0.21110043, y: 0.8392704}
-      lineEnd: {x: -0.7584491, y: 1.8262293}
-      bezierStartHandle: {x: -0.53529644, y: 0.89731693}
-      bezierEndHandle: {x: -1.2713684, y: 1.3312801}
-      floorNum: 1
-    - <CurLineType>k__BackingField: 2
-      lineStart: {x: -0.7584491, y: 1.8262293}
-      lineEnd: {x: 0.0062844036, y: 1.6013683}
-      bezierStartHandle: {x: -0.500366, y: 1.6686127}
-      bezierEndHandle: {x: -0.700366, y: 1.4686127}
-      floorNum: 1
-    - <CurLineType>k__BackingField: 0
-      lineStart: {x: 0.0062844036, y: 1.6013683}
-      lineEnd: {x: 0.58087176, y: 1.6323926}
-      bezierStartHandle: {x: 0.1062844, y: 1.7013683}
-      bezierEndHandle: {x: -0.0937156, y: 1.5013683}
-      floorNum: 1
-    - <CurLineType>k__BackingField: 0
-      lineStart: {x: 0.58087176, y: 1.6323926}
-      lineEnd: {x: 1.0737548, y: 1.2721276}
+      <CurDoorType>k__BackingField: 0
+      lineStart: {x: 0.5, y: 0.5}
+      lineEnd: {x: 0.7, y: -0.21064776}
       bezierStartHandle: {x: 1.1, y: 0.1}
       bezierEndHandle: {x: 0.9, y: -0.1}
       floorNum: 1
-    - <CurLineType>k__BackingField: 1
-      lineStart: {x: 1.0737548, y: 1.2721276}
-      lineEnd: {x: 0.32800558, y: 0.9427954}
-      bezierStartHandle: {x: 1.6764302, y: 1.3120006}
-      bezierEndHandle: {x: 2.0159562, y: 1.1999811}
-      floorNum: 1
-    - <CurLineType>k__BackingField: 1
-      lineStart: {x: 0.32800558, y: 0.9427954}
-      lineEnd: {x: 0.5765283, y: -0.44977835}
-      bezierStartHandle: {x: 0.9175781, y: 0.76223737}
-      bezierEndHandle: {x: 0.487155, y: -0.0088832}
+    - <CurLineType>k__BackingField: 2
+      <CurDoorType>k__BackingField: 0
+      lineStart: {x: 0.7, y: -0.21064776}
+      lineEnd: {x: 0.7, y: -0.5}
+      bezierStartHandle: {x: 0.6, y: 0.38935223}
+      bezierEndHandle: {x: 0.4, y: 0.18935224}
       floorNum: 1
     - <CurLineType>k__BackingField: 0
-      lineStart: {x: 0.5765283, y: -0.44977835}
-      lineEnd: {x: -0.43504107, y: -0.47737327}
-      bezierStartHandle: {x: 0.301437, y: 0.9554933}
-      bezierEndHandle: {x: 0.10143698, y: 0.7554932}
-      floorNum: 1
-    - <CurLineType>k__BackingField: 2
-      lineStart: {x: -0.43504107, y: -0.47737327}
-      lineEnd: {x: -0.9457143, y: -0.3522214}
+      <CurDoorType>k__BackingField: 0
+      lineStart: {x: 0.7, y: -0.5}
+      lineEnd: {x: -0.5017649, y: -0.5019875}
       bezierStartHandle: {x: 0.6, y: -0.9}
       bezierEndHandle: {x: 0.4, y: -1.1}
       floorNum: 1
     - <CurLineType>k__BackingField: 0
-      lineStart: {x: -0.9457143, y: -0.3522214}
-      lineEnd: {x: -1.2508912, y: 0.01636935}
-      bezierStartHandle: {x: -0.32774663, y: 1.1268767}
-      bezierEndHandle: {x: -0.5277466, y: 0.92687666}
-      floorNum: 1
-    - <CurLineType>k__BackingField: 0
-      lineStart: {x: -1.2508912, y: 0.01636935}
-      lineEnd: {x: -1.4698032, y: 0.36174428}
-      bezierStartHandle: {x: -1.9312778, y: 0.7435042}
-      bezierEndHandle: {x: -2.1007829, y: 1.5395491}
-      floorNum: 1
-    - <CurLineType>k__BackingField: 0
-      lineStart: {x: -1.4698032, y: 0.36174428}
-      lineEnd: {x: -1.3666828, y: 0.85962975}
-      bezierStartHandle: {x: -1.5570608, y: 1.1077042}
-      bezierEndHandle: {x: -1.7570609, y: 0.9077041}
-      floorNum: 1
-    - <CurLineType>k__BackingField: 0
-      lineStart: {x: -1.3666828, y: 0.85962975}
-      lineEnd: {x: -0.66878664, y: 0.60938305}
-      bezierStartHandle: {x: -2.010498, y: 1.0994431}
-      bezierEndHandle: {x: -2.2104979, y: 0.8994431}
+      <CurDoorType>k__BackingField: 0
+      lineStart: {x: -0.5017649, y: -0.5019875}
+      lineEnd: {x: -0.5, y: 0.5}
+      bezierStartHandle: {x: 0.12935269, y: 0.15887275}
+      bezierEndHandle: {x: -0.070647314, y: -0.041127242}
       floorNum: 1
     points: []
     doorways:
@@ -1061,105 +920,45 @@ MonoBehaviour:
       height: 0.12515187
       direction: {x: 0, y: 1, z: 0, w: -0.00000004371139}
   - floorNum: 2
-    gridWidth: 20
-    gridHeight: 30
+    gridWidth: 10
+    gridHeight: 10
     serializable:
-      HorizontalSize: 20
-      VerticalSizes: 1e0000001e0000001e0000001e0000001e0000001e0000001e0000001e0000001e0000001e0000001e0000001e0000001e0000001e0000001e0000001e0000001e0000001e0000001e0000001e000000
+      HorizontalSize: 10
+      VerticalSizes: 0a0000000a0000000a0000000a0000000a0000000a0000000a0000000a0000000a0000000a000000
       Array:
       - Index0: 0
         Index1: 0
-        Element: 1
+        Element: 2
       - Index0: 0
         Index1: 1
-        Element: 1
+        Element: 2
       - Index0: 0
         Index1: 2
-        Element: 1
+        Element: 2
       - Index0: 0
         Index1: 3
-        Element: 1
+        Element: 2
       - Index0: 0
         Index1: 4
-        Element: 1
+        Element: 2
       - Index0: 0
         Index1: 5
-        Element: 1
+        Element: 2
       - Index0: 0
         Index1: 6
-        Element: 1
+        Element: 2
       - Index0: 0
         Index1: 7
-        Element: 1
+        Element: 2
       - Index0: 0
         Index1: 8
-        Element: 1
+        Element: 2
       - Index0: 0
         Index1: 9
-        Element: 1
-      - Index0: 0
-        Index1: 10
-        Element: 1
-      - Index0: 0
-        Index1: 11
-        Element: 1
-      - Index0: 0
-        Index1: 12
-        Element: 1
-      - Index0: 0
-        Index1: 13
-        Element: 1
-      - Index0: 0
-        Index1: 14
-        Element: 1
-      - Index0: 0
-        Index1: 15
-        Element: 1
-      - Index0: 0
-        Index1: 16
-        Element: 1
-      - Index0: 0
-        Index1: 17
-        Element: 1
-      - Index0: 0
-        Index1: 18
-        Element: 1
-      - Index0: 0
-        Index1: 19
-        Element: 1
-      - Index0: 0
-        Index1: 20
-        Element: 1
-      - Index0: 0
-        Index1: 21
-        Element: 1
-      - Index0: 0
-        Index1: 22
-        Element: 1
-      - Index0: 0
-        Index1: 23
-        Element: 1
-      - Index0: 0
-        Index1: 24
-        Element: 1
-      - Index0: 0
-        Index1: 25
-        Element: 1
-      - Index0: 0
-        Index1: 26
-        Element: 1
-      - Index0: 0
-        Index1: 27
-        Element: 1
-      - Index0: 0
-        Index1: 28
-        Element: 1
-      - Index0: 0
-        Index1: 29
-        Element: 1
+        Element: 2
       - Index0: 1
         Index1: 0
-        Element: 1
+        Element: 2
       - Index0: 1
         Index1: 1
         Element: 2
@@ -1187,69 +986,9 @@ MonoBehaviour:
       - Index0: 1
         Index1: 9
         Element: 2
-      - Index0: 1
-        Index1: 10
-        Element: 2
-      - Index0: 1
-        Index1: 11
-        Element: 2
-      - Index0: 1
-        Index1: 12
-        Element: 2
-      - Index0: 1
-        Index1: 13
-        Element: 2
-      - Index0: 1
-        Index1: 14
-        Element: 2
-      - Index0: 1
-        Index1: 15
-        Element: 2
-      - Index0: 1
-        Index1: 16
-        Element: 2
-      - Index0: 1
-        Index1: 17
-        Element: 2
-      - Index0: 1
-        Index1: 18
-        Element: 2
-      - Index0: 1
-        Index1: 19
-        Element: 2
-      - Index0: 1
-        Index1: 20
-        Element: 2
-      - Index0: 1
-        Index1: 21
-        Element: 2
-      - Index0: 1
-        Index1: 22
-        Element: 2
-      - Index0: 1
-        Index1: 23
-        Element: 2
-      - Index0: 1
-        Index1: 24
-        Element: 2
-      - Index0: 1
-        Index1: 25
-        Element: 2
-      - Index0: 1
-        Index1: 26
-        Element: 2
-      - Index0: 1
-        Index1: 27
-        Element: 2
-      - Index0: 1
-        Index1: 28
-        Element: 2
-      - Index0: 1
-        Index1: 29
-        Element: 1
       - Index0: 2
         Index1: 0
-        Element: 1
+        Element: 2
       - Index0: 2
         Index1: 1
         Element: 2
@@ -1277,69 +1016,9 @@ MonoBehaviour:
       - Index0: 2
         Index1: 9
         Element: 2
-      - Index0: 2
-        Index1: 10
-        Element: 2
-      - Index0: 2
-        Index1: 11
-        Element: 2
-      - Index0: 2
-        Index1: 12
-        Element: 2
-      - Index0: 2
-        Index1: 13
-        Element: 2
-      - Index0: 2
-        Index1: 14
-        Element: 2
-      - Index0: 2
-        Index1: 15
-        Element: 2
-      - Index0: 2
-        Index1: 16
-        Element: 2
-      - Index0: 2
-        Index1: 17
-        Element: 2
-      - Index0: 2
-        Index1: 18
-        Element: 2
-      - Index0: 2
-        Index1: 19
-        Element: 2
-      - Index0: 2
-        Index1: 20
-        Element: 2
-      - Index0: 2
-        Index1: 21
-        Element: 2
-      - Index0: 2
-        Index1: 22
-        Element: 2
-      - Index0: 2
-        Index1: 23
-        Element: 2
-      - Index0: 2
-        Index1: 24
-        Element: 2
-      - Index0: 2
-        Index1: 25
-        Element: 2
-      - Index0: 2
-        Index1: 26
-        Element: 2
-      - Index0: 2
-        Index1: 27
-        Element: 2
-      - Index0: 2
-        Index1: 28
-        Element: 2
-      - Index0: 2
-        Index1: 29
-        Element: 1
       - Index0: 3
         Index1: 0
-        Element: 1
+        Element: 2
       - Index0: 3
         Index1: 1
         Element: 2
@@ -1367,69 +1046,9 @@ MonoBehaviour:
       - Index0: 3
         Index1: 9
         Element: 2
-      - Index0: 3
-        Index1: 10
-        Element: 2
-      - Index0: 3
-        Index1: 11
-        Element: 2
-      - Index0: 3
-        Index1: 12
-        Element: 2
-      - Index0: 3
-        Index1: 13
-        Element: 2
-      - Index0: 3
-        Index1: 14
-        Element: 2
-      - Index0: 3
-        Index1: 15
-        Element: 2
-      - Index0: 3
-        Index1: 16
-        Element: 2
-      - Index0: 3
-        Index1: 17
-        Element: 2
-      - Index0: 3
-        Index1: 18
-        Element: 2
-      - Index0: 3
-        Index1: 19
-        Element: 2
-      - Index0: 3
-        Index1: 20
-        Element: 2
-      - Index0: 3
-        Index1: 21
-        Element: 2
-      - Index0: 3
-        Index1: 22
-        Element: 2
-      - Index0: 3
-        Index1: 23
-        Element: 2
-      - Index0: 3
-        Index1: 24
-        Element: 2
-      - Index0: 3
-        Index1: 25
-        Element: 2
-      - Index0: 3
-        Index1: 26
-        Element: 2
-      - Index0: 3
-        Index1: 27
-        Element: 2
-      - Index0: 3
-        Index1: 28
-        Element: 2
-      - Index0: 3
-        Index1: 29
-        Element: 1
       - Index0: 4
         Index1: 0
-        Element: 1
+        Element: 2
       - Index0: 4
         Index1: 1
         Element: 2
@@ -1457,69 +1076,9 @@ MonoBehaviour:
       - Index0: 4
         Index1: 9
         Element: 2
-      - Index0: 4
-        Index1: 10
-        Element: 2
-      - Index0: 4
-        Index1: 11
-        Element: 2
-      - Index0: 4
-        Index1: 12
-        Element: 2
-      - Index0: 4
-        Index1: 13
-        Element: 2
-      - Index0: 4
-        Index1: 14
-        Element: 2
-      - Index0: 4
-        Index1: 15
-        Element: 2
-      - Index0: 4
-        Index1: 16
-        Element: 2
-      - Index0: 4
-        Index1: 17
-        Element: 2
-      - Index0: 4
-        Index1: 18
-        Element: 2
-      - Index0: 4
-        Index1: 19
-        Element: 2
-      - Index0: 4
-        Index1: 20
-        Element: 2
-      - Index0: 4
-        Index1: 21
-        Element: 2
-      - Index0: 4
-        Index1: 22
-        Element: 2
-      - Index0: 4
-        Index1: 23
-        Element: 2
-      - Index0: 4
-        Index1: 24
-        Element: 2
-      - Index0: 4
-        Index1: 25
-        Element: 2
-      - Index0: 4
-        Index1: 26
-        Element: 2
-      - Index0: 4
-        Index1: 27
-        Element: 2
-      - Index0: 4
-        Index1: 28
-        Element: 2
-      - Index0: 4
-        Index1: 29
-        Element: 1
       - Index0: 5
         Index1: 0
-        Element: 1
+        Element: 2
       - Index0: 5
         Index1: 1
         Element: 2
@@ -1547,69 +1106,9 @@ MonoBehaviour:
       - Index0: 5
         Index1: 9
         Element: 2
-      - Index0: 5
-        Index1: 10
-        Element: 2
-      - Index0: 5
-        Index1: 11
-        Element: 2
-      - Index0: 5
-        Index1: 12
-        Element: 2
-      - Index0: 5
-        Index1: 13
-        Element: 2
-      - Index0: 5
-        Index1: 14
-        Element: 2
-      - Index0: 5
-        Index1: 15
-        Element: 2
-      - Index0: 5
-        Index1: 16
-        Element: 2
-      - Index0: 5
-        Index1: 17
-        Element: 2
-      - Index0: 5
-        Index1: 18
-        Element: 2
-      - Index0: 5
-        Index1: 19
-        Element: 2
-      - Index0: 5
-        Index1: 20
-        Element: 2
-      - Index0: 5
-        Index1: 21
-        Element: 2
-      - Index0: 5
-        Index1: 22
-        Element: 2
-      - Index0: 5
-        Index1: 23
-        Element: 2
-      - Index0: 5
-        Index1: 24
-        Element: 2
-      - Index0: 5
-        Index1: 25
-        Element: 2
-      - Index0: 5
-        Index1: 26
-        Element: 2
-      - Index0: 5
-        Index1: 27
-        Element: 2
-      - Index0: 5
-        Index1: 28
-        Element: 1
-      - Index0: 5
-        Index1: 29
-        Element: 1
       - Index0: 6
         Index1: 0
-        Element: 1
+        Element: 2
       - Index0: 6
         Index1: 1
         Element: 2
@@ -1637,69 +1136,9 @@ MonoBehaviour:
       - Index0: 6
         Index1: 9
         Element: 2
-      - Index0: 6
-        Index1: 10
-        Element: 2
-      - Index0: 6
-        Index1: 11
-        Element: 2
-      - Index0: 6
-        Index1: 12
-        Element: 2
-      - Index0: 6
-        Index1: 13
-        Element: 2
-      - Index0: 6
-        Index1: 14
-        Element: 2
-      - Index0: 6
-        Index1: 15
-        Element: 2
-      - Index0: 6
-        Index1: 16
-        Element: 2
-      - Index0: 6
-        Index1: 17
-        Element: 2
-      - Index0: 6
-        Index1: 18
-        Element: 2
-      - Index0: 6
-        Index1: 19
-        Element: 2
-      - Index0: 6
-        Index1: 20
-        Element: 2
-      - Index0: 6
-        Index1: 21
-        Element: 2
-      - Index0: 6
-        Index1: 22
-        Element: 2
-      - Index0: 6
-        Index1: 23
-        Element: 2
-      - Index0: 6
-        Index1: 24
-        Element: 2
-      - Index0: 6
-        Index1: 25
-        Element: 2
-      - Index0: 6
-        Index1: 26
-        Element: 2
-      - Index0: 6
-        Index1: 27
-        Element: 2
-      - Index0: 6
-        Index1: 28
-        Element: 1
-      - Index0: 6
-        Index1: 29
-        Element: 0
       - Index0: 7
         Index1: 0
-        Element: 1
+        Element: 2
       - Index0: 7
         Index1: 1
         Element: 2
@@ -1726,70 +1165,10 @@ MonoBehaviour:
         Element: 2
       - Index0: 7
         Index1: 9
-        Element: 2
-      - Index0: 7
-        Index1: 10
-        Element: 2
-      - Index0: 7
-        Index1: 11
-        Element: 2
-      - Index0: 7
-        Index1: 12
-        Element: 2
-      - Index0: 7
-        Index1: 13
-        Element: 2
-      - Index0: 7
-        Index1: 14
-        Element: 2
-      - Index0: 7
-        Index1: 15
-        Element: 2
-      - Index0: 7
-        Index1: 16
-        Element: 2
-      - Index0: 7
-        Index1: 17
-        Element: 2
-      - Index0: 7
-        Index1: 18
-        Element: 2
-      - Index0: 7
-        Index1: 19
-        Element: 2
-      - Index0: 7
-        Index1: 20
-        Element: 2
-      - Index0: 7
-        Index1: 21
-        Element: 2
-      - Index0: 7
-        Index1: 22
-        Element: 2
-      - Index0: 7
-        Index1: 23
-        Element: 2
-      - Index0: 7
-        Index1: 24
-        Element: 2
-      - Index0: 7
-        Index1: 25
-        Element: 2
-      - Index0: 7
-        Index1: 26
-        Element: 2
-      - Index0: 7
-        Index1: 27
-        Element: 2
-      - Index0: 7
-        Index1: 28
         Element: 1
-      - Index0: 7
-        Index1: 29
-        Element: 0
       - Index0: 8
         Index1: 0
-        Element: 1
+        Element: 2
       - Index0: 8
         Index1: 1
         Element: 2
@@ -1816,70 +1195,10 @@ MonoBehaviour:
         Element: 2
       - Index0: 8
         Index1: 9
-        Element: 2
-      - Index0: 8
-        Index1: 10
-        Element: 2
-      - Index0: 8
-        Index1: 11
-        Element: 2
-      - Index0: 8
-        Index1: 12
-        Element: 2
-      - Index0: 8
-        Index1: 13
-        Element: 2
-      - Index0: 8
-        Index1: 14
-        Element: 2
-      - Index0: 8
-        Index1: 15
-        Element: 2
-      - Index0: 8
-        Index1: 16
-        Element: 2
-      - Index0: 8
-        Index1: 17
-        Element: 2
-      - Index0: 8
-        Index1: 18
-        Element: 2
-      - Index0: 8
-        Index1: 19
-        Element: 2
-      - Index0: 8
-        Index1: 20
-        Element: 2
-      - Index0: 8
-        Index1: 21
-        Element: 2
-      - Index0: 8
-        Index1: 22
-        Element: 2
-      - Index0: 8
-        Index1: 23
-        Element: 2
-      - Index0: 8
-        Index1: 24
-        Element: 2
-      - Index0: 8
-        Index1: 25
-        Element: 2
-      - Index0: 8
-        Index1: 26
-        Element: 2
-      - Index0: 8
-        Index1: 27
-        Element: 2
-      - Index0: 8
-        Index1: 28
         Element: 1
-      - Index0: 8
-        Index1: 29
-        Element: 0
       - Index0: 9
         Index1: 0
-        Element: 1
+        Element: 2
       - Index0: 9
         Index1: 1
         Element: 2
@@ -1900,1013 +1219,94 @@ MonoBehaviour:
         Element: 2
       - Index0: 9
         Index1: 7
-        Element: 2
+        Element: 1
       - Index0: 9
         Index1: 8
-        Element: 2
+        Element: 1
       - Index0: 9
         Index1: 9
-        Element: 2
-      - Index0: 9
-        Index1: 10
-        Element: 2
-      - Index0: 9
-        Index1: 11
-        Element: 2
-      - Index0: 9
-        Index1: 12
-        Element: 2
-      - Index0: 9
-        Index1: 13
-        Element: 2
-      - Index0: 9
-        Index1: 14
-        Element: 2
-      - Index0: 9
-        Index1: 15
-        Element: 2
-      - Index0: 9
-        Index1: 16
-        Element: 2
-      - Index0: 9
-        Index1: 17
-        Element: 2
-      - Index0: 9
-        Index1: 18
-        Element: 2
-      - Index0: 9
-        Index1: 19
-        Element: 2
-      - Index0: 9
-        Index1: 20
-        Element: 2
-      - Index0: 9
-        Index1: 21
-        Element: 2
-      - Index0: 9
-        Index1: 22
-        Element: 2
-      - Index0: 9
-        Index1: 23
-        Element: 2
-      - Index0: 9
-        Index1: 24
-        Element: 2
-      - Index0: 9
-        Index1: 25
-        Element: 2
-      - Index0: 9
-        Index1: 26
-        Element: 2
-      - Index0: 9
-        Index1: 27
-        Element: 2
-      - Index0: 9
-        Index1: 28
         Element: 1
-      - Index0: 9
-        Index1: 29
-        Element: 0
-      - Index0: 10
-        Index1: 0
-        Element: 1
-      - Index0: 10
-        Index1: 1
-        Element: 2
-      - Index0: 10
-        Index1: 2
-        Element: 2
-      - Index0: 10
-        Index1: 3
-        Element: 2
-      - Index0: 10
-        Index1: 4
-        Element: 2
-      - Index0: 10
-        Index1: 5
-        Element: 2
-      - Index0: 10
-        Index1: 6
-        Element: 2
-      - Index0: 10
-        Index1: 7
-        Element: 2
-      - Index0: 10
-        Index1: 8
-        Element: 2
-      - Index0: 10
-        Index1: 9
-        Element: 2
-      - Index0: 10
-        Index1: 10
-        Element: 2
-      - Index0: 10
-        Index1: 11
-        Element: 2
-      - Index0: 10
-        Index1: 12
-        Element: 2
-      - Index0: 10
-        Index1: 13
-        Element: 2
-      - Index0: 10
-        Index1: 14
-        Element: 2
-      - Index0: 10
-        Index1: 15
-        Element: 2
-      - Index0: 10
-        Index1: 16
-        Element: 2
-      - Index0: 10
-        Index1: 17
-        Element: 2
-      - Index0: 10
-        Index1: 18
-        Element: 2
-      - Index0: 10
-        Index1: 19
-        Element: 2
-      - Index0: 10
-        Index1: 20
-        Element: 2
-      - Index0: 10
-        Index1: 21
-        Element: 2
-      - Index0: 10
-        Index1: 22
-        Element: 2
-      - Index0: 10
-        Index1: 23
-        Element: 2
-      - Index0: 10
-        Index1: 24
-        Element: 2
-      - Index0: 10
-        Index1: 25
-        Element: 2
-      - Index0: 10
-        Index1: 26
-        Element: 2
-      - Index0: 10
-        Index1: 27
-        Element: 2
-      - Index0: 10
-        Index1: 28
-        Element: 1
-      - Index0: 10
-        Index1: 29
-        Element: 0
-      - Index0: 11
-        Index1: 0
-        Element: 1
-      - Index0: 11
-        Index1: 1
-        Element: 2
-      - Index0: 11
-        Index1: 2
-        Element: 2
-      - Index0: 11
-        Index1: 3
-        Element: 2
-      - Index0: 11
-        Index1: 4
-        Element: 2
-      - Index0: 11
-        Index1: 5
-        Element: 2
-      - Index0: 11
-        Index1: 6
-        Element: 2
-      - Index0: 11
-        Index1: 7
-        Element: 2
-      - Index0: 11
-        Index1: 8
-        Element: 2
-      - Index0: 11
-        Index1: 9
-        Element: 2
-      - Index0: 11
-        Index1: 10
-        Element: 2
-      - Index0: 11
-        Index1: 11
-        Element: 2
-      - Index0: 11
-        Index1: 12
-        Element: 2
-      - Index0: 11
-        Index1: 13
-        Element: 2
-      - Index0: 11
-        Index1: 14
-        Element: 2
-      - Index0: 11
-        Index1: 15
-        Element: 2
-      - Index0: 11
-        Index1: 16
-        Element: 2
-      - Index0: 11
-        Index1: 17
-        Element: 2
-      - Index0: 11
-        Index1: 18
-        Element: 2
-      - Index0: 11
-        Index1: 19
-        Element: 2
-      - Index0: 11
-        Index1: 20
-        Element: 2
-      - Index0: 11
-        Index1: 21
-        Element: 2
-      - Index0: 11
-        Index1: 22
-        Element: 2
-      - Index0: 11
-        Index1: 23
-        Element: 2
-      - Index0: 11
-        Index1: 24
-        Element: 2
-      - Index0: 11
-        Index1: 25
-        Element: 2
-      - Index0: 11
-        Index1: 26
-        Element: 2
-      - Index0: 11
-        Index1: 27
-        Element: 2
-      - Index0: 11
-        Index1: 28
-        Element: 1
-      - Index0: 11
-        Index1: 29
-        Element: 0
-      - Index0: 12
-        Index1: 0
-        Element: 1
-      - Index0: 12
-        Index1: 1
-        Element: 2
-      - Index0: 12
-        Index1: 2
-        Element: 2
-      - Index0: 12
-        Index1: 3
-        Element: 2
-      - Index0: 12
-        Index1: 4
-        Element: 2
-      - Index0: 12
-        Index1: 5
-        Element: 2
-      - Index0: 12
-        Index1: 6
-        Element: 2
-      - Index0: 12
-        Index1: 7
-        Element: 2
-      - Index0: 12
-        Index1: 8
-        Element: 2
-      - Index0: 12
-        Index1: 9
-        Element: 2
-      - Index0: 12
-        Index1: 10
-        Element: 2
-      - Index0: 12
-        Index1: 11
-        Element: 2
-      - Index0: 12
-        Index1: 12
-        Element: 2
-      - Index0: 12
-        Index1: 13
-        Element: 2
-      - Index0: 12
-        Index1: 14
-        Element: 2
-      - Index0: 12
-        Index1: 15
-        Element: 2
-      - Index0: 12
-        Index1: 16
-        Element: 2
-      - Index0: 12
-        Index1: 17
-        Element: 2
-      - Index0: 12
-        Index1: 18
-        Element: 2
-      - Index0: 12
-        Index1: 19
-        Element: 2
-      - Index0: 12
-        Index1: 20
-        Element: 2
-      - Index0: 12
-        Index1: 21
-        Element: 2
-      - Index0: 12
-        Index1: 22
-        Element: 2
-      - Index0: 12
-        Index1: 23
-        Element: 2
-      - Index0: 12
-        Index1: 24
-        Element: 2
-      - Index0: 12
-        Index1: 25
-        Element: 2
-      - Index0: 12
-        Index1: 26
-        Element: 2
-      - Index0: 12
-        Index1: 27
-        Element: 2
-      - Index0: 12
-        Index1: 28
-        Element: 1
-      - Index0: 12
-        Index1: 29
-        Element: 0
-      - Index0: 13
-        Index1: 0
-        Element: 1
-      - Index0: 13
-        Index1: 1
-        Element: 2
-      - Index0: 13
-        Index1: 2
-        Element: 2
-      - Index0: 13
-        Index1: 3
-        Element: 2
-      - Index0: 13
-        Index1: 4
-        Element: 2
-      - Index0: 13
-        Index1: 5
-        Element: 2
-      - Index0: 13
-        Index1: 6
-        Element: 2
-      - Index0: 13
-        Index1: 7
-        Element: 2
-      - Index0: 13
-        Index1: 8
-        Element: 2
-      - Index0: 13
-        Index1: 9
-        Element: 2
-      - Index0: 13
-        Index1: 10
-        Element: 2
-      - Index0: 13
-        Index1: 11
-        Element: 2
-      - Index0: 13
-        Index1: 12
-        Element: 2
-      - Index0: 13
-        Index1: 13
-        Element: 2
-      - Index0: 13
-        Index1: 14
-        Element: 2
-      - Index0: 13
-        Index1: 15
-        Element: 2
-      - Index0: 13
-        Index1: 16
-        Element: 2
-      - Index0: 13
-        Index1: 17
-        Element: 2
-      - Index0: 13
-        Index1: 18
-        Element: 2
-      - Index0: 13
-        Index1: 19
-        Element: 2
-      - Index0: 13
-        Index1: 20
-        Element: 2
-      - Index0: 13
-        Index1: 21
-        Element: 2
-      - Index0: 13
-        Index1: 22
-        Element: 2
-      - Index0: 13
-        Index1: 23
-        Element: 2
-      - Index0: 13
-        Index1: 24
-        Element: 2
-      - Index0: 13
-        Index1: 25
-        Element: 2
-      - Index0: 13
-        Index1: 26
-        Element: 2
-      - Index0: 13
-        Index1: 27
-        Element: 2
-      - Index0: 13
-        Index1: 28
-        Element: 1
-      - Index0: 13
-        Index1: 29
-        Element: 0
-      - Index0: 14
-        Index1: 0
-        Element: 1
-      - Index0: 14
-        Index1: 1
-        Element: 2
-      - Index0: 14
-        Index1: 2
-        Element: 2
-      - Index0: 14
-        Index1: 3
-        Element: 2
-      - Index0: 14
-        Index1: 4
-        Element: 2
-      - Index0: 14
-        Index1: 5
-        Element: 2
-      - Index0: 14
-        Index1: 6
-        Element: 2
-      - Index0: 14
-        Index1: 7
-        Element: 2
-      - Index0: 14
-        Index1: 8
-        Element: 2
-      - Index0: 14
-        Index1: 9
-        Element: 2
-      - Index0: 14
-        Index1: 10
-        Element: 2
-      - Index0: 14
-        Index1: 11
-        Element: 2
-      - Index0: 14
-        Index1: 12
-        Element: 2
-      - Index0: 14
-        Index1: 13
-        Element: 2
-      - Index0: 14
-        Index1: 14
-        Element: 2
-      - Index0: 14
-        Index1: 15
-        Element: 2
-      - Index0: 14
-        Index1: 16
-        Element: 2
-      - Index0: 14
-        Index1: 17
-        Element: 2
-      - Index0: 14
-        Index1: 18
-        Element: 2
-      - Index0: 14
-        Index1: 19
-        Element: 2
-      - Index0: 14
-        Index1: 20
-        Element: 2
-      - Index0: 14
-        Index1: 21
-        Element: 2
-      - Index0: 14
-        Index1: 22
-        Element: 2
-      - Index0: 14
-        Index1: 23
-        Element: 2
-      - Index0: 14
-        Index1: 24
-        Element: 2
-      - Index0: 14
-        Index1: 25
-        Element: 2
-      - Index0: 14
-        Index1: 26
-        Element: 2
-      - Index0: 14
-        Index1: 27
-        Element: 2
-      - Index0: 14
-        Index1: 28
-        Element: 1
-      - Index0: 14
-        Index1: 29
-        Element: 0
-      - Index0: 15
-        Index1: 0
-        Element: 1
-      - Index0: 15
-        Index1: 1
-        Element: 2
-      - Index0: 15
-        Index1: 2
-        Element: 2
-      - Index0: 15
-        Index1: 3
-        Element: 2
-      - Index0: 15
-        Index1: 4
-        Element: 2
-      - Index0: 15
-        Index1: 5
-        Element: 2
-      - Index0: 15
-        Index1: 6
-        Element: 2
-      - Index0: 15
-        Index1: 7
-        Element: 2
-      - Index0: 15
-        Index1: 8
-        Element: 2
-      - Index0: 15
-        Index1: 9
-        Element: 2
-      - Index0: 15
-        Index1: 10
-        Element: 2
-      - Index0: 15
-        Index1: 11
-        Element: 2
-      - Index0: 15
-        Index1: 12
-        Element: 2
-      - Index0: 15
-        Index1: 13
-        Element: 2
-      - Index0: 15
-        Index1: 14
-        Element: 2
-      - Index0: 15
-        Index1: 15
-        Element: 2
-      - Index0: 15
-        Index1: 16
-        Element: 2
-      - Index0: 15
-        Index1: 17
-        Element: 2
-      - Index0: 15
-        Index1: 18
-        Element: 2
-      - Index0: 15
-        Index1: 19
-        Element: 2
-      - Index0: 15
-        Index1: 20
-        Element: 2
-      - Index0: 15
-        Index1: 21
-        Element: 2
-      - Index0: 15
-        Index1: 22
-        Element: 2
-      - Index0: 15
-        Index1: 23
-        Element: 2
-      - Index0: 15
-        Index1: 24
-        Element: 2
-      - Index0: 15
-        Index1: 25
-        Element: 2
-      - Index0: 15
-        Index1: 26
-        Element: 2
-      - Index0: 15
-        Index1: 27
-        Element: 2
-      - Index0: 15
-        Index1: 28
-        Element: 1
-      - Index0: 15
-        Index1: 29
-        Element: 0
-      - Index0: 16
-        Index1: 0
-        Element: 1
-      - Index0: 16
-        Index1: 1
-        Element: 2
-      - Index0: 16
-        Index1: 2
-        Element: 2
-      - Index0: 16
-        Index1: 3
-        Element: 2
-      - Index0: 16
-        Index1: 4
-        Element: 2
-      - Index0: 16
-        Index1: 5
-        Element: 2
-      - Index0: 16
-        Index1: 6
-        Element: 2
-      - Index0: 16
-        Index1: 7
-        Element: 2
-      - Index0: 16
-        Index1: 8
-        Element: 2
-      - Index0: 16
-        Index1: 9
-        Element: 2
-      - Index0: 16
-        Index1: 10
-        Element: 2
-      - Index0: 16
-        Index1: 11
-        Element: 2
-      - Index0: 16
-        Index1: 12
-        Element: 2
-      - Index0: 16
-        Index1: 13
-        Element: 2
-      - Index0: 16
-        Index1: 14
-        Element: 2
-      - Index0: 16
-        Index1: 15
-        Element: 2
-      - Index0: 16
-        Index1: 16
-        Element: 2
-      - Index0: 16
-        Index1: 17
-        Element: 2
-      - Index0: 16
-        Index1: 18
-        Element: 2
-      - Index0: 16
-        Index1: 19
-        Element: 2
-      - Index0: 16
-        Index1: 20
-        Element: 2
-      - Index0: 16
-        Index1: 21
-        Element: 2
-      - Index0: 16
-        Index1: 22
-        Element: 2
-      - Index0: 16
-        Index1: 23
-        Element: 2
-      - Index0: 16
-        Index1: 24
-        Element: 2
-      - Index0: 16
-        Index1: 25
-        Element: 2
-      - Index0: 16
-        Index1: 26
-        Element: 2
-      - Index0: 16
-        Index1: 27
-        Element: 2
-      - Index0: 16
-        Index1: 28
-        Element: 1
-      - Index0: 16
-        Index1: 29
-        Element: 0
-      - Index0: 17
-        Index1: 0
-        Element: 1
-      - Index0: 17
-        Index1: 1
-        Element: 2
-      - Index0: 17
-        Index1: 2
-        Element: 2
-      - Index0: 17
-        Index1: 3
-        Element: 2
-      - Index0: 17
-        Index1: 4
-        Element: 2
-      - Index0: 17
-        Index1: 5
-        Element: 2
-      - Index0: 17
-        Index1: 6
-        Element: 2
-      - Index0: 17
-        Index1: 7
-        Element: 2
-      - Index0: 17
-        Index1: 8
-        Element: 2
-      - Index0: 17
-        Index1: 9
-        Element: 2
-      - Index0: 17
-        Index1: 10
-        Element: 2
-      - Index0: 17
-        Index1: 11
-        Element: 2
-      - Index0: 17
-        Index1: 12
-        Element: 2
-      - Index0: 17
-        Index1: 13
-        Element: 2
-      - Index0: 17
-        Index1: 14
-        Element: 2
-      - Index0: 17
-        Index1: 15
-        Element: 2
-      - Index0: 17
-        Index1: 16
-        Element: 2
-      - Index0: 17
-        Index1: 17
-        Element: 2
-      - Index0: 17
-        Index1: 18
-        Element: 2
-      - Index0: 17
-        Index1: 19
-        Element: 2
-      - Index0: 17
-        Index1: 20
-        Element: 2
-      - Index0: 17
-        Index1: 21
-        Element: 2
-      - Index0: 17
-        Index1: 22
-        Element: 2
-      - Index0: 17
-        Index1: 23
-        Element: 2
-      - Index0: 17
-        Index1: 24
-        Element: 2
-      - Index0: 17
-        Index1: 25
-        Element: 2
-      - Index0: 17
-        Index1: 26
-        Element: 2
-      - Index0: 17
-        Index1: 27
-        Element: 2
-      - Index0: 17
-        Index1: 28
-        Element: 1
-      - Index0: 17
-        Index1: 29
-        Element: 0
-      - Index0: 18
-        Index1: 0
-        Element: 1
-      - Index0: 18
-        Index1: 1
-        Element: 2
-      - Index0: 18
-        Index1: 2
-        Element: 2
-      - Index0: 18
-        Index1: 3
-        Element: 2
-      - Index0: 18
-        Index1: 4
-        Element: 2
-      - Index0: 18
-        Index1: 5
-        Element: 2
-      - Index0: 18
-        Index1: 6
-        Element: 2
-      - Index0: 18
-        Index1: 7
-        Element: 2
-      - Index0: 18
-        Index1: 8
-        Element: 2
-      - Index0: 18
-        Index1: 9
-        Element: 2
-      - Index0: 18
-        Index1: 10
-        Element: 2
-      - Index0: 18
-        Index1: 11
-        Element: 2
-      - Index0: 18
-        Index1: 12
-        Element: 2
-      - Index0: 18
-        Index1: 13
-        Element: 2
-      - Index0: 18
-        Index1: 14
-        Element: 2
-      - Index0: 18
-        Index1: 15
-        Element: 2
-      - Index0: 18
-        Index1: 16
-        Element: 2
-      - Index0: 18
-        Index1: 17
-        Element: 2
-      - Index0: 18
-        Index1: 18
-        Element: 2
-      - Index0: 18
-        Index1: 19
-        Element: 2
-      - Index0: 18
-        Index1: 20
-        Element: 2
-      - Index0: 18
-        Index1: 21
-        Element: 2
-      - Index0: 18
-        Index1: 22
-        Element: 2
-      - Index0: 18
-        Index1: 23
-        Element: 2
-      - Index0: 18
-        Index1: 24
-        Element: 2
-      - Index0: 18
-        Index1: 25
-        Element: 2
-      - Index0: 18
-        Index1: 26
-        Element: 2
-      - Index0: 18
-        Index1: 27
-        Element: 2
-      - Index0: 18
-        Index1: 28
-        Element: 1
-      - Index0: 18
-        Index1: 29
-        Element: 0
-      - Index0: 19
-        Index1: 0
-        Element: 1
-      - Index0: 19
-        Index1: 1
-        Element: 1
-      - Index0: 19
-        Index1: 2
-        Element: 1
-      - Index0: 19
-        Index1: 3
-        Element: 1
-      - Index0: 19
-        Index1: 4
-        Element: 1
-      - Index0: 19
-        Index1: 5
-        Element: 1
-      - Index0: 19
-        Index1: 6
-        Element: 1
-      - Index0: 19
-        Index1: 7
-        Element: 1
-      - Index0: 19
-        Index1: 8
-        Element: 1
-      - Index0: 19
-        Index1: 9
-        Element: 1
-      - Index0: 19
-        Index1: 10
-        Element: 1
-      - Index0: 19
-        Index1: 11
-        Element: 1
-      - Index0: 19
-        Index1: 12
-        Element: 1
-      - Index0: 19
-        Index1: 13
-        Element: 1
-      - Index0: 19
-        Index1: 14
-        Element: 1
-      - Index0: 19
-        Index1: 15
-        Element: 1
-      - Index0: 19
-        Index1: 16
-        Element: 1
-      - Index0: 19
-        Index1: 17
-        Element: 1
-      - Index0: 19
-        Index1: 18
-        Element: 1
-      - Index0: 19
-        Index1: 19
-        Element: 1
-      - Index0: 19
-        Index1: 20
-        Element: 1
-      - Index0: 19
-        Index1: 21
-        Element: 1
-      - Index0: 19
-        Index1: 22
-        Element: 1
-      - Index0: 19
-        Index1: 23
-        Element: 1
-      - Index0: 19
-        Index1: 24
-        Element: 1
-      - Index0: 19
-        Index1: 25
-        Element: 1
-      - Index0: 19
-        Index1: 26
-        Element: 1
-      - Index0: 19
-        Index1: 27
-        Element: 1
-      - Index0: 19
-        Index1: 28
-        Element: 1
-      - Index0: 19
-        Index1: 29
-        Element: 0
-    partialTileData: []
+    partialTileData:
+    - xIndex: 7
+      yIndex: 9
+      lines: []
+    - xIndex: 8
+      yIndex: 9
+      lines: []
+    - xIndex: 9
+      yIndex: 7
+      lines: []
+    - xIndex: 9
+      yIndex: 8
+      lines: []
+    - xIndex: 9
+      yIndex: 9
+      lines: []
     roomLines:
-    - <CurLineType>k__BackingField: 0
-      lineStart: {x: -0.45552307, y: 2.4364607}
-      lineEnd: {x: -0.12873971, y: 2.449169}
-      bezierStartHandle: {x: 0.1, y: 0.1}
-      bezierEndHandle: {x: -0.1, y: -0.1}
+    - <CurLineType>k__BackingField: 1
+      <CurDoorType>k__BackingField: 0
+      lineStart: {x: 0.1949171, y: 1.7958705}
+      lineEnd: {x: 0.54693115, y: 1.2549506}
+      bezierStartHandle: {x: 1.0399233, y: 1.8673732}
+      bezierEndHandle: {x: 0.9132027, y: 1.488246}
       floorNum: 2
     - <CurLineType>k__BackingField: 1
-      lineStart: {x: -0.12873971, y: 2.449169}
-      lineEnd: {x: 0.15121096, y: 2.3426175}
-      bezierStartHandle: {x: -0.028739713, y: 2.5491688}
-      bezierEndHandle: {x: 0.025415123, y: 2.374585}
+      <CurDoorType>k__BackingField: 0
+      lineStart: {x: 0.54693115, y: 1.2549506}
+      lineEnd: {x: 1.7017479, y: 0.13089655}
+      bezierStartHandle: {x: 0.9841386, y: 1.071377}
+      bezierEndHandle: {x: 2.1886358, y: 0.07863359}
+      floorNum: 2
+    - <CurLineType>k__BackingField: 1
+      <CurDoorType>k__BackingField: 0
+      lineStart: {x: 1.7017479, y: 0.13089655}
+      lineEnd: {x: 0.84548795, y: -0.45806718}
+      bezierStartHandle: {x: 1.0704156, y: 0.3179256}
+      bezierEndHandle: {x: 1.4902349, y: -0.7203307}
       floorNum: 2
     - <CurLineType>k__BackingField: 0
-      lineStart: {x: 0.15121096, y: 2.3426175}
-      lineEnd: {x: 1.4499326, y: 2.3518784}
-      bezierStartHandle: {x: 0.016117781, y: 1.7627532}
-      bezierEndHandle: {x: -0.18388222, y: 1.5627532}
-      floorNum: 2
-    - <CurLineType>k__BackingField: 0
-      lineStart: {x: 1.4499326, y: 2.3518784}
-      lineEnd: {x: 1.4455141, y: -0.46099305}
-      bezierStartHandle: {x: -0.025828443, y: 1.5242131}
-      bezierEndHandle: {x: -0.22582844, y: 1.324213}
-      floorNum: 2
-    - <CurLineType>k__BackingField: 0
-      lineStart: {x: 1.4455141, y: -0.46099305}
-      lineEnd: {x: -0.4584213, y: -0.46717972}
-      bezierStartHandle: {x: -0.055662476, y: 1.3545526}
-      bezierEndHandle: {x: -0.25566247, y: 1.1545526}
-      floorNum: 2
-    - <CurLineType>k__BackingField: 0
-      lineStart: {x: -0.4584213, y: -0.46717972}
-      lineEnd: {x: -0.45552307, y: 2.4364607}
+      <CurDoorType>k__BackingField: 0
+      lineStart: {x: 0.84548795, y: -0.45806718}
+      lineEnd: {x: -0.5, y: -0.5}
       bezierStartHandle: {x: 0.6, y: -0.9}
       bezierEndHandle: {x: 0.4, y: -1.1}
       floorNum: 2
+    - <CurLineType>k__BackingField: 2
+      <CurDoorType>k__BackingField: 0
+      lineStart: {x: -0.5, y: -0.5}
+      lineEnd: {x: -0.50000006, y: 0.5}
+      bezierStartHandle: {x: 0.006825663, y: 0.19317433}
+      bezierEndHandle: {x: -0.19317433, y: -0.006825663}
+      floorNum: 2
+    - <CurLineType>k__BackingField: 0
+      <CurDoorType>k__BackingField: 0
+      lineStart: {x: -0.50000006, y: 0.5}
+      lineEnd: {x: -1.3324312, y: 2.0216203}
+      bezierStartHandle: {x: -0.16719228, y: 0.96578205}
+      bezierEndHandle: {x: -0.36719227, y: 0.765782}
+      floorNum: 2
+    - <CurLineType>k__BackingField: 0
+      <CurDoorType>k__BackingField: 0
+      lineStart: {x: -1.3324312, y: 2.0216203}
+      lineEnd: {x: 0.055142254, y: 2.0270495}
+      bezierStartHandle: {x: -0.32782066, y: 1.0653735}
+      bezierEndHandle: {x: -0.52782065, y: 0.86537355}
+      floorNum: 2
+    - <CurLineType>k__BackingField: 0
+      <CurDoorType>k__BackingField: 0
+      lineStart: {x: 0.055142254, y: 2.0270495}
+      lineEnd: {x: 0.1949171, y: 1.7958705}
+      bezierStartHandle: {x: -0.4518747, y: 1.1422887}
+      bezierEndHandle: {x: -0.6518747, y: 0.94228864}
+      floorNum: 2
     points: []
-    doorways: []
+    doorways:
+    - leftEdge: {x: 0.8507898, y: -0.67578435, z: 0}
+      rightEdge: {x: 0.14368302, y: 0.03132242, z: 0}
+      doorType: 0
+      width: 0.70710677
+      height: 0.70710677
+      direction: {x: 0, y: 1, z: 0, w: -0.00000004371139}
   - floorNum: 3
     gridWidth: 10
     gridHeight: 10
@@ -3217,18 +1617,21 @@ MonoBehaviour:
     partialTileData: []
     roomLines:
     - <CurLineType>k__BackingField: 0
+      <CurDoorType>k__BackingField: 0
       lineStart: {x: 0, y: 0}
       lineEnd: {x: 1, y: 0}
       bezierStartHandle: {x: 0.1, y: 0.1}
       bezierEndHandle: {x: -0.1, y: -0.1}
       floorNum: 3
     - <CurLineType>k__BackingField: 0
+      <CurDoorType>k__BackingField: 0
       lineStart: {x: 1, y: 0}
       lineEnd: {x: 0.5, y: -1}
       bezierStartHandle: {x: 1.1, y: 0.1}
       bezierEndHandle: {x: 0.9, y: -0.1}
       floorNum: 3
     - <CurLineType>k__BackingField: 0
+      <CurDoorType>k__BackingField: 0
       lineStart: {x: 0.5, y: -1}
       lineEnd: {x: 0, y: 0}
       bezierStartHandle: {x: 0.6, y: -0.9}
@@ -3236,7 +1639,7 @@ MonoBehaviour:
       floorNum: 3
     points: []
     doorways: []
-  curInspectedFloor: 1
-  curPaintState: 0
+  curInspectedFloor: 2
+  curPaintState: 1
   curInspectorMode: 2
   curInspectorLineType: 0

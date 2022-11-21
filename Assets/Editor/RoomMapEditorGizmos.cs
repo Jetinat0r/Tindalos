@@ -2,10 +2,15 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
+using JetEngine;
 
 [CustomEditor(typeof(Room))]
 public class RoomMapEditorGizmos : Editor
 {
+    //TODO: LIMIT SIZE OF DOORS (use enum extension?)
+    //TODO: LIMIT ANGLE OF DOORS
+    //TODO: LOCK DOOR START POS TO A GRID LINE, X OR Y (use mod?)
+
     private int curPointIndex = -1;
 
     private void OnSceneGUI()
@@ -60,6 +65,14 @@ public class RoomMapEditorGizmos : Editor
         }
 
         DrawModeButtons(room);
+
+        if (room.curInspectorMode == Room.RoomInspectorMode.Lines &&
+            room.curInspectorLineType == LineType.Edit  &&
+            curPointIndex != -1 &&
+            room.CurFloor.roomLines[curPointIndex].CurLineType == LineType.Door)
+        {
+            DrawDoorsButtons(room);
+        }
     }
 
 
@@ -537,6 +550,54 @@ public class RoomMapEditorGizmos : Editor
         Handles.EndGUI();
     }
 
+    //Preconditions: The current point being edited is of type door
+    private void DrawDoorsButtons(Room room)
+    {
+        Handles.BeginGUI();
+
+        GUILayout.BeginArea(new Rect(155, 10, 125, 65));
+
+        Rect rect = EditorGUILayout.BeginVertical();
+        GUI.color = Color.yellow;
+        GUI.Box(rect, GUIContent.none);
+
+        GUI.color = Color.white;
+
+        GUILayout.BeginHorizontal();
+        GUILayout.FlexibleSpace();
+        GUILayout.Label("Doors");
+        GUILayout.FlexibleSpace();
+        GUILayout.EndHorizontal();
+
+        GUILayout.BeginHorizontal();
+        GUILayout.FlexibleSpace();
+        GUILayout.Label($"Door Type [{room.CurFloor.roomLines[curPointIndex].CurDoorType}]");
+        GUILayout.FlexibleSpace();
+        GUILayout.EndHorizontal();
+
+        GUILayout.BeginHorizontal();
+        GUILayout.BeginVertical();
+        GUI.backgroundColor = new Color(0.8f, 0.8f, 0.8f, 1f);
+
+
+        if (GUILayout.Button("Normal"))
+        {
+            room.CurFloor.roomLines[curPointIndex].SetDoorType(DoorType.Normal);
+
+            UpdatePrefab();
+        }
+
+        GUILayout.EndVertical();
+        GUILayout.EndHorizontal();
+
+        EditorGUILayout.EndVertical();
+
+
+        GUILayout.EndArea();
+
+        Handles.EndGUI();
+    }
+
     private void DrawLines(Room room)
     {
         for(int i = 0; i < room.CurFloor.roomLines.Count; i++)
@@ -821,7 +882,71 @@ public class RoomMapEditorGizmos : Editor
         //Allows editing Lines points in inspector
         for (int i = 0; i < numLines; i++)
         {
-            room.CurFloor.roomLines[i].lineEnd = room.CurFloor.roomLines[(i + 1) % numLines].lineStart;
+            //Cache the line and it's next set
+            RoomLine curLine = room.CurFloor.roomLines[i];
+            RoomLine endPointLine = room.CurFloor.roomLines[(i + 1) % numLines];
+
+            //If we're dealing with a door, limit it
+            if (curLine.CurLineType == LineType.Door)
+            {
+                //Force line start on to a grid line
+                
+                //How far a given point can be from a grid line
+                float give = 0.00001f;
+
+
+                int closestXLine = (int)Mathf.Clamp(
+                    JetEngine.MathUtils.GetClosestEvenDivisor(curLine.lineStart.x - room.gridOffset.x, Floor.GridSize) / Floor.GridSize,
+                    0f,
+                    room.CurFloor.gridWidth);
+                float distToX = Mathf.Abs(curLine.lineStart.x - ((closestXLine * Floor.GridSize) + room.gridOffset.x));
+                //Debug.Log($"pos: {curLine.lineStart.x}; distToX: {distToX}; closest line? {closestXLine}; re point: {((closestXLine * Floor.GridSize) + room.gridOffset.x)}");
+                
+                //TODO: Allow for "Internal Offsets" i.e. doors shifted away from the grid.
+                //      This is out of scope for now
+
+
+                //If the point is not on an X line, try again!
+                if(!(distToX > -give && distToX < give))
+                {
+                    int closestYLine = (int)Mathf.Clamp(
+                    JetEngine.MathUtils.GetClosestEvenDivisor(curLine.lineStart.y - room.gridOffset.y, Floor.GridSize) / Floor.GridSize,
+                    0f,
+                    room.CurFloor.gridWidth);
+                    float distToY = Mathf.Abs(curLine.lineStart.y - ((closestYLine * Floor.GridSize) + room.gridOffset.y));
+
+                    //If the point is not on a Y line, snap to closest!
+                    if (!(distToY > -give && distToY < give))
+                    {
+                        //Allows snapping to closest line, X or Y
+                        //NOTE: Make something that allows the user to choose?
+                        /*
+                        if(distToX < distToY)
+                        {
+                            curLine.lineStart.x = ((closestXLine * Floor.GridSize) + room.gridOffset.x);
+                        }
+                        else
+                        {
+                            curLine.lineStart.y = ((closestYLine * Floor.GridSize) + room.gridOffset.y);
+                        }
+                        */
+
+                        //Snaps to both X and Y
+                        curLine.lineStart.x = ((closestXLine * Floor.GridSize) + room.gridOffset.x);
+                        curLine.lineStart.y = ((closestYLine * Floor.GridSize) + room.gridOffset.y);
+
+                        //Notify previous point about this
+                        int prevIndex = (i == 0) ? room.CurFloor.roomLines.Count - 1 : i - 1;
+                        room.CurFloor.roomLines[prevIndex].lineEnd = curLine.lineStart;
+                    }
+                }
+
+
+                //Clamp end point distance and angle
+                endPointLine.lineStart = curLine.CurDoorType.FixEndPoint(curLine.lineStart, endPointLine.lineStart);
+            }
+
+            curLine.lineEnd = room.CurFloor.roomLines[(i + 1) % numLines].lineStart;
         }
     }
 }

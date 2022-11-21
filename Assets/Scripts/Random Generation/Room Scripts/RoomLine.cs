@@ -19,6 +19,8 @@ public class RoomLine
 
     [field:SerializeField]
     public LineType CurLineType { get; private set; }
+    [field: SerializeField]
+    public DoorType CurDoorType { get; private set; }
 
     public Vector2 lineStart;
     [HideInInspector]
@@ -93,5 +95,16 @@ public class RoomLine
     private Vector3 Vec2To3(Vector2 v)
     {
         return new Vector3(v.x, Floor.FloorHeight * floorNum, v.y);
+    }
+
+
+    public void SetDoorType(DoorType newType)
+    {
+        if (CurDoorType == newType)
+        {
+            return;
+        }
+
+        CurDoorType = newType;
     }
 }
