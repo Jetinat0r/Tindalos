@@ -14,8 +14,14 @@ public enum DoorType
 public class Doorway
 {
     [Header("User Vars")]
-    public Vector3 leftEdge;
-    public Vector3 rightEdge;
+    public Vector2 startPoint;
+    public Vector2 endPoint;
+
+    //Door start and end pos as [gridLine].[% towards next grid line] (i.e. 3.89)
+    public float xStartLine;
+    public float yStartLine;
+    public float xEndLine;
+    public float yEndLine;
 
     public DoorType doorType = DoorType.Normal;
 
@@ -24,23 +30,30 @@ public class Doorway
     public float height;
     public Quaternion direction;
 
-    public Doorway(Vector3 leftPos, Vector3 rightPos)
+    public Doorway(Vector2 leftPos, Vector2 rightPos, float xStartLine, float yStartLine, float xEndLine, float yEndLine)
     {
-        leftEdge = leftPos;
-        rightEdge = rightPos;
+        startPoint = leftPos;
+        endPoint = rightPos;
+        this.xStartLine = xStartLine;
+        this.yStartLine = yStartLine;
+        this.xEndLine = xEndLine;
+        this.yEndLine = yEndLine;
+
+        Debug.Log($"({xStartLine}, {yStartLine}); ({xEndLine}, {yEndLine})");
+        
         doorType = DoorType.Normal;
     }
 
     public void Init()
     {
         //Ensure no errors (by throwing an error)
-        if(leftEdge == null || rightEdge == null)
+        if(startPoint == null || endPoint == null)
         {
             Debug.LogError($"Doorway Info Unset!");
         }
 
         //Get the vector between the two
-        Vector3 dist = rightEdge - leftEdge;
+        Vector3 dist = endPoint - startPoint;
         
         //Get the width of the door regardless of the angle it's at
         width = Mathf.Sqrt(Mathf.Pow(dist.x, 2) + Mathf.Pow(dist.z, 2));
@@ -48,10 +61,10 @@ public class Doorway
         height = dist.y;
 
         //Get just the horizontal vectors for crossing
-        Vector3 xzVector = rightEdge - leftEdge;
+        Vector3 xzVector = endPoint - startPoint;
         xzVector.Set(xzVector.x, 0f, xzVector.z);
         //Create just a vertical vector for crossing
-        Vector3 yVector = new Vector3(0f, rightEdge.y - leftEdge.y, 0f);
+        Vector3 yVector = new Vector3(0f, endPoint.y - startPoint.y, 0f);
         
         
         Vector3 crossVector = Vector3.Cross(xzVector, yVector).normalized;
@@ -63,8 +76,9 @@ public class Doorway
 
     public void DrawDebugGizmos()
     {
-        Vector3 doorCenter = (rightEdge - leftEdge) / 2;
-        Debug.DrawRay(doorCenter + leftEdge, direction * Vector3.forward * 3, Color.red);
+        //TODO: Fix lol
+        Vector3 doorCenter = (endPoint - startPoint) / 2;
+        Debug.DrawRay(doorCenter + new Vector3(startPoint.x, doorCenter.y, startPoint.y), direction * Vector3.forward * 3, Color.red);
     }
 }
 
@@ -96,7 +110,6 @@ public static class DoorwayTypeExtensions
 
         //Get the clamped angle based on the assigned vars above
         float closestAngle = MathUtils.GetClosestEvenDivisor(curAngle, validAngles);
-        Debug.Log(closestAngle);
 
         //Construct a new point based off of the given points and derived vars
         return startPoint + new Vector2(doorSize * Mathf.Cos(Mathf.Deg2Rad * closestAngle), doorSize * Mathf.Sin(Mathf.Deg2Rad * closestAngle));

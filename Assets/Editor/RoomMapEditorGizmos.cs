@@ -7,10 +7,6 @@ using JetEngine;
 [CustomEditor(typeof(Room))]
 public class RoomMapEditorGizmos : Editor
 {
-    //TODO: LIMIT SIZE OF DOORS (use enum extension?)
-    //TODO: LIMIT ANGLE OF DOORS
-    //TODO: LOCK DOOR START POS TO A GRID LINE, X OR Y (use mod?)
-
     private int curPointIndex = -1;
 
     private void OnSceneGUI()
@@ -914,6 +910,8 @@ public class RoomMapEditorGizmos : Editor
                     0f,
                     room.CurFloor.gridWidth);
                     float distToY = Mathf.Abs(curLine.lineStart.y - ((closestYLine * Floor.GridSize) + room.gridOffset.y));
+
+                    //TODO: Causes issues if is on one line, but this is only an issue for snapping to both grid lines
 
                     //If the point is not on a Y line, snap to closest!
                     if (!(distToY > -give && distToY < give))

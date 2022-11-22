@@ -237,7 +237,46 @@ public class Floor : ISerializationCallbackReceiver
         {
             if (line.CurLineType == LineType.Door)
             {
-                Doorway newDoor = new Doorway(line.lineStart, line.lineEnd);
+                //Convert physical pos to grid pos
+                //startLine X
+                int closestXSLine = (int)Mathf.Clamp(
+                    JetEngine.MathUtils.GetClosestEvenDivisor(line.lineStart.x - gridOffset.x, GridSize) / GridSize,
+                    0f,
+                    gridWidth);
+                float distToXS = line.lineStart.x - ((closestXSLine * GridSize) + gridOffset.x);
+                float xLineStart = (distToXS / GridSize) + closestXSLine;
+                xLineStart = Mathf.Clamp(xLineStart, 0f, gridWidth);
+
+                //startLine Y
+                int closestYSLine = (int)Mathf.Clamp(
+                    JetEngine.MathUtils.GetClosestEvenDivisor(line.lineStart.y - gridOffset.y, GridSize) / GridSize,
+                    0f,
+                    gridWidth);
+                float distToYS = line.lineStart.y - ((closestYSLine * GridSize) + gridOffset.y);
+                float yLineStart = (distToYS / GridSize) + closestYSLine;
+                yLineStart = Mathf.Clamp(yLineStart, 0f, gridHeight);
+
+                //endLine X
+                int closestXELine = (int)Mathf.Clamp(
+                    JetEngine.MathUtils.GetClosestEvenDivisor(line.lineEnd.x - gridOffset.x, GridSize) / GridSize,
+                    0f,
+                    gridWidth);
+                float distToXE = line.lineEnd.x - ((closestXELine * GridSize) + gridOffset.x);
+                float xLineEnd = (distToXE / GridSize) + closestXELine;
+                xLineEnd = Mathf.Clamp(xLineEnd, 0f, gridWidth);
+
+                //endLine Y
+                int closestYELine = (int)Mathf.Clamp(
+                    JetEngine.MathUtils.GetClosestEvenDivisor(line.lineEnd.y - gridOffset.y, GridSize) / GridSize,
+                    0f,
+                    gridWidth);
+                float distToYE = line.lineEnd.y - ((closestYELine * GridSize) + gridOffset.y);
+                float yLineEnd = (distToYE / GridSize) + closestYELine;
+                yLineEnd = Mathf.Clamp(yLineEnd, 0f, gridHeight);
+
+
+                //Create the new door object
+                Doorway newDoor = new Doorway(line.lineStart, line.lineEnd, xLineStart, yLineStart, xLineEnd, yLineEnd);
                 newDoor.Init();
                 doorways.Add(newDoor);
             }
