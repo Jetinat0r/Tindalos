@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4727097786640180313}
   m_LocalRotation: {x: -0, y: -0.00000017881393, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -123,145 +123,145 @@ MonoBehaviour:
       Array:
       - Index0: 0
         Index1: 0
-        Element: 0
-      - Index0: 0
-        Index1: 1
-        Element: 0
-      - Index0: 0
-        Index1: 2
-        Element: 0
-      - Index0: 0
-        Index1: 3
-        Element: 0
-      - Index0: 0
-        Index1: 4
-        Element: 0
-      - Index0: 0
-        Index1: 5
         Element: 2
       - Index0: 0
+        Index1: 1
+        Element: 2
+      - Index0: 0
+        Index1: 2
+        Element: 2
+      - Index0: 0
+        Index1: 3
+        Element: 2
+      - Index0: 0
+        Index1: 4
+        Element: 2
+      - Index0: 0
+        Index1: 5
+        Element: 2
+      - Index0: 0
         Index1: 6
         Element: 2
       - Index0: 0
         Index1: 7
-        Element: 1
+        Element: 2
       - Index0: 0
         Index1: 8
-        Element: 1
+        Element: 2
       - Index0: 0
         Index1: 9
-        Element: 1
+        Element: 2
       - Index0: 1
         Index1: 0
-        Element: 0
+        Element: 2
       - Index0: 1
         Index1: 1
-        Element: 0
+        Element: 2
       - Index0: 1
         Index1: 2
-        Element: 0
+        Element: 2
       - Index0: 1
         Index1: 3
-        Element: 0
+        Element: 2
       - Index0: 1
         Index1: 4
-        Element: 0
+        Element: 2
       - Index0: 1
         Index1: 5
         Element: 2
       - Index0: 1
         Index1: 6
-        Element: 0
+        Element: 2
       - Index0: 1
         Index1: 7
-        Element: 1
+        Element: 2
       - Index0: 1
         Index1: 8
-        Element: 1
+        Element: 2
       - Index0: 1
         Index1: 9
-        Element: 1
+        Element: 2
       - Index0: 2
         Index1: 0
-        Element: 0
+        Element: 2
       - Index0: 2
         Index1: 1
-        Element: 0
+        Element: 2
       - Index0: 2
         Index1: 2
-        Element: 0
+        Element: 2
       - Index0: 2
         Index1: 3
-        Element: 0
+        Element: 2
       - Index0: 2
         Index1: 4
-        Element: 1
+        Element: 2
       - Index0: 2
         Index1: 5
         Element: 2
       - Index0: 2
         Index1: 6
-        Element: 1
+        Element: 2
       - Index0: 2
         Index1: 7
-        Element: 1
+        Element: 2
       - Index0: 2
         Index1: 8
-        Element: 0
+        Element: 2
       - Index0: 2
         Index1: 9
-        Element: 0
+        Element: 2
       - Index0: 3
         Index1: 0
-        Element: 0
+        Element: 2
       - Index0: 3
         Index1: 1
-        Element: 0
+        Element: 2
       - Index0: 3
         Index1: 2
-        Element: 0
+        Element: 2
       - Index0: 3
         Index1: 3
-        Element: 1
+        Element: 2
       - Index0: 3
         Index1: 4
-        Element: 1
+        Element: 2
       - Index0: 3
         Index1: 5
         Element: 2
       - Index0: 3
         Index1: 6
-        Element: 1
-      - Index0: 3
-        Index1: 7
         Element: 2
       - Index0: 3
+        Index1: 7
+        Element: 2
+      - Index0: 3
         Index1: 8
         Element: 2
       - Index0: 3
         Index1: 9
-        Element: 0
+        Element: 2
       - Index0: 4
         Index1: 0
-        Element: 0
+        Element: 2
       - Index0: 4
         Index1: 1
-        Element: 0
+        Element: 2
       - Index0: 4
         Index1: 2
-        Element: 0
+        Element: 2
       - Index0: 4
         Index1: 3
-        Element: 0
+        Element: 2
       - Index0: 4
         Index1: 4
-        Element: 0
+        Element: 2
       - Index0: 4
         Index1: 5
-        Element: 1
+        Element: 2
       - Index0: 4
         Index1: 6
-        Element: 0
+        Element: 2
       - Index0: 4
         Index1: 7
         Element: 2
@@ -270,189 +270,233 @@ MonoBehaviour:
         Element: 2
       - Index0: 4
         Index1: 9
-        Element: 0
+        Element: 2
       - Index0: 5
         Index1: 0
-        Element: 0
+        Element: 2
       - Index0: 5
         Index1: 1
-        Element: 0
+        Element: 2
       - Index0: 5
         Index1: 2
-        Element: 0
+        Element: 2
       - Index0: 5
         Index1: 3
-        Element: 0
+        Element: 2
       - Index0: 5
         Index1: 4
-        Element: 1
+        Element: 2
       - Index0: 5
         Index1: 5
-        Element: 0
+        Element: 2
       - Index0: 5
         Index1: 6
-        Element: 0
+        Element: 2
       - Index0: 5
         Index1: 7
-        Element: 0
+        Element: 2
       - Index0: 5
         Index1: 8
-        Element: 0
+        Element: 2
       - Index0: 5
         Index1: 9
-        Element: 0
+        Element: 2
       - Index0: 6
         Index1: 0
-        Element: 0
+        Element: 2
       - Index0: 6
         Index1: 1
-        Element: 0
+        Element: 2
       - Index0: 6
         Index1: 2
-        Element: 0
+        Element: 2
       - Index0: 6
         Index1: 3
-        Element: 1
+        Element: 2
       - Index0: 6
         Index1: 4
         Element: 2
       - Index0: 6
         Index1: 5
-        Element: 0
+        Element: 2
       - Index0: 6
         Index1: 6
-        Element: 0
+        Element: 2
       - Index0: 6
         Index1: 7
-        Element: 0
+        Element: 2
       - Index0: 6
         Index1: 8
-        Element: 0
+        Element: 2
       - Index0: 6
         Index1: 9
-        Element: 0
+        Element: 2
       - Index0: 7
         Index1: 0
-        Element: 0
+        Element: 2
       - Index0: 7
         Index1: 1
-        Element: 0
+        Element: 2
       - Index0: 7
         Index1: 2
-        Element: 1
+        Element: 2
       - Index0: 7
         Index1: 3
-        Element: 0
+        Element: 2
       - Index0: 7
         Index1: 4
-        Element: 0
+        Element: 2
       - Index0: 7
         Index1: 5
-        Element: 0
+        Element: 2
       - Index0: 7
         Index1: 6
-        Element: 0
+        Element: 2
       - Index0: 7
         Index1: 7
-        Element: 0
+        Element: 2
       - Index0: 7
         Index1: 8
-        Element: 0
+        Element: 2
       - Index0: 7
         Index1: 9
-        Element: 0
+        Element: 2
       - Index0: 8
         Index1: 0
-        Element: 0
+        Element: 2
       - Index0: 8
         Index1: 1
-        Element: 1
+        Element: 2
       - Index0: 8
         Index1: 2
-        Element: 0
+        Element: 2
       - Index0: 8
         Index1: 3
-        Element: 0
+        Element: 2
       - Index0: 8
         Index1: 4
-        Element: 0
+        Element: 2
       - Index0: 8
         Index1: 5
-        Element: 0
+        Element: 2
       - Index0: 8
         Index1: 6
-        Element: 0
+        Element: 2
       - Index0: 8
         Index1: 7
-        Element: 0
+        Element: 2
       - Index0: 8
         Index1: 8
-        Element: 0
+        Element: 2
       - Index0: 8
         Index1: 9
-        Element: 0
+        Element: 2
       - Index0: 9
         Index1: 0
-        Element: 1
+        Element: 2
       - Index0: 9
         Index1: 1
-        Element: 0
+        Element: 2
       - Index0: 9
         Index1: 2
-        Element: 0
+        Element: 2
       - Index0: 9
         Index1: 3
-        Element: 0
+        Element: 2
       - Index0: 9
         Index1: 4
-        Element: 0
+        Element: 2
       - Index0: 9
         Index1: 5
-        Element: 0
+        Element: 2
       - Index0: 9
         Index1: 6
-        Element: 0
+        Element: 2
       - Index0: 9
         Index1: 7
-        Element: 0
+        Element: 2
       - Index0: 9
         Index1: 8
-        Element: 0
+        Element: 2
       - Index0: 9
         Index1: 9
-        Element: 0
+        Element: 2
     partialTileData: []
+    leftMostTile: 0
+    rightMostTile: 9
+    bottomMostTile: 0
+    topMostTile: 9
     roomLines:
-    - <CurLineType>k__BackingField: 0
+    - <CurLineType>k__BackingField: 2
       <CurDoorType>k__BackingField: 0
-      lineStart: {x: -0.5, y: 0.5}
+      lineStart: {x: -0.50000006, y: 0.49999994}
       lineEnd: {x: 0.5, y: 0.5}
       bezierStartHandle: {x: 0.1, y: 0.1}
       bezierEndHandle: {x: -0.1, y: -0.1}
       floorNum: 0
-    - <CurLineType>k__BackingField: 0
+    - <CurLineType>k__BackingField: 2
       <CurDoorType>k__BackingField: 0
       lineStart: {x: 0.5, y: 0.5}
-      lineEnd: {x: 0.5, y: -0.5}
+      lineEnd: {x: 0.49999997, y: -0.5}
       bezierStartHandle: {x: 1.1, y: 0.1}
       bezierEndHandle: {x: 0.9, y: -0.1}
       floorNum: 0
-    - <CurLineType>k__BackingField: 0
+    - <CurLineType>k__BackingField: 2
       <CurDoorType>k__BackingField: 0
-      lineStart: {x: 0.5, y: -0.5}
-      lineEnd: {x: -0.5, y: -0.5}
+      lineStart: {x: 0.49999997, y: -0.5}
+      lineEnd: {x: -0.5, y: -0.50000006}
       bezierStartHandle: {x: 0.6, y: -0.9}
       bezierEndHandle: {x: 0.4, y: -1.1}
       floorNum: 0
-    - <CurLineType>k__BackingField: 0
+    - <CurLineType>k__BackingField: 2
       <CurDoorType>k__BackingField: 0
-      lineStart: {x: -0.5, y: -0.5}
-      lineEnd: {x: -0.5, y: 0.5}
-      bezierStartHandle: {x: 0.12917733, y: 0.07082266}
-      bezierEndHandle: {x: -0.07082266, y: -0.12917733}
+      lineStart: {x: -0.5, y: -0.50000006}
+      lineEnd: {x: -0.50000006, y: 0.49999994}
+      bezierStartHandle: {x: 0.1027512, y: 0.0972488}
+      bezierEndHandle: {x: -0.0972488, y: -0.1027512}
       floorNum: 0
     points: []
-    doorways: []
+    doorways:
+    - startPoint: {x: -0.50000006, y: 0.49999994}
+      endPoint: {x: 0.5, y: 0.5}
+      xStartLine: 0
+      yStartLine: 9.999999
+      xEndLine: 10
+      yEndLine: 10
+      doorType: 0
+      width: 1
+      height: 0.000000059604645
+      direction: {x: 0, y: 0, z: 0, w: 1}
+    - startPoint: {x: 0.5, y: 0.5}
+      endPoint: {x: 0.49999997, y: -0.5}
+      xStartLine: 10
+      yStartLine: 10
+      xEndLine: 10
+      yEndLine: 0
+      doorType: 0
+      width: 0.000000029802322
+      height: -1
+      direction: {x: 0, y: 0, z: 0, w: 1}
+    - startPoint: {x: 0.49999997, y: -0.5}
+      endPoint: {x: -0.5, y: -0.50000006}
+      xStartLine: 10
+      yStartLine: 0
+      xEndLine: 0
+      yEndLine: 0
+      doorType: 0
+      width: 1
+      height: -0.000000059604645
+      direction: {x: 0, y: 0, z: 0, w: 1}
+    - startPoint: {x: -0.5, y: -0.50000006}
+      endPoint: {x: -0.50000006, y: 0.49999994}
+      xStartLine: 0
+      yStartLine: 0
+      xEndLine: 0
+      yEndLine: 9.999999
+      doorType: 0
+      width: 0.000000059604645
+      height: 1
+      direction: {x: 0, y: 0, z: 0, w: 1}
   - floorNum: 1
     gridWidth: 10
     gridHeight: 10
@@ -869,6 +913,10 @@ MonoBehaviour:
     - xIndex: 10
       yIndex: 9
       lines: []
+    leftMostTile: 0
+    rightMostTile: 0
+    bottomMostTile: 0
+    topMostTile: 0
     roomLines:
     - <CurLineType>k__BackingField: 0
       <CurDoorType>k__BackingField: 0
@@ -907,8 +955,8 @@ MonoBehaviour:
       floorNum: 1
     points: []
     doorways:
-    - leftEdge: {x: -0.7584491, y: 1.8262293}
-      rightEdge: {x: 0.0062844036, y: 1.6013683}
+    - startPoint: {x: 0, y: 0}
+      endPoint: {x: 0, y: 0}
       xStartLine: 0
       yStartLine: 0
       xEndLine: 0
@@ -917,8 +965,8 @@ MonoBehaviour:
       width: 0.7647335
       height: -0.22486103
       direction: {x: 0, y: 1, z: 0, w: -0.00000004371139}
-    - leftEdge: {x: -0.43504107, y: -0.47737327}
-      rightEdge: {x: -0.9457143, y: -0.3522214}
+    - startPoint: {x: 0, y: 0}
+      endPoint: {x: 0, y: 0}
       xStartLine: 0
       yStartLine: 0
       xEndLine: 0
@@ -1256,6 +1304,10 @@ MonoBehaviour:
       - list:
         - {x: -0.3, y: -0.5}
         - {x: 0.75568485, y: 0.7183542}
+    leftMostTile: 0
+    rightMostTile: 0
+    bottomMostTile: 0
+    topMostTile: 0
     roomLines:
     - <CurLineType>k__BackingField: 1
       <CurDoorType>k__BackingField: 0
@@ -1315,8 +1367,8 @@ MonoBehaviour:
       floorNum: 2
     points: []
     doorways:
-    - leftEdge: {x: -0.3, y: -0.5}
-      rightEdge: {x: 0.75568485, y: 0.7183542}
+    - startPoint: {x: 0, y: 0}
+      endPoint: {x: 0, y: 0}
       xStartLine: 1.9999999
       yStartLine: 0
       xEndLine: 10
@@ -1633,6 +1685,10 @@ MonoBehaviour:
         Index1: 9
         Element: 0
     partialTileData: []
+    leftMostTile: 0
+    rightMostTile: 0
+    bottomMostTile: 0
+    topMostTile: 0
     roomLines:
     - <CurLineType>k__BackingField: 0
       <CurDoorType>k__BackingField: 0
@@ -1657,7 +1713,7 @@ MonoBehaviour:
       floorNum: 3
     points: []
     doorways: []
-  curInspectedFloor: 2
-  curPaintState: 1
-  curInspectorMode: 2
+  curInspectedFloor: 0
+  curPaintState: 2
+  curInspectorMode: 1
   curInspectorLineType: 0

@@ -14,30 +14,32 @@ public enum TileState
     Full = 2,
 }
 
+//Used to cut down on collision check time
+[Serializable]
+public class ConflictingTileData
+{
+    public ConflictingTileData(int x, int y)
+    {
+        xIndex = x;
+        yIndex = y;
+
+        lines = new List<Vector2ListWrapper>();
+    }
+
+    //Where on the tileGrid does this fall?
+    public int xIndex;
+    public int yIndex;
+
+    //Stores the points of each non-consecutive line passing through the given tile
+    //List 1: Non-consecutive lines
+    //List 2: Points on each line
+    public List<Vector2ListWrapper> lines;
+}
+
+
 [Serializable]
 public class Floor : ISerializationCallbackReceiver
 {
-    [Serializable]
-    public class ConflictingTileData
-    {
-        public ConflictingTileData(int x, int y)
-        {
-            xIndex = x;
-            yIndex = y;
-
-            lines = new List<Vector2ListWrapper>();
-        }
-
-        //Where on the tileGrid does this fall?
-        public int xIndex;
-        public int yIndex;
-
-        //Stores the points of each non-consecutive line passing through the given tile
-        //List 1: Non-consecutive lines
-        //List 2: Points on each line
-        public List<Vector2ListWrapper> lines;
-    }
-
     public const float FloorHeight = 1f;
 
     [SerializeField, HideInInspector]
@@ -58,7 +60,15 @@ public class Floor : ISerializationCallbackReceiver
     public TileState[][] tileGrid;
     [SerializeField, HideInInspector]
     public List<ConflictingTileData> partialTileData;
-    
+
+    [SerializeField, HideInInspector]
+    public int leftMostTile;
+    [SerializeField, HideInInspector]
+    public int rightMostTile;
+    [SerializeField, HideInInspector]
+    public int bottomMostTile;
+    [SerializeField, HideInInspector]
+    public int topMostTile;
 
     // ----------- Lines ------------
     public List<RoomLine> roomLines;
@@ -194,6 +204,91 @@ public class Floor : ISerializationCallbackReceiver
 
         //Reset Color
         Gizmos.color = Color.white;
+    }
+
+    public void SaveGrid()
+    {
+        //Clamps search area
+
+        //Find lowest possible tile
+        bool isFound = false;
+        for (int i = 0; i < gridHeight; i++)
+        {
+            for (int j = 0; j < gridWidth; j++)
+            {
+                if (tileGrid[j][i] != TileState.Empty)
+                {
+                    bottomMostTile = i;
+                    isFound = true;
+                    break;
+                }
+            }
+
+            if (isFound)
+            {
+                break;
+            }
+        }
+
+        //Find highest possible tile
+        isFound = false;
+        for (int i = gridHeight - 1; i >= 0; i--)
+        {
+            for (int j = 0; j < gridWidth; j++)
+            {
+                if (tileGrid[j][i] != TileState.Empty)
+                {
+                    topMostTile = i;
+                    isFound = true;
+                    break;
+                }
+            }
+
+            if (isFound)
+            {
+                break;
+            }
+        }
+
+        //Find leftmost possible tile
+        isFound = false;
+        for (int i = 0; i < gridWidth; i++)
+        {
+            for (int j = 0; j < gridHeight; j++)
+            {
+                if (tileGrid[i][j] != TileState.Empty)
+                {
+                    leftMostTile = i;
+                    isFound = true;
+                    break;
+                }
+            }
+
+            if (isFound)
+            {
+                break;
+            }
+        }
+
+        //Find rightmost possible tile
+        isFound = false;
+        for (int i = gridWidth - 1; i >= 0; i--)
+        {
+            for (int j = 0; j < gridHeight; j++)
+            {
+                if (tileGrid[i][j] != TileState.Empty)
+                {
+                    rightMostTile = i;
+                    isFound = true;
+                    break;
+                }
+            }
+
+            if (isFound)
+            {
+                break;
+            }
+        }
     }
 
 

@@ -39,7 +39,7 @@ public class Doorway
         this.xEndLine = xEndLine;
         this.yEndLine = yEndLine;
 
-        Debug.Log($"({xStartLine}, {yStartLine}); ({xEndLine}, {yEndLine})");
+        //Debug.Log($"({xStartLine}, {yStartLine}); ({xEndLine}, {yEndLine})");
         
         doorType = DoorType.Normal;
     }

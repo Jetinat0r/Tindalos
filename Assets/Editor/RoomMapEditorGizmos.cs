@@ -315,7 +315,11 @@ public class RoomMapEditorGizmos : Editor
                 UpdatePrefab();
             }
 
-            GUILayout.Space(25);
+            if (GUILayout.Button("Save Grid"))
+            {
+                room.CurFloor.SaveGrid();
+                UpdatePrefab();
+            }
 
             if (GUILayout.Button("Fill Empty"))
             {
