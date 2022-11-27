@@ -39,7 +39,12 @@ public class Room : MonoBehaviour
     public RoomInspectorMode curInspectorMode = RoomInspectorMode.View;
     [HideInInspector]
     public LineType curInspectorLineType = LineType.Straight;
-    
+
+
+    [NonSerialized]
+    public int placedXTile;
+    [NonSerialized]
+    public int placedYTile;
     
     //TODO: ACCOUNT FOR GRID OFFSETS BEING DIFFERENT AND MESSING W/ MULTI-FLOOR PLACEMENT!!!
 
@@ -68,7 +73,7 @@ public class Room : MonoBehaviour
         {
             foreach (Doorway d in f.doorways)
             {
-                d.DrawDebugGizmos();
+                d.DrawDebugGizmos(transform);
             }
         }
         

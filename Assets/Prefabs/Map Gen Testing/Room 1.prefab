@@ -19478,10 +19478,10 @@ MonoBehaviour:
       doorType: 0
       width: 1
       height: 0
-      direction: {x: 0, y: 0, z: 0, w: 1}
+      angle: 90
   curInspectedFloor: 0
   curPaintState: 2
-  curInspectorMode: 1
+  curInspectorMode: 2
   curInspectorLineType: 0
 --- !u!1 &4387047651529899020
 GameObject:

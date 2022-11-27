@@ -155,13 +155,17 @@ MonoBehaviour:
   manualSeed: -1
   numFloors: 1
   floorHeight: 1
-  floorRoomCount: f4010000
+  floorRoomCount: e8030000
   numRoomPlaceAttempts: 10
   maxDistanceBetweenRooms: 20
   availableAngle: 90
   roomPrefabs:
-  - {fileID: 4387047650401971458, guid: d5b92406a76d3ba418bdb27d6fbaef50, type: 3}
-  - {fileID: 2951015472458715700, guid: cf3e27f8e4aae5843bb661ffd9fe43c1, type: 3}
+  - {fileID: 1763195311515005087, guid: c4a87edb87864c448a07539dfa3658b4, type: 3}
+  - {fileID: 1763195311515005087, guid: 38b928d3b7834d643bcbd3b823113273, type: 3}
+  - {fileID: 1763195311515005087, guid: 23372ba74064f674c813a947026b56db, type: 3}
+  - {fileID: 1763195311515005087, guid: ab0ac7351c38a45499f0525cbb83ef97, type: 3}
+  - {fileID: 1763195311515005087, guid: 620a7b6dce2ad4a49951d6e495cb4d9b, type: 3}
+  - {fileID: 1763195311515005087, guid: 83c272984951820468e880b9bb77ede5, type: 3}
   hallwayPrefabs: []
 --- !u!4 &1234200577
 Transform:

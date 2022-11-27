@@ -166,24 +166,88 @@ public class MapGenerator : MonoBehaviour
             Vector2 firstRoomPos = ConvertPlacedRoomGridToWorldSpace(room.gridOffset, firstRoomGridPos.Item1, firstRoomGridPos.Item2);
             room.transform.position = new Vector3(firstRoomPos.x, 0f, firstRoomPos.y);
 
+            //Set instance vars
+            room.placedXTile = firstRoomGridPos.Item1;
+            room.placedYTile = firstRoomGridPos.Item2;
+
             //Fill floor grid
             FillGrid(curRoomFloor, firstRoomGridPos.Item1, firstRoomGridPos.Item2, ref floorGrid, ref partialTiles);
 
             return true;
         }
 
+
         //Try placing the room
         for (int i = 0; i < numRoomPlaceAttempts; i++)
         {
-            Tuple<int, int> newRoomGridPos = GetValidGridSpace(bottomTile, topTile, leftTile, rightTile);
+            //TODO: Do better
+            Room selectedRoom = placedRoomsOnFloor[Random.Range(0, placedRoomsOnFloor.Count)];
+            if(selectedRoom.mapFloors[0].doorways.Count == 0)
+            {
+                //No doors on this room, try again!
+                continue;
+            }
+            Doorway selectedDoorway = selectedRoom.mapFloors[0].doorways[Random.Range(0, selectedRoom.mapFloors[0].doorways.Count)];
+
+            Doorway myDoorway = room.mapFloors[0].doorways[Random.Range(0, room.mapFloors[0].doorways.Count)];
+
+            //Ensure angles are compatible
+            float angleDiff = Mathf.Abs(selectedDoorway.angle - myDoorway.angle);
+            if(angleDiff < 180f - 0.0000001f || angleDiff > 180f + 0.0000001f)
+            {
+                //Attempt failed, try again!
+                continue;
+            }
+
+            //Find tile pos of selected doorway. We select the end point to make it easier to set our new room's start point,
+            //  though as long as the math works out, it shouldn't matter too much
+            Tuple<int, int> selectedDoorwayPos = new Tuple<int, int>(
+                selectedRoom.placedXTile + Mathf.RoundToInt(selectedDoorway.xEndLine),
+                selectedRoom.placedYTile + Mathf.RoundToInt(selectedDoorway.yEndLine));
+
+            //Get the direction to push our new room in
+            Vector2 offsetDir = new Vector2(Mathf.Cos(selectedDoorway.angle * Mathf.Rad2Deg), Mathf.Sin(selectedDoorway.angle * Mathf.Rad2Deg));
+            //TODO: make it actually offset
+            int offsetMultiplier = Random.Range(0, 1);
+
+            //Offset a random amount
+            offsetDir *= offsetMultiplier;
+
+            //Get new place to attempt to set new room's starting doorway
+            Tuple<int, int> newDesiredDoorwayPos = new Tuple<int, int>(
+                selectedDoorwayPos.Item1 + Mathf.RoundToInt(offsetDir.x),
+                selectedDoorwayPos.Item2 + Mathf.RoundToInt(offsetDir.y));
+
+            //Get new doorway's local x and y tiles
+            //  The ternary accounts for float errors, rounding up if close enough, and down otherwise
+            int newDoorXOffset = (myDoorway.xStartLine % 1f > 0.9999f) ? Mathf.RoundToInt(myDoorway.xStartLine) : Mathf.FloorToInt(myDoorway.xStartLine);
+            int newDoorYOffset = (myDoorway.yStartLine % 1f > 0.9999f) ? Mathf.RoundToInt(myDoorway.yStartLine) : Mathf.FloorToInt(myDoorway.yStartLine);
+
+
+            Tuple<int, int> newRoomGridPos = new Tuple<int, int>(newDesiredDoorwayPos.Item1 - newDoorXOffset, newDesiredDoorwayPos.Item2 - newDoorYOffset);
+            
+            if(!IsValidGridTile(room, room.mapFloors[0], newRoomGridPos))
+            {
+                //Attempt failed, try again!
+                continue;
+            }
+
             if (CheckGridCollisions(curRoomFloor, newRoomGridPos.Item1, newRoomGridPos.Item2, floorGrid, ref partialTiles))
             {
                 //Place room
                 Vector2 newRoomPos = ConvertPlacedRoomGridToWorldSpace(room.gridOffset, newRoomGridPos.Item1, newRoomGridPos.Item2);
-                room.transform.position = new Vector3(newRoomPos.x, 0f, newRoomPos.y);
+                room.transform.position = newRoomPos.ToVec3XZ();
 
                 //Fill floor grid
                 FillGrid(curRoomFloor, newRoomGridPos.Item1, newRoomGridPos.Item2, ref floorGrid, ref partialTiles);
+
+                //Remove closed doors
+                selectedRoom.mapFloors[0].doorways.Remove(selectedDoorway);
+                room.mapFloors[0].doorways.Remove(myDoorway);
+
+                //Set instance vars
+                room.placedXTile = newRoomGridPos.Item1;
+                room.placedYTile = newRoomGridPos.Item2;
 
                 return true;
             }
@@ -208,7 +272,7 @@ public class MapGenerator : MonoBehaviour
         //If the points given are too big, fail!
         if (verticalDiff > GridYDimension || horizontalDiff > GridXDimension)
         {
-            Debug.LogError("Given room too big for the grid!");
+            Debug.LogError("Given room too big for the grid! Will cause other errors :P");
             return new Tuple<int, int>(-1, -1);
         }
 
@@ -220,6 +284,28 @@ public class MapGenerator : MonoBehaviour
 
         //Debug.Log($"({x}, {y})");
         return new Tuple<int, int>(x, y);
+    }
+
+    public bool IsValidGridTile(Room room, Floor floor, Tuple<int, int> desiredPos)
+    {
+        //I'm keeping the room var around for later, and want to get rid of warnings
+        if(room == null)
+        {
+            return false;
+        }
+
+        int verticalDiff = floor.topMostTile - floor.bottomMostTile;
+        int horizontalDiff = floor.rightMostTile - floor.leftMostTile;
+
+        if(desiredPos.Item1 + horizontalDiff >= GridXDimension ||
+            desiredPos.Item2 + verticalDiff >= GridYDimension ||
+            desiredPos.Item1 < 0 ||
+            desiredPos.Item2 < 0)
+        {
+            return false;
+        }
+
+        return true;
     }
 
     public static float ConvertGridToWorldSpace(int desiredTile)

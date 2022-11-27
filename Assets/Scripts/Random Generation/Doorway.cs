@@ -26,9 +26,9 @@ public class Doorway
     public DoorType doorType = DoorType.Normal;
 
     [Header("Derived Vars")]
-    public float width;
-    public float height;
-    public Quaternion direction;
+    public float width; //Kind of irrelevant?
+    public float height; //100% irrelevant
+    public float angle;
 
     public Doorway(Vector2 leftPos, Vector2 rightPos, float xStartLine, float yStartLine, float xEndLine, float yEndLine)
     {
@@ -53,32 +53,31 @@ public class Doorway
         }
 
         //Get the vector between the two
-        Vector3 dist = endPoint - startPoint;
+        Vector2 dist = endPoint - startPoint;
         
         //Get the width of the door regardless of the angle it's at
-        width = Mathf.Sqrt(Mathf.Pow(dist.x, 2) + Mathf.Pow(dist.z, 2));
-        //Height of door is always the y difference
-        height = dist.y;
+        //TODO: Get rid of?
+        width = dist.magnitude;
 
-        //Get just the horizontal vectors for crossing
-        Vector3 xzVector = endPoint - startPoint;
-        xzVector.Set(xzVector.x, 0f, xzVector.z);
-        //Create just a vertical vector for crossing
-        Vector3 yVector = new Vector3(0f, endPoint.y - startPoint.y, 0f);
-        
-        
-        Vector3 crossVector = Vector3.Cross(xzVector, yVector).normalized;
 
-        float yRot = Vector3.SignedAngle(Vector3.forward, crossVector, Vector3.up);
+        //Get angle that dist vector is at
+        float doorAngle = Mathf.Atan2(dist.y, dist.x);
+        //Make the angle degrees
+        doorAngle *= Mathf.Rad2Deg;
+        //Ensure that the angle is always positive
+        doorAngle += 360f;
 
-        direction = Quaternion.Euler(new Vector3(0f, yRot, 0f));
+        //Find the perpendicualr angle
+        doorAngle += 90f;
+
+        //Clamp the angle between 0f and 360f
+        angle = doorAngle % 360f;
     }
 
-    public void DrawDebugGizmos()
+    public void DrawDebugGizmos(Transform transform)
     {
-        //TODO: Fix lol
-        Vector3 doorCenter = (endPoint - startPoint) / 2;
-        Debug.DrawRay(doorCenter + new Vector3(startPoint.x, doorCenter.y, startPoint.y), direction * Vector3.forward * 3, Color.red);
+        Vector2 doorCenter = ((endPoint - startPoint) / 2) + transform.position.GetXZ() + startPoint;
+        Debug.DrawRay(doorCenter.ToVec3XZ(), 3 * new Vector3(Mathf.Cos(angle * Mathf.Deg2Rad), 0f, Mathf.Sin(angle * Mathf.Deg2Rad)), Color.red);
     }
 }
 
