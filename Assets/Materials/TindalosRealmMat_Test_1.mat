@@ -51,12 +51,18 @@ Material:
     - _Metallic: 0
     - _NormalIntensity: 0
     - _Offset: 0
-    - _OilFadeIntensity: 7.33
-    - _OilSlickSize: 0.25
+    - _OilFadeIntensity: 0.15
+    - _OilSlickInverseSize: 5.58
+    - _OilSlickMaxIntensity: 0.07
+    - _OilSlickSize: 5.78
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _ScrollSpeed: 0.1
     - _Smoothness: 1
     - _Tiling: 1
+    - _VertexDisplacementMultiplier: 0.1
+    - _VertexVoronoiAngleOffset: 6.13
+    - _VertexVoronoiCellDensity: 5.9
     m_Colors:
     - _Color: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
