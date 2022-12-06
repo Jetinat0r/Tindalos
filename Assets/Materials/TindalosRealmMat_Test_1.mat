@@ -33,6 +33,14 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Triplanar_26d0220e81ff43159daf32c885d1085d_Texture_1:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Triplanar_8cb66dc5230545cda3c56876890a4af1_Texture_1:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -53,7 +61,8 @@ Material:
     - _Offset: 0
     - _OilCombinedVoronoiContrast: 6.39
     - _OilFadeIntensity: 0.15
-    - _OilSlickInverseSize: 5.58
+    - _OilSlickFalloffPower: 0.05
+    - _OilSlickInverseSize: 1.52
     - _OilSlickMaxIntensity: 0.07
     - _OilSlickSize: 5.78
     - _OilVoronoiOneAngleOffset: 4.98
@@ -71,6 +80,8 @@ Material:
     - _Tiling: 1
     - _VertexDisplacementMultiplier: 0.1
     - _VertexDisplacementScrollSpeed: 0.1
+    - _VertexDisplacementScrollSpeedX: 0.1
+    - _VertexDisplacementScrollSpeedY: 0.1
     - _VertexVoronoiAngleOffset: 6.13
     - _VertexVoronoiCellDensity: 5.9
     m_Colors:
