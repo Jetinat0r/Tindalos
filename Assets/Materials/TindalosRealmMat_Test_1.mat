@@ -67,25 +67,25 @@ Material:
     - _OilSlickSize: 5.78
     - _OilVoronoiOneAngleOffset: 4.98
     - _OilVoronoiOneCellDensity: 1.24
-    - _OilVoronoiOneXScrollSpeed: 0.1
+    - _OilVoronoiOneXScrollSpeed: 0.05
     - _OilVoronoiOneYScrollSpeed: 0.1
-    - _OilVoronoiOneZScrollSpeed: 0.1
+    - _OilVoronoiOneZScrollSpeed: -0.6
     - _OilVoronoiTwoAngleOffset: 2
     - _OilVoronoiTwoCellDensity: 0.77
-    - _OilVoronoiTwoXScrollSpeed: -0.1
-    - _OilVoronoiTwoYScrollSpeed: -0.1
-    - _OilVoronoiTwoZScrollSpeed: -0.31
+    - _OilVoronoiTwoXScrollSpeed: 0.4
+    - _OilVoronoiTwoYScrollSpeed: -0.3
+    - _OilVoronoiTwoZScrollSpeed: 0.3
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ScrollSpeed: 0.1
     - _Smoothness: 1
     - _Tiling: 1
-    - _VertexDisplacementMultiplier: 0.1
+    - _VertexDisplacementMultiplier: 0.7
     - _VertexDisplacementScrollSpeed: 0.1
     - _VertexDisplacementScrollSpeedX: 0.1
     - _VertexDisplacementScrollSpeedY: 0.1
     - _VertexVoronoiAngleOffset: 5.8
-    - _VertexVoronoiCellDensity: 1.36
+    - _VertexVoronoiCellDensity: 0.34
     m_Colors:
     - _Color: {r: 0, g: 0, b: 0, a: 1}
     - _OilVoronoiOnePeriod: {r: 1.01, g: 0.41, b: 0.44, a: 0}
