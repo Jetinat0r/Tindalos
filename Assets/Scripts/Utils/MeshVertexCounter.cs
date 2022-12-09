@@ -12,10 +12,4 @@ public class MeshVertexCounter : MonoBehaviour
     {
         Debug.Log($"Vertices: {mesh.vertexCount}");
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
