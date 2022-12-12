@@ -24,8 +24,10 @@ public class MapGenerator : MonoBehaviour
     //How many times to attempt to place a room
     public int numRoomPlaceAttempts = 10;
 
-    //Max distance a room can be from another room
-    public float maxDistanceBetweenRooms = 10f;
+    //Max distance a door can be from another door
+    public float minDistanceBetweenRooms = 0.00001f;
+    //Max distance a door can be from another door
+    public float maxDistanceBetweenRooms = 0.0001f;
 
     //Min angle rooms can be rotated at
     public float availableAngle = 90f;
@@ -51,24 +53,28 @@ public class MapGenerator : MonoBehaviour
 
     public void Init(int seed = -1)
     {
+        int usedSeed = -1;
         if(seed == -1)
         {
             if(manualSeed == -1)
             {
                 //Seed the generator with the time
-                Random.InitState((int)DateTime.Now.Ticks);
+                usedSeed = (int)DateTime.Now.Ticks;
             }
             else
             {
                 //Seed the generator with the manual seed
-                Random.InitState(manualSeed);
+                usedSeed = manualSeed;
             }
         }
         else
         {
             //Seed the generator with the given seed
-            Random.InitState(seed);
+            usedSeed = seed;
         }
+
+        Debug.Log($"Seed: {usedSeed}");
+        Random.InitState(usedSeed);
 
         //Use round to avoid float inconsistencies
         numAvailableRotations = Mathf.RoundToInt(360f / availableAngle);
@@ -90,17 +96,6 @@ public class MapGenerator : MonoBehaviour
 
     private List<Room> GenerateFloor(int floor)
     {
-        //Initialize a grid for the floor
-        //TODO: Move out so that every floor has access to every other floor
-        TileState[][] floorGrid = new TileState[GridXDimension][];
-        for (int i = 0; i < floorGrid.Length; i++)
-        {
-            floorGrid[i] = new TileState[GridYDimension];
-            Array.Fill(floorGrid[i], TileState.Empty);
-        }
-
-        List<ConflictingTileData> partialTiles = new List<ConflictingTileData>();
-
         //Generate a list to store successfully placed rooms
         List<Room> placedRooms = new List<Room>();
 
@@ -113,13 +108,13 @@ public class MapGenerator : MonoBehaviour
         {
             Room newRoom = Instantiate(roomPrefabs[Random.Range(0, roomPrefabs.Count)], Vector3.zero, Quaternion.identity);
 
-            if(TryPlaceRoom(newRoom, floor, ref floorGrid, ref partialTiles, ref placedRooms, ref placedRooms))
+            if(TryPlaceRoom(newRoom, floor, ref placedRooms, ref placedRooms))
             {
                 placedRooms.Add(newRoom);
             }
             else
             {
-                Debug.Log("Failed to place room!");
+                //Debug.Log("Failed to place room!");
                 Destroy(newRoom.gameObject);
             }
 
@@ -132,10 +127,8 @@ public class MapGenerator : MonoBehaviour
 
     //Returns true if the room is placed, false otherwise
     private bool TryPlaceRoom(
-        Room room,
+        Room newRoom,
         int floor,
-        ref TileState[][] floorGrid,
-        ref List<ConflictingTileData> partialTiles,
         ref List<Room> placedRoomsOnFloor,
         ref List<Room> allPlacedRooms)
     {
@@ -152,26 +145,12 @@ public class MapGenerator : MonoBehaviour
         //2. 1 (maybe 2? idk how it works internally)
         //3. 1
 
-        Floor curRoomFloor = room.mapFloors[0];
-        int topTile = curRoomFloor.topMostTile;
-        int bottomTile = curRoomFloor.bottomMostTile;
-        int leftTile = curRoomFloor.leftMostTile;
-        int rightTile = curRoomFloor.rightMostTile;
+        Floor curRoomFloor = newRoom.mapFloors[0];
 
         if (placedRoomsOnFloor.Count == 0)
         {
             //Place the first room wherever
-            Tuple<int, int> firstRoomGridPos = GetValidGridSpace(bottomTile, topTile, leftTile, rightTile);
-
-            Vector2 firstRoomPos = ConvertPlacedRoomGridToWorldSpace(room.gridOffset, firstRoomGridPos.Item1, firstRoomGridPos.Item2);
-            room.transform.position = new Vector3(firstRoomPos.x, 0f, firstRoomPos.y);
-
-            //Set instance vars
-            room.placedXTile = firstRoomGridPos.Item1;
-            room.placedYTile = firstRoomGridPos.Item2;
-
-            //Fill floor grid
-            FillGrid(curRoomFloor, firstRoomGridPos.Item1, firstRoomGridPos.Item2, ref floorGrid, ref partialTiles);
+            newRoom.transform.position = new Vector3(0f, 0f, 0f);
 
             return true;
         }
@@ -189,10 +168,10 @@ public class MapGenerator : MonoBehaviour
             }
             Doorway selectedDoorway = selectedRoom.mapFloors[0].doorways[Random.Range(0, selectedRoom.mapFloors[0].doorways.Count)];
 
-            Doorway myDoorway = room.mapFloors[0].doorways[Random.Range(0, room.mapFloors[0].doorways.Count)];
+            Doorway newDoorway = newRoom.mapFloors[0].doorways[Random.Range(0, newRoom.mapFloors[0].doorways.Count)];
 
             //Ensure angles are compatible
-            float angleDiff = Mathf.Abs(selectedDoorway.angle - myDoorway.angle);
+            float angleDiff = Mathf.Abs(selectedDoorway.angle - newDoorway.angle);
             if(angleDiff < 180f - 0.0000001f || angleDiff > 180f + 0.0000001f)
             {
                 //Attempt failed, try again!
@@ -201,53 +180,29 @@ public class MapGenerator : MonoBehaviour
 
             //Find tile pos of selected doorway. We select the end point to make it easier to set our new room's start point,
             //  though as long as the math works out, it shouldn't matter too much
-            Tuple<int, int> selectedDoorwayPos = new Tuple<int, int>(
-                selectedRoom.placedXTile + Mathf.RoundToInt(selectedDoorway.xEndLine),
-                selectedRoom.placedYTile + Mathf.RoundToInt(selectedDoorway.yEndLine));
+            Vector3 selectedDoorwayPos = selectedDoorway.endPoint.ToVec3XZ() + selectedRoom.transform.position;
 
             //Get the direction to push our new room in
-            Vector2 offsetDir = new Vector2(Mathf.Cos(selectedDoorway.angle * Mathf.Rad2Deg), Mathf.Sin(selectedDoorway.angle * Mathf.Rad2Deg));
+            Vector3 offsetDir = new Vector3(Mathf.Cos(selectedDoorway.angle * Mathf.Rad2Deg), 0f, Mathf.Sin(selectedDoorway.angle * Mathf.Rad2Deg));
             //TODO: make it actually offset
-            int offsetMultiplier = Random.Range(0, 1);
+            float offsetMultiplier = Random.Range(0.0000001f, maxDistanceBetweenRooms);
 
             //Offset a random amount
             offsetDir *= offsetMultiplier;
 
-            //Get new place to attempt to set new room's starting doorway
-            Tuple<int, int> newDesiredDoorwayPos = new Tuple<int, int>(
-                selectedDoorwayPos.Item1 + Mathf.RoundToInt(offsetDir.x),
-                selectedDoorwayPos.Item2 + Mathf.RoundToInt(offsetDir.y));
+            Vector3 newRoomPos = selectedDoorwayPos - newDoorway.startPoint.ToVec3XZ() + offsetDir;
 
-            //Get new doorway's local x and y tiles
-            //  The ternary accounts for float errors, rounding up if close enough, and down otherwise
-            int newDoorXOffset = (myDoorway.xStartLine % 1f > 0.9999f) ? Mathf.RoundToInt(myDoorway.xStartLine) : Mathf.FloorToInt(myDoorway.xStartLine);
-            int newDoorYOffset = (myDoorway.yStartLine % 1f > 0.9999f) ? Mathf.RoundToInt(myDoorway.yStartLine) : Mathf.FloorToInt(myDoorway.yStartLine);
-
-
-            Tuple<int, int> newRoomGridPos = new Tuple<int, int>(newDesiredDoorwayPos.Item1 - newDoorXOffset, newDesiredDoorwayPos.Item2 - newDoorYOffset);
-            
-            if(!IsValidGridTile(room, room.mapFloors[0], newRoomGridPos))
-            {
-                //Attempt failed, try again!
-                continue;
-            }
-
-            if (CheckGridCollisions(curRoomFloor, newRoomGridPos.Item1, newRoomGridPos.Item2, floorGrid, ref partialTiles))
+            //TODO: Check Collisions
+            if (CheckCollisions(allPlacedRooms, newRoom, newRoomPos))
             {
                 //Place room
-                Vector2 newRoomPos = ConvertPlacedRoomGridToWorldSpace(room.gridOffset, newRoomGridPos.Item1, newRoomGridPos.Item2);
-                room.transform.position = newRoomPos.ToVec3XZ();
-
-                //Fill floor grid
-                FillGrid(curRoomFloor, newRoomGridPos.Item1, newRoomGridPos.Item2, ref floorGrid, ref partialTiles);
+                newRoom.transform.position = newRoomPos;
 
                 //Remove closed doors
                 selectedRoom.mapFloors[0].doorways.Remove(selectedDoorway);
-                room.mapFloors[0].doorways.Remove(myDoorway);
+                newRoom.mapFloors[0].doorways.Remove(newDoorway);
 
                 //Set instance vars
-                room.placedXTile = newRoomGridPos.Item1;
-                room.placedYTile = newRoomGridPos.Item2;
 
                 return true;
             }
@@ -258,174 +213,89 @@ public class MapGenerator : MonoBehaviour
         return false;
     }
 
+    private bool CheckCollisions(List<Room> allPlacedRooms, Room newRoom, Vector3 newRoomPos)
+    {
+        //TODO: use bounding boxes to optimize placement
+        List<Vector3> newCollisionPoses = new List<Vector3>();
+        for (int i = 0; i < newRoom.mapFloors[0].roomLines.Count; i++)
+        {
+            newCollisionPoses.AddRange(newRoom.mapFloors[0].roomLines[i].GetCollisionPoints());
+        }
+
+        List<Vector3> simplifiedNewCollisionPoses = new List<Vector3>();
+        LineUtility.Simplify(newCollisionPoses, 0.000001f, simplifiedNewCollisionPoses);
+
+        Vector2 placedInteriorPoint = newRoom.mapFloors[0].interiorPoint.GetXZ();
+
+        foreach (Room placedRoom in allPlacedRooms)
+        {
+            List<Vector3> placedCollisionPoses = new List<Vector3>();
+            for (int i = 0; i < placedRoom.mapFloors[0].roomLines.Count; i++)
+            {
+                placedCollisionPoses.AddRange(placedRoom.mapFloors[0].roomLines[i].GetCollisionPoints());
+            }
+
+            List<Vector3> simplifiedPlacedCollisionPoses = new List<Vector3>();
+            LineUtility.Simplify(placedCollisionPoses, 0.000001f, simplifiedPlacedCollisionPoses);
+
+            int newPointInsidePlacedCount = 0;
+            int placedPointInsideNewCount = 0;
+
+            Vector2 newInteriorPoint = placedRoom.mapFloors[0].interiorPoint.GetXZ();
+
+
+            //Check if any lines intersect
+            for (int i = 0; i < simplifiedPlacedCollisionPoses.Count - 1; i++)
+            {
+                for (int j = 0; j < simplifiedNewCollisionPoses.Count - 1; j++)
+                {
+                    if(LineCollisionUtils.LineIntersectsLine((placedRoom.transform.position + simplifiedPlacedCollisionPoses[i]).GetXZ(),
+                        (placedRoom.transform.position + simplifiedPlacedCollisionPoses[i + 1]).GetXZ(),
+                        (newRoomPos + simplifiedNewCollisionPoses[j]).GetXZ(),
+                        (newRoomPos + simplifiedNewCollisionPoses[j + 1]).GetXZ(),
+                        true))
+                    {
+                        return false;
+                    }
+
+                    if (LineCollisionUtils.LineIntersectsLine(placedRoom.transform.position.GetXZ() + placedInteriorPoint,
+                        placedRoom.transform.position.GetXZ() + placedInteriorPoint + new Vector2(100f, 0f),
+                        (newRoomPos + simplifiedNewCollisionPoses[j]).GetXZ(),
+                        (newRoomPos + simplifiedNewCollisionPoses[j + 1]).GetXZ(),
+                        true))
+                    {
+                        placedPointInsideNewCount++;
+                    }
+                }
+
+                if (LineCollisionUtils.LineIntersectsLine(newRoomPos.GetXZ() + newInteriorPoint,
+                        newRoomPos.GetXZ() + newInteriorPoint + new Vector2(100f, 0f),
+                        (placedRoom.transform.position + simplifiedPlacedCollisionPoses[i]).GetXZ(),
+                        (placedRoom.transform.position + simplifiedPlacedCollisionPoses[i + 1]).GetXZ(),
+                        true))
+                {
+                    newPointInsidePlacedCount++;
+                }
+            }
+
+
+            //Check if a point of each is inside the other
+            if(newPointInsidePlacedCount % 2 == 1)
+            {
+                return false;
+            }
+            
+            if(placedPointInsideNewCount % 2 == 1)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     private void ConnectRooms(List<Room> rooms)
     {
 
-    }
-
-    //Returns a bottom-left point that does not extend past the bounds of the grid
-    public Tuple<int, int> GetValidGridSpace(int bottom, int top, int left, int right)
-    {
-        int verticalDiff = top - bottom;
-        int horizontalDiff = right - left;
-
-        //If the points given are too big, fail!
-        if (verticalDiff > GridYDimension || horizontalDiff > GridXDimension)
-        {
-            Debug.LogError("Given room too big for the grid! Will cause other errors :P");
-            return new Tuple<int, int>(-1, -1);
-        }
-
-        //Debug.Log($"T: {top}; B: {bottom}; L: {left}; R: {right};");
-
-        //The - 1 clamps it because it is 0 indexed
-        int x = Random.Range(0, GridXDimension - horizontalDiff - 1);
-        int y = Random.Range(0, GridYDimension - verticalDiff - 1);
-
-        //Debug.Log($"({x}, {y})");
-        return new Tuple<int, int>(x, y);
-    }
-
-    public bool IsValidGridTile(Room room, Floor floor, Tuple<int, int> desiredPos)
-    {
-        //I'm keeping the room var around for later, and want to get rid of warnings
-        if(room == null)
-        {
-            return false;
-        }
-
-        int verticalDiff = floor.topMostTile - floor.bottomMostTile;
-        int horizontalDiff = floor.rightMostTile - floor.leftMostTile;
-
-        if(desiredPos.Item1 + horizontalDiff >= GridXDimension ||
-            desiredPos.Item2 + verticalDiff >= GridYDimension ||
-            desiredPos.Item1 < 0 ||
-            desiredPos.Item2 < 0)
-        {
-            return false;
-        }
-
-        return true;
-    }
-
-    public static float ConvertGridToWorldSpace(int desiredTile)
-    {
-        return (desiredTile * Floor.GridSize);
-    }
-
-    public Vector2 ConvertPlacedRoomGridToWorldSpace(Vector2 gridOffset, int tileX, int tileY)
-    {
-        gridOffset.x = ConvertGridToWorldSpace(tileX) - gridOffset.x;
-        gridOffset.y = ConvertGridToWorldSpace(tileY) - gridOffset.y;
-        return gridOffset;
-    }
-
-    //Returns true if there is no collisions between the given floor and floorGrid
-    public bool CheckGridCollisions(in Floor roomFloor, int x, int y, in TileState[][] floorGrid, ref List<ConflictingTileData> partialTiles)
-    {
-        TileState[][] roomGrid = roomFloor.tileGrid;
-
-        for (int i = roomFloor.leftMostTile; i <= roomFloor.rightMostTile; i++)
-        {
-            for (int j = roomFloor.bottomMostTile; j <= roomFloor.topMostTile; j++)
-            {
-                TileState otherTile = floorGrid[x + i][y + j];
-                //Was a switch the best idea for this? Probably not
-                switch (roomGrid[i][j])
-                {
-                    case (TileState.Partial):
-                        //Check collisions
-                        if(otherTile == TileState.Full)
-                        {
-                            return false;
-                        }
-
-                        if(otherTile == TileState.Partial)
-                        {
-                            //Grab the two colliding tiles
-                            ConflictingTileData newTile = Array.Find(roomFloor.partialTileData.ToArray(), (tile) => (tile.xIndex == i && tile.yIndex == j));
-                            ConflictingTileData existingTile = Array.Find(partialTiles.ToArray(), (tile) => (tile.xIndex == x + i && tile.yIndex == y + j));
-
-                            //Check collisions
-                            for(int o = 0; o < newTile.lines.Count; o++)
-                            {
-                                for(int p = 0; p < existingTile.lines.Count; p++)
-                                {
-                                    if (LineCollisionUtils.LineIntersectsLine(
-                                        newTile.lines[o].list[0],
-                                        newTile.lines[o].list[1],
-                                        existingTile.lines[p].list[0],
-                                        existingTile.lines[p].list[1]))
-                                    {
-                                        return false;
-                                    }
-                                }
-                            }
-                        }
-                        break;
-
-                    case (TileState.Full):
-                        if(otherTile == TileState.Full || otherTile == TileState.Partial)
-                        {
-                            //Collision!
-                            return false;
-                        }
-                        break;
-
-                    case (TileState.Empty):
-                    default:
-                        //Do nothings
-                        break;
-                }
-            }
-        }
-
-        return true;
-    }
-
-    //Preconditions: All collision checking has already been completed
-    //x is the desired x pos in floorGrid
-    //y is the desired y pos in floorGrid
-    public static void FillGrid(in Floor roomFloor, int x, int y, ref TileState[][] floorGrid, ref List<ConflictingTileData> partialTiles)
-    {
-        TileState[][] roomGrid = roomFloor.tileGrid;
-
-        for(int i = roomFloor.leftMostTile; i <= roomFloor.rightMostTile; i++)
-        {
-            for(int j = roomFloor.bottomMostTile; j <= roomFloor.topMostTile; j++)
-            {
-                //Was a switch the best idea for this? Probably not
-                switch (roomGrid[i][j])
-                {
-                    case (TileState.Partial):
-                        if (floorGrid[x + i][y + j] == TileState.Partial)
-                        {
-                            floorGrid[x + i][y + j] = TileState.Full;
-
-                            //Find and remove now irrelevant partialTileData (lambda magic!)
-                            partialTiles.Remove(Array.Find(partialTiles.ToArray(), (tile) => (tile.xIndex == x + i && tile.yIndex == y + j)));
-                        }
-                        else
-                        {
-                            floorGrid[x + i][y + j] = TileState.Partial;
-
-                            //Find and add the now relevant partialTileData (lambda magic!)
-                            //TODO: Could result in null? Check it out
-                            //  though maybe it doesn't. Could go either way
-                            partialTiles.Add(Array.Find(roomFloor.partialTileData.ToArray(), (tile) => (tile.xIndex == x + i && tile.yIndex == y + j)));
-                        }
-                        break;
-
-                    case (TileState.Full):
-                        floorGrid[x + i][y + j] = TileState.Full;
-                        break;
-
-                    case (TileState.Empty):
-                    default:
-                        //Do nothings
-                        break;
-                }
-            }
-        }
     }
 }

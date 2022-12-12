@@ -429,7 +429,7 @@ MonoBehaviour:
     roomLines:
     - <CurLineType>k__BackingField: 0
       <CurDoorType>k__BackingField: 0
-      lineStart: {x: -0.50000006, y: 0.49999994}
+      lineStart: {x: -0.50000006, y: 0.49999997}
       lineEnd: {x: 0.5, y: 0.5}
       bezierStartHandle: {x: 0.1, y: 0.1}
       bezierEndHandle: {x: -0.1, y: -0.1}
@@ -437,28 +437,50 @@ MonoBehaviour:
     - <CurLineType>k__BackingField: 0
       <CurDoorType>k__BackingField: 0
       lineStart: {x: 0.5, y: 0.5}
-      lineEnd: {x: 0.5, y: -0.5}
+      lineEnd: {x: 0.5, y: -0.6}
       bezierStartHandle: {x: 1.1, y: 0.1}
       bezierEndHandle: {x: 0.9, y: -0.1}
       floorNum: 0
     - <CurLineType>k__BackingField: 2
       <CurDoorType>k__BackingField: 0
-      lineStart: {x: 0.5, y: -0.5}
-      lineEnd: {x: -0.5, y: -0.50000006}
+      lineStart: {x: 0.5, y: -0.6}
+      lineEnd: {x: -0.5, y: -0.6000001}
       bezierStartHandle: {x: 0.6, y: -0.9}
       bezierEndHandle: {x: 0.4, y: -1.1}
       floorNum: 0
+    - <CurLineType>k__BackingField: 0
+      <CurDoorType>k__BackingField: 0
+      lineStart: {x: -0.5, y: -0.6000001}
+      lineEnd: {x: -0.4959605, y: -0.50000006}
+      bezierStartHandle: {x: 0.5019908, y: -0.4}
+      bezierEndHandle: {x: 0.3019908, y: -0.6}
+      floorNum: 0
+    - <CurLineType>k__BackingField: 0
+      <CurDoorType>k__BackingField: 0
+      lineStart: {x: -0.4959605, y: -0.50000006}
+      lineEnd: {x: -0.6, y: -0.50000006}
+      bezierStartHandle: {x: -0.29596052, y: -0.40000007}
+      bezierEndHandle: {x: -0.4959605, y: -0.6000001}
+      floorNum: 0
     - <CurLineType>k__BackingField: 2
       <CurDoorType>k__BackingField: 0
-      lineStart: {x: -0.5, y: -0.50000006}
-      lineEnd: {x: -0.50000006, y: 0.49999994}
+      lineStart: {x: -0.6, y: -0.50000006}
+      lineEnd: {x: -0.6000001, y: 0.49999994}
       bezierStartHandle: {x: 0.032716192, y: 0.1672838}
       bezierEndHandle: {x: -0.1672838, y: -0.032716192}
       floorNum: 0
+    - <CurLineType>k__BackingField: 0
+      <CurDoorType>k__BackingField: 0
+      lineStart: {x: -0.6000001, y: 0.49999994}
+      lineEnd: {x: -0.50000006, y: 0.49999997}
+      bezierStartHandle: {x: -0.4, y: -0.3018471}
+      bezierEndHandle: {x: -0.6, y: -0.5018471}
+      floorNum: 0
     points: []
+    interiorPoint: {x: 0.15534532, y: -0.00048828125, z: 0.21822299}
     doorways:
-    - startPoint: {x: 0.5, y: -0.5}
-      endPoint: {x: -0.5, y: -0.50000006}
+    - startPoint: {x: 0.5, y: -0.6}
+      endPoint: {x: -0.5, y: -0.6000001}
       xStartLine: 10
       yStartLine: 0
       xEndLine: 0
@@ -467,8 +489,8 @@ MonoBehaviour:
       width: 1
       height: 0
       angle: 270
-    - startPoint: {x: -0.5, y: -0.50000006}
-      endPoint: {x: -0.50000006, y: 0.49999994}
+    - startPoint: {x: -0.6, y: -0.50000006}
+      endPoint: {x: -0.6000001, y: 0.49999994}
       xStartLine: 0
       yStartLine: 0
       xEndLine: 0
@@ -479,5 +501,5 @@ MonoBehaviour:
       angle: 180
   curInspectedFloor: 0
   curPaintState: 2
-  curInspectorMode: 2
+  curInspectorMode: 1
   curInspectorLineType: 0

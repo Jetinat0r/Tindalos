@@ -429,36 +429,37 @@ MonoBehaviour:
     roomLines:
     - <CurLineType>k__BackingField: 2
       <CurDoorType>k__BackingField: 0
-      lineStart: {x: -0.5, y: 0.5}
-      lineEnd: {x: 0.5, y: 0.5}
+      lineStart: {x: -0.5, y: 0.6}
+      lineEnd: {x: 0.5, y: 0.6}
       bezierStartHandle: {x: 0.1, y: 0.1}
       bezierEndHandle: {x: -0.1, y: -0.1}
       floorNum: 0
     - <CurLineType>k__BackingField: 0
       <CurDoorType>k__BackingField: 0
-      lineStart: {x: 0.5, y: 0.5}
-      lineEnd: {x: 0.5, y: -0.5}
+      lineStart: {x: 0.5, y: 0.6}
+      lineEnd: {x: 0.5, y: -0.6}
       bezierStartHandle: {x: 1.1, y: 0.1}
       bezierEndHandle: {x: 0.9, y: -0.1}
       floorNum: 0
     - <CurLineType>k__BackingField: 2
       <CurDoorType>k__BackingField: 0
-      lineStart: {x: 0.5, y: -0.5}
-      lineEnd: {x: -0.5, y: -0.4999999}
+      lineStart: {x: 0.5, y: -0.6}
+      lineEnd: {x: -0.5, y: -0.6000001}
       bezierStartHandle: {x: 0.6, y: -0.9}
       bezierEndHandle: {x: 0.4, y: -1.1}
       floorNum: 0
     - <CurLineType>k__BackingField: 0
       <CurDoorType>k__BackingField: 0
-      lineStart: {x: -0.5, y: -0.4999999}
-      lineEnd: {x: -0.5, y: 0.5}
+      lineStart: {x: -0.5, y: -0.6000001}
+      lineEnd: {x: -0.5, y: 0.6}
       bezierStartHandle: {x: 0.032716192, y: 0.1672838}
       bezierEndHandle: {x: -0.1672838, y: -0.032716192}
       floorNum: 0
     points: []
+    interiorPoint: {x: 0, y: 0, z: 0}
     doorways:
-    - startPoint: {x: -0.5, y: 0.5}
-      endPoint: {x: 0.5, y: 0.5}
+    - startPoint: {x: -0.5, y: 0.6}
+      endPoint: {x: 0.5, y: 0.6}
       xStartLine: 0
       yStartLine: 10
       xEndLine: 10
@@ -467,17 +468,17 @@ MonoBehaviour:
       width: 1
       height: 0
       angle: 90
-    - startPoint: {x: 0.5, y: -0.5}
-      endPoint: {x: -0.5, y: -0.4999999}
+    - startPoint: {x: 0.5, y: -0.6}
+      endPoint: {x: -0.5, y: -0.6000001}
       xStartLine: 10
       yStartLine: 0
       xEndLine: 0
-      yEndLine: 0.0000008940697
+      yEndLine: 0
       doorType: 0
       width: 1
       height: 0
       angle: 270
   curInspectedFloor: 0
   curPaintState: 2
-  curInspectorMode: 0
+  curInspectorMode: 1
   curInspectorLineType: 0

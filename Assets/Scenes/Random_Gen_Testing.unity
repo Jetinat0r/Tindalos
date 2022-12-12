@@ -123,6 +123,128 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &690055653
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 690055655}
+  - component: {fileID: 690055654}
+  m_Layer: 0
+  m_Name: Diag Map Generator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &690055654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 690055653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81b81a805d3795f4ab326152053e985b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manualSeed: -1
+  numFloors: 1
+  floorHeight: 1
+  floorRoomCount: e8030000
+  numRoomPlaceAttempts: 10
+  minDistanceBetweenRooms: 0
+  maxDistanceBetweenRooms: 0
+  availableAngle: 90
+  roomPrefabs:
+  - {fileID: 1763195311515005087, guid: 2970b2295b5ae5144842c84be82ad2e3, type: 3}
+  - {fileID: 1763195311515005087, guid: d0c49f8899716a946a49b95532d4e393, type: 3}
+  - {fileID: 1763195311515005087, guid: 95fe8ff0577678e49879ccbcfaedf6b3, type: 3}
+  hallwayPrefabs: []
+--- !u!4 &690055655
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 690055653}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1191772878
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1191772880}
+  - component: {fileID: 1191772879}
+  m_Layer: 0
+  m_Name: Combined Map Generator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1191772879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191772878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81b81a805d3795f4ab326152053e985b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manualSeed: -1
+  numFloors: 1
+  floorHeight: 1
+  floorRoomCount: e8030000
+  numRoomPlaceAttempts: 10
+  minDistanceBetweenRooms: 0
+  maxDistanceBetweenRooms: 0
+  availableAngle: 90
+  roomPrefabs:
+  - {fileID: 1763195311515005087, guid: 2970b2295b5ae5144842c84be82ad2e3, type: 3}
+  - {fileID: 1763195311515005087, guid: d0c49f8899716a946a49b95532d4e393, type: 3}
+  - {fileID: 1763195311515005087, guid: 95fe8ff0577678e49879ccbcfaedf6b3, type: 3}
+  - {fileID: 1763195311515005087, guid: c4a87edb87864c448a07539dfa3658b4, type: 3}
+  - {fileID: 1763195311515005087, guid: 38b928d3b7834d643bcbd3b823113273, type: 3}
+  - {fileID: 1763195311515005087, guid: 23372ba74064f674c813a947026b56db, type: 3}
+  - {fileID: 4387047650401971458, guid: d5b92406a76d3ba418bdb27d6fbaef50, type: 3}
+  - {fileID: 2951015472458715700, guid: cf3e27f8e4aae5843bb661ffd9fe43c1, type: 3}
+  - {fileID: 1763195311515005087, guid: ab0ac7351c38a45499f0525cbb83ef97, type: 3}
+  - {fileID: 1763195311515005087, guid: 620a7b6dce2ad4a49951d6e495cb4d9b, type: 3}
+  - {fileID: 1763195311515005087, guid: 83c272984951820468e880b9bb77ede5, type: 3}
+  hallwayPrefabs: []
+--- !u!4 &1191772880
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191772878}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1234200575
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,7 +261,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1234200576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,7 +279,8 @@ MonoBehaviour:
   floorHeight: 1
   floorRoomCount: e8030000
   numRoomPlaceAttempts: 10
-  maxDistanceBetweenRooms: 20
+  minDistanceBetweenRooms: 0
+  maxDistanceBetweenRooms: 0.000001
   availableAngle: 90
   roomPrefabs:
   - {fileID: 1763195311515005087, guid: c4a87edb87864c448a07539dfa3658b4, type: 3}

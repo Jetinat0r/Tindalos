@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5371109575159947975
+--- !u!1 &2188104151156175638
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,47 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6117355316890499209}
-  - component: {fileID: 9085986006611685565}
-  - component: {fileID: 6623649931574287296}
-  - component: {fileID: 2995219319788630541}
-  - component: {fileID: 1763195311515005087}
+  - component: {fileID: 1407182073380379900}
+  - component: {fileID: 1235614830071998485}
+  - component: {fileID: 1769392157610581595}
+  - component: {fileID: 5903663041178843561}
   m_Layer: 0
-  m_Name: DR
+  m_Name: Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6117355316890499209
+--- !u!4 &1407182073380379900
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5371109575159947975}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_GameObject: {fileID: 2188104151156175638}
+  m_LocalRotation: {x: 0, y: 0.38268343, z: 0, w: 0.92387956}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 6117355316890499209}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &9085986006611685565
+  m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
+--- !u!33 &1235614830071998485
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5371109575159947975}
+  m_GameObject: {fileID: 2188104151156175638}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &6623649931574287296
+--- !u!23 &1769392157610581595
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5371109575159947975}
+  m_GameObject: {fileID: 2188104151156175638}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -63,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 69b93e3b5d0017c4781f4b53d90196e1, type: 2}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -85,19 +84,104 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2995219319788630541
+--- !u!65 &5903663041178843561
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5371109575159947975}
+  m_GameObject: {fileID: 2188104151156175638}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &5371109575159947975
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6117355316890499209}
+  - component: {fileID: 9085986006611685565}
+  - component: {fileID: 6623649931574287296}
+  - component: {fileID: 1763195311515005087}
+  m_Layer: 0
+  m_Name: Diag DL DR
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6117355316890499209
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5371109575159947975}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1407182073380379900}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &9085986006611685565
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5371109575159947975}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &6623649931574287296
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5371109575159947975}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 1b1c8502f28f0054191320b6c8b94a31, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &1763195311515005087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -429,70 +513,56 @@ MonoBehaviour:
     roomLines:
     - <CurLineType>k__BackingField: 0
       <CurDoorType>k__BackingField: 0
-      lineStart: {x: -0.5, y: 0.5}
-      lineEnd: {x: 0.6, y: 0.5}
+      lineStart: {x: 0, y: 0.7}
+      lineEnd: {x: 0.7, y: 0.000000007450581}
       bezierStartHandle: {x: 0.1, y: 0.1}
       bezierEndHandle: {x: -0.1, y: -0.1}
       floorNum: 0
     - <CurLineType>k__BackingField: 2
       <CurDoorType>k__BackingField: 0
-      lineStart: {x: 0.6, y: 0.5}
-      lineEnd: {x: 0.59999996, y: -0.5}
+      lineStart: {x: 0.7, y: 0.000000007450581}
+      lineEnd: {x: 0.000000014901161, y: -0.7}
       bezierStartHandle: {x: 1.1, y: 0.1}
       bezierEndHandle: {x: 0.9, y: -0.1}
       floorNum: 0
-    - <CurLineType>k__BackingField: 0
-      <CurDoorType>k__BackingField: 0
-      lineStart: {x: 0.59999996, y: -0.5}
-      lineEnd: {x: 0.5008212, y: -0.49971628}
-      bezierStartHandle: {x: 0.63302875, y: -0.09974285}
-      bezierEndHandle: {x: 0.43302873, y: -0.29974285}
-      floorNum: 0
-    - <CurLineType>k__BackingField: 0
-      <CurDoorType>k__BackingField: 0
-      lineStart: {x: 0.5008212, y: -0.49971628}
-      lineEnd: {x: 0.4999999, y: -0.6}
-      bezierStartHandle: {x: 0.6697262, y: -0.45411488}
-      bezierEndHandle: {x: 0.46972618, y: -0.6541149}
-      floorNum: 0
     - <CurLineType>k__BackingField: 2
       <CurDoorType>k__BackingField: 0
-      lineStart: {x: 0.4999999, y: -0.6}
-      lineEnd: {x: -0.5000001, y: -0.6000001}
+      lineStart: {x: 0.000000014901161, y: -0.7}
+      lineEnd: {x: -0.70710677, y: 0.007106766}
       bezierStartHandle: {x: 0.6, y: -0.9}
       bezierEndHandle: {x: 0.4, y: -1.1}
       floorNum: 0
     - <CurLineType>k__BackingField: 0
       <CurDoorType>k__BackingField: 0
-      lineStart: {x: -0.5000001, y: -0.6000001}
-      lineEnd: {x: -0.5, y: 0.5}
-      bezierStartHandle: {x: -0.33671978, y: -0.40000007}
-      bezierEndHandle: {x: -0.5367198, y: -0.6000001}
+      lineStart: {x: -0.70710677, y: 0.007106766}
+      lineEnd: {x: 0, y: 0.7}
+      bezierStartHandle: {x: 0.1, y: 0.14570123}
+      bezierEndHandle: {x: -0.1, y: -0.054298773}
       floorNum: 0
     points: []
-    interiorPoint: {x: 0, y: 0, z: 0}
+    interiorPoint: {x: 0.0331081, y: -0.00048828125, z: -0.0041385028}
     doorways:
-    - startPoint: {x: 0.6, y: 0.5}
-      endPoint: {x: 0.59999996, y: -0.5}
+    - startPoint: {x: 0.7, y: 0.000000007450581}
+      endPoint: {x: 0.000000014901161, y: -0.7}
       xStartLine: 10
-      yStartLine: 10
-      xEndLine: 10
+      yStartLine: 5
+      xEndLine: 5
       yEndLine: 0
       doorType: 0
-      width: 1
+      width: 0.98994946
       height: 0
-      angle: 0
-    - startPoint: {x: 0.4999999, y: -0.6}
-      endPoint: {x: -0.5000001, y: -0.6000001}
-      xStartLine: 9.999999
+      angle: 315
+    - startPoint: {x: 0.000000014901161, y: -0.7}
+      endPoint: {x: -0.70710677, y: 0.007106766}
+      xStartLine: 5
       yStartLine: 0
       xEndLine: 0
-      yEndLine: 0
+      yEndLine: 5.071068
       doorType: 0
       width: 1
       height: 0
-      angle: 270
+      angle: 225
   curInspectedFloor: 0
   curPaintState: 2
-  curInspectorMode: 1
+  curInspectorMode: 2
   curInspectorLineType: 0

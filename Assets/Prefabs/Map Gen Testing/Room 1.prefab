@@ -19428,23 +19428,37 @@ MonoBehaviour:
     - <CurLineType>k__BackingField: 0
       <CurDoorType>k__BackingField: 0
       lineStart: {x: -4, y: 4}
-      lineEnd: {x: 1.2, y: 4}
+      lineEnd: {x: 1.2004855, y: 4.0024047}
       bezierStartHandle: {x: 0.1, y: 0.1}
       bezierEndHandle: {x: -0.1, y: -0.1}
       floorNum: 0
+    - <CurLineType>k__BackingField: 0
+      <CurDoorType>k__BackingField: 0
+      lineStart: {x: 1.2004855, y: 4.0024047}
+      lineEnd: {x: 1.2, y: 4.1}
+      bezierStartHandle: {x: 0.99952966, y: 4.1942215}
+      bezierEndHandle: {x: 0.7995296, y: 3.9942217}
+      floorNum: 0
     - <CurLineType>k__BackingField: 2
       <CurDoorType>k__BackingField: 0
-      lineStart: {x: 1.2, y: 4}
-      lineEnd: {x: 2.2, y: 4}
+      lineStart: {x: 1.2, y: 4.1}
+      lineEnd: {x: 2.2, y: 4.1}
       bezierStartHandle: {x: 1.3000001, y: 4.1}
       bezierEndHandle: {x: 1.1, y: 3.9}
       floorNum: 0
     - <CurLineType>k__BackingField: 0
       <CurDoorType>k__BackingField: 0
-      lineStart: {x: 2.2, y: 4}
-      lineEnd: {x: 4, y: 4}
+      lineStart: {x: 2.2, y: 4.1}
+      lineEnd: {x: 2.200378, y: 3.9996603}
       bezierStartHandle: {x: 0.6, y: -0.9}
       bezierEndHandle: {x: 0.4, y: -1.1}
+      floorNum: 0
+    - <CurLineType>k__BackingField: 0
+      <CurDoorType>k__BackingField: 0
+      lineStart: {x: 2.200378, y: 3.9996603}
+      lineEnd: {x: 4, y: 4}
+      bezierStartHandle: {x: 2.4534063, y: 4.1914773}
+      bezierEndHandle: {x: 2.2534065, y: 3.9914775}
       floorNum: 0
     - <CurLineType>k__BackingField: 0
       <CurDoorType>k__BackingField: 0
@@ -19468,9 +19482,10 @@ MonoBehaviour:
       bezierEndHandle: {x: -1.7696143, y: 3.6839771}
       floorNum: 0
     points: []
+    interiorPoint: {x: 0, y: 0, z: 0}
     doorways:
-    - startPoint: {x: 1.2, y: 4}
-      endPoint: {x: 2.2, y: 4}
+    - startPoint: {x: 1.2, y: 4.1}
+      endPoint: {x: 2.2, y: 4.1}
       xStartLine: 52
       yStartLine: 80
       xEndLine: 62
@@ -19481,7 +19496,7 @@ MonoBehaviour:
       angle: 90
   curInspectedFloor: 0
   curPaintState: 2
-  curInspectorMode: 2
+  curInspectorMode: 1
   curInspectorLineType: 0
 --- !u!1 &4387047651529899020
 GameObject:

@@ -104,6 +104,7 @@ public class Room : MonoBehaviour
         curInspectedFloor = 0;
     }
 
+    /*
     private void OnDrawGizmosSelected()
     {
         if(mapFloors == null || mapFloors.Count == 0)
@@ -127,4 +128,5 @@ public class Room : MonoBehaviour
                 break;
         }
     }
+    */
 }

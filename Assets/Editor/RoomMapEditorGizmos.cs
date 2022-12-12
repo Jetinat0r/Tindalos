@@ -28,10 +28,13 @@ public class RoomMapEditorGizmos : Editor
             case (Room.RoomInspectorMode.Paint):
                 if (room.CurFloor.tileGrid != null)
                 {
-                    DrawGrid(room, Floor.GridSize);
+                    DrawInternalPoint(room);
+                }
+                else
+                {
+                    room.CurFloor.interiorPoint = Vector3.zero;
                 }
 
-                DrawPaintingButtons(room);
                 break;
 
             case (Room.RoomInspectorMode.Lines):
@@ -151,6 +154,19 @@ public class RoomMapEditorGizmos : Editor
         Handles.EndGUI();
     }
 
+    //Preconditions: room.CurFloor.interiorPoint != null
+    private void DrawInternalPoint(Room room)
+    {
+        Handles.color = Color.green;
+
+        room.CurFloor.interiorPoint = Handles.FreeMoveHandle(room.CurFloor.interiorPoint,
+                                        Quaternion.identity,
+                                        Floor.GridSize / 2,
+                                        new Vector3(Floor.GridSize, Floor.GridSize, Floor.GridSize),
+                                        Handles.CircleHandleCap);
+
+        Handles.color = Color.white;
+    }
 
     private void DrawGrid(Room room, float spacing)
     {

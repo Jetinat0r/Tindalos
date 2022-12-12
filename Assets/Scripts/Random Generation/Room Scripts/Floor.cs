@@ -75,6 +75,10 @@ public class Floor : ISerializationCallbackReceiver
     [SerializeField, HideInInspector]
     private Vector3[] points;
 
+    //One point inside the polgon, useful to determine if 2 polygons completely overlap
+    [SerializeField, HideInInspector]
+    public Vector3 interiorPoint;
+
     //Every door on the respective floor
     public List<Doorway> doorways = new List<Doorway>();
 
