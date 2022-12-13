@@ -159,6 +159,7 @@ MonoBehaviour:
   numRoomPlaceAttempts: 10
   minDistanceBetweenRooms: 0
   maxDistanceBetweenRooms: 0
+  angleEpsilon: 0.001
   availableAngle: 90
   roomPrefabs:
   - {fileID: 1763195311515005087, guid: 2970b2295b5ae5144842c84be82ad2e3, type: 3}
@@ -209,13 +210,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81b81a805d3795f4ab326152053e985b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manualSeed: -1
+  manualSeed: 1979212431
   numFloors: 1
   floorHeight: 1
   floorRoomCount: e8030000
   numRoomPlaceAttempts: 10
   minDistanceBetweenRooms: 0
   maxDistanceBetweenRooms: 0
+  angleEpsilon: 0.001
   availableAngle: 90
   roomPrefabs:
   - {fileID: 1763195311515005087, guid: 2970b2295b5ae5144842c84be82ad2e3, type: 3}
@@ -281,6 +283,7 @@ MonoBehaviour:
   numRoomPlaceAttempts: 10
   minDistanceBetweenRooms: 0
   maxDistanceBetweenRooms: 0.000001
+  angleEpsilon: 0.001
   availableAngle: 90
   roomPrefabs:
   - {fileID: 1763195311515005087, guid: c4a87edb87864c448a07539dfa3658b4, type: 3}

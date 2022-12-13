@@ -29,6 +29,8 @@ public class MapGenerator : MonoBehaviour
     //Max distance a door can be from another door
     public float maxDistanceBetweenRooms = 0.0001f;
 
+    //Angle forgiveness
+    public float angleEpsilon = 0.001f;
     //Min angle rooms can be rotated at
     public float availableAngle = 90f;
     //Helper for generating random rotations
@@ -172,7 +174,7 @@ public class MapGenerator : MonoBehaviour
 
             //Ensure angles are compatible
             float angleDiff = Mathf.Abs(selectedDoorway.angle - newDoorway.angle);
-            if(angleDiff < 180f - 0.0000001f || angleDiff > 180f + 0.0000001f)
+            if(angleDiff < 180f - angleEpsilon || angleDiff > 180f + angleEpsilon)
             {
                 //Attempt failed, try again!
                 continue;
@@ -185,7 +187,7 @@ public class MapGenerator : MonoBehaviour
             //Get the direction to push our new room in
             Vector3 offsetDir = new Vector3(Mathf.Cos(selectedDoorway.angle * Mathf.Rad2Deg), 0f, Mathf.Sin(selectedDoorway.angle * Mathf.Rad2Deg));
             //TODO: make it actually offset
-            float offsetMultiplier = Random.Range(0.0000001f, maxDistanceBetweenRooms);
+            float offsetMultiplier = Random.Range(minDistanceBetweenRooms, maxDistanceBetweenRooms);
 
             //Offset a random amount
             offsetDir *= offsetMultiplier;

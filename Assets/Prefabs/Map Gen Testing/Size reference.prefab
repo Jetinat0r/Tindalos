@@ -861,115 +861,7 @@ MonoBehaviour:
       - Index0: 9
         Index1: 9
         Element: 2
-    partialTileData:
-    - xIndex: 0
-      yIndex: 9
-      lines:
-      - list:
-        - {x: -0.4263891, y: 0.44156918}
-        - {x: -0.23264995, y: 0.5759596}
-      - list:
-        - {x: -1.3666828, y: 0.85962975}
-        - {x: -0.4263891, y: 0.44156918}
-    - xIndex: 1
-      yIndex: 9
-      lines:
-      - list:
-        - {x: -0.4263891, y: 0.44156918}
-        - {x: -0.23264995, y: 0.5759596}
-    - xIndex: 2
-      yIndex: 9
-      lines: []
-    - xIndex: 3
-      yIndex: 9
-      lines: []
-    - xIndex: 4
-      yIndex: 9
-      lines: []
-    - xIndex: 5
-      yIndex: 9
-      lines: []
-    - xIndex: 6
-      yIndex: 9
-      lines: []
-    - xIndex: 7
-      yIndex: 9
-      lines: []
-    - xIndex: 8
-      yIndex: 9
-      lines: []
-    - xIndex: 9
-      yIndex: 9
-      lines: []
-    - xIndex: 10
-      yIndex: 0
-      lines:
-      - list:
-        - {x: 0.5644899, y: -0.35903543}
-        - {x: 0.5765283, y: -0.44977835}
-      - list:
-        - {x: 0.5765283, y: -0.44977835}
-        - {x: -0.43504107, y: -0.47737327}
-    - xIndex: 10
-      yIndex: 1
-      lines:
-      - list:
-        - {x: 0.56248146, y: -0.26380843}
-        - {x: 0.5644899, y: -0.35903543}
-      - list:
-        - {x: 0.5644899, y: -0.35903543}
-        - {x: 0.5765283, y: -0.44977835}
-    - xIndex: 10
-      yIndex: 2
-      lines:
-      - list:
-        - {x: 0.568039, y: -0.16506313}
-        - {x: 0.56248146, y: -0.26380843}
-      - list:
-        - {x: 0.56248146, y: -0.26380843}
-        - {x: 0.5644899, y: -0.35903543}
-    - xIndex: 10
-      yIndex: 3
-      lines:
-      - list:
-        - {x: 0.5786986, y: -0.06376519}
-        - {x: 0.568039, y: -0.16506313}
-      - list:
-        - {x: 0.568039, y: -0.16506313}
-        - {x: 0.56248146, y: -0.26380843}
-    - xIndex: 10
-      yIndex: 4
-      lines:
-      - list:
-        - {x: 0.5919963, y: 0.03911966}
-        - {x: 0.5786986, y: -0.06376519}
-      - list:
-        - {x: 0.5786986, y: -0.06376519}
-        - {x: 0.568039, y: -0.16506313}
-    - xIndex: 10
-      yIndex: 5
-      lines:
-      - list:
-        - {x: 0.6054683, y: 0.14262578}
-        - {x: 0.5919963, y: 0.03911966}
-      - list:
-        - {x: 0.5919963, y: 0.03911966}
-        - {x: 0.5786986, y: -0.06376519}
-    - xIndex: 10
-      yIndex: 6
-      lines:
-      - list:
-        - {x: 0.6054683, y: 0.14262578}
-        - {x: 0.5919963, y: 0.03911966}
-    - xIndex: 10
-      yIndex: 7
-      lines: []
-    - xIndex: 10
-      yIndex: 8
-      lines: []
-    - xIndex: 10
-      yIndex: 9
-      lines: []
+    partialTileData: []
     leftMostTile: 0
     rightMostTile: 0
     bottomMostTile: 0
@@ -998,27 +890,7 @@ MonoBehaviour:
       floorNum: 1
     points: []
     interiorPoint: {x: 0, y: 0, z: 0}
-    doorways:
-    - startPoint: {x: 0, y: 0}
-      endPoint: {x: 0, y: 0}
-      xStartLine: 0
-      yStartLine: 0
-      xEndLine: 0
-      yEndLine: 0
-      doorType: 0
-      width: 0.7647335
-      height: -0.22486103
-      angle: 0
-    - startPoint: {x: 0, y: 0}
-      endPoint: {x: 0, y: 0}
-      xStartLine: 0
-      yStartLine: 0
-      xEndLine: 0
-      yEndLine: 0
-      doorType: 0
-      width: 0.5106732
-      height: 0.12515187
-      angle: 0
+    doorways: []
   - floorNum: 2
     gridWidth: 10
     gridHeight: 10
@@ -1338,16 +1210,10 @@ MonoBehaviour:
       lines: []
     - xIndex: 9
       yIndex: 8
-      lines:
-      - list:
-        - {x: -0.3, y: -0.5}
-        - {x: 0.75568485, y: 0.7183542}
+      lines: []
     - xIndex: 9
       yIndex: 9
-      lines:
-      - list:
-        - {x: -0.3, y: -0.5}
-        - {x: 0.75568485, y: 0.7183542}
+      lines: []
     leftMostTile: 0
     rightMostTile: 0
     bottomMostTile: 0
@@ -1376,17 +1242,7 @@ MonoBehaviour:
       floorNum: 2
     points: []
     interiorPoint: {x: 0, y: 0, z: 0}
-    doorways:
-    - startPoint: {x: 0, y: 0}
-      endPoint: {x: 0, y: 0}
-      xStartLine: 1.9999999
-      yStartLine: 0
-      xEndLine: 10
-      yEndLine: 10
-      doorType: 0
-      width: 1.0556848
-      height: 1.2183542
-      angle: 0
+    doorways: []
   - floorNum: 3
     gridWidth: 10
     gridHeight: 10
@@ -1726,5 +1582,5 @@ MonoBehaviour:
     doorways: []
   curInspectedFloor: 0
   curPaintState: 2
-  curInspectorMode: 1
+  curInspectorMode: 2
   curInspectorLineType: 0
