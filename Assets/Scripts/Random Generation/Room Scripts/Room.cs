@@ -10,7 +10,7 @@ public class Room : MonoBehaviour
     public enum RoomInspectorMode
     {
         View = 0,
-        Paint = 1,
+        InternalPoint = 1,
         Lines = 2,
     }
 
