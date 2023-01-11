@@ -74,10 +74,11 @@ public class Doorway
         angle = doorAngle % 360f;
     }
 
-    public void DrawDebugGizmos(Transform transform)
+    public void DrawDebugGizmos(Room r, Transform transform)
     {
         Vector2 doorCenter = ((endPoint - startPoint) / 2) + transform.position.GetXZ() + startPoint;
-        Debug.DrawRay(doorCenter.ToVec3XZ(), 3 * new Vector3(Mathf.Cos(angle * Mathf.Deg2Rad), 0f, Mathf.Sin(angle * Mathf.Deg2Rad)), Color.red);
+        float doorY = Floor.FloorHeight * r.assignedFloor;
+        Debug.DrawRay(new Vector3(doorCenter.x, doorY, doorCenter.y), 3 * new Vector3(Mathf.Cos(angle * Mathf.Deg2Rad), 0f, Mathf.Sin(angle * Mathf.Deg2Rad)), Color.red);
     }
 }
 
@@ -92,7 +93,7 @@ public static class DoorwayTypeExtensions
         switch (doorType)
         {
             case (DoorType.Normal):
-                doorSize = 1f;
+                doorSize = 1.3125f;
                 validAngles = 45f;
                 break;
 

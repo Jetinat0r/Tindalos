@@ -73,7 +73,7 @@ public class Room : MonoBehaviour
         {
             foreach (Doorway d in f.doorways)
             {
-                d.DrawDebugGizmos(transform);
+                d.DrawDebugGizmos(this, transform);
             }
         }
         

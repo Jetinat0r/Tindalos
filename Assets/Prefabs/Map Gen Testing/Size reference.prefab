@@ -429,127 +429,71 @@ MonoBehaviour:
     roomLines:
     - <CurLineType>k__BackingField: 2
       <CurDoorType>k__BackingField: 0
-      lineStart: {x: -0.50000006, y: 0.59999996}
-      lineEnd: {x: 0.49999994, y: 0.59999996}
+      lineStart: {x: -0.5000002, y: 0.5000001}
+      lineEnd: {x: 0.49999994, y: 0.49999997}
       bezierStartHandle: {x: 0.1, y: 0.1}
       bezierEndHandle: {x: -0.1, y: -0.1}
       floorNum: 0
-    - <CurLineType>k__BackingField: 0
-      <CurDoorType>k__BackingField: 0
-      lineStart: {x: 0.49999994, y: 0.59999996}
-      lineEnd: {x: 0.49909574, y: 0.50081646}
-      bezierStartHandle: {x: 0.56095785, y: 0.6126402}
-      bezierEndHandle: {x: 0.36095786, y: 0.41264018}
-      floorNum: 0
-    - <CurLineType>k__BackingField: 0
-      <CurDoorType>k__BackingField: 0
-      lineStart: {x: 0.49909574, y: 0.50081646}
-      lineEnd: {x: 0.6, y: 0.5}
-      bezierStartHandle: {x: 0.6324583, y: 0.6675416}
-      bezierEndHandle: {x: 0.4324583, y: 0.4675416}
-      floorNum: 0
     - <CurLineType>k__BackingField: 2
       <CurDoorType>k__BackingField: 0
-      lineStart: {x: 0.6, y: 0.5}
-      lineEnd: {x: 0.59999996, y: -0.5}
+      lineStart: {x: 0.49999994, y: 0.49999997}
+      lineEnd: {x: 0.4999999, y: -0.5}
       bezierStartHandle: {x: 1.1, y: 0.1}
       bezierEndHandle: {x: 0.9, y: -0.1}
       floorNum: 0
-    - <CurLineType>k__BackingField: 0
-      <CurDoorType>k__BackingField: 0
-      lineStart: {x: 0.59999996, y: -0.5}
-      lineEnd: {x: 0.5002109, y: -0.49970147}
-      bezierStartHandle: {x: 0.6093506, y: -0.39714292}
-      bezierEndHandle: {x: 0.4093506, y: -0.59714293}
-      floorNum: 0
-    - <CurLineType>k__BackingField: 0
-      <CurDoorType>k__BackingField: 0
-      lineStart: {x: 0.5002109, y: -0.49970147}
-      lineEnd: {x: 0.49999997, y: -0.6}
-      bezierStartHandle: {x: 0.6460844, y: -0.45391563}
-      bezierEndHandle: {x: 0.4460844, y: -0.65391564}
-      floorNum: 0
     - <CurLineType>k__BackingField: 2
       <CurDoorType>k__BackingField: 0
-      lineStart: {x: 0.49999997, y: -0.6}
-      lineEnd: {x: -0.5, y: -0.59999996}
+      lineStart: {x: 0.4999999, y: -0.5}
+      lineEnd: {x: -0.5000001, y: -0.4999999}
       bezierStartHandle: {x: 0.6, y: -0.9}
       bezierEndHandle: {x: 0.4, y: -1.1}
       floorNum: 0
-    - <CurLineType>k__BackingField: 0
-      <CurDoorType>k__BackingField: 0
-      lineStart: {x: -0.5, y: -0.59999996}
-      lineEnd: {x: -0.5009615, y: -0.502612}
-      bezierStartHandle: {x: -0.35836706, y: -0.4128758}
-      bezierEndHandle: {x: -0.5583671, y: -0.6128758}
-      floorNum: 0
-    - <CurLineType>k__BackingField: 0
-      <CurDoorType>k__BackingField: 0
-      lineStart: {x: -0.5009615, y: -0.502612}
-      lineEnd: {x: -0.6, y: -0.50000006}
-      bezierStartHandle: {x: -0.45606247, y: -0.44393763}
-      bezierEndHandle: {x: -0.6560625, y: -0.64393765}
-      floorNum: 0
     - <CurLineType>k__BackingField: 2
       <CurDoorType>k__BackingField: 0
-      lineStart: {x: -0.6, y: -0.50000006}
-      lineEnd: {x: -0.6000001, y: 0.49999994}
+      lineStart: {x: -0.5000001, y: -0.4999999}
+      lineEnd: {x: -0.5000002, y: 0.5000001}
       bezierStartHandle: {x: 0.1027512, y: 0.0972488}
       bezierEndHandle: {x: -0.0972488, y: -0.1027512}
-      floorNum: 0
-    - <CurLineType>k__BackingField: 0
-      <CurDoorType>k__BackingField: 0
-      lineStart: {x: -0.6000001, y: 0.49999994}
-      lineEnd: {x: -0.501576, y: 0.5004215}
-      bezierStartHandle: {x: -0.42154744, y: 0.4629786}
-      bezierEndHandle: {x: -0.62154746, y: 0.2629786}
-      floorNum: 0
-    - <CurLineType>k__BackingField: 0
-      <CurDoorType>k__BackingField: 0
-      lineStart: {x: -0.501576, y: 0.5004215}
-      lineEnd: {x: -0.50000006, y: 0.59999996}
-      bezierStartHandle: {x: -0.45161983, y: 0.6483802}
-      bezierEndHandle: {x: -0.65161985, y: 0.4483802}
       floorNum: 0
     points: []
     interiorPoint: {x: 0, y: 0, z: 0}
     doorways:
-    - startPoint: {x: -0.50000006, y: 0.59999996}
-      endPoint: {x: 0.49999994, y: 0.59999996}
+    - startPoint: {x: -0.5000002, y: 0.5000001}
+      endPoint: {x: 0.49999994, y: 0.49999997}
       xStartLine: 0
       yStartLine: 10
       xEndLine: 9.999999
       yEndLine: 10
       doorType: 0
-      width: 1
+      width: 1.0000001
       height: 0
       angle: 90
-    - startPoint: {x: 0.6, y: 0.5}
-      endPoint: {x: 0.59999996, y: -0.5}
-      xStartLine: 10
+    - startPoint: {x: 0.49999994, y: 0.49999997}
+      endPoint: {x: 0.4999999, y: -0.5}
+      xStartLine: 9.999999
       yStartLine: 10
-      xEndLine: 10
+      xEndLine: 9.999999
       yEndLine: 0
       doorType: 0
       width: 1
       height: 0
       angle: 0
-    - startPoint: {x: 0.49999997, y: -0.6}
-      endPoint: {x: -0.5, y: -0.59999996}
-      xStartLine: 10
+    - startPoint: {x: 0.4999999, y: -0.5}
+      endPoint: {x: -0.5000001, y: -0.4999999}
+      xStartLine: 9.999999
       yStartLine: 0
       xEndLine: 0
-      yEndLine: 0
+      yEndLine: 0.0000008940697
       doorType: 0
       width: 1
       height: 0
       angle: 270
-    - startPoint: {x: -0.6, y: -0.50000006}
-      endPoint: {x: -0.6000001, y: 0.49999994}
+    - startPoint: {x: -0.5000001, y: -0.4999999}
+      endPoint: {x: -0.5000002, y: 0.5000001}
       xStartLine: 0
-      yStartLine: 0
+      yStartLine: 0.0000008940697
       xEndLine: 0
-      yEndLine: 9.999999
+      yEndLine: 10
       doorType: 0
       width: 1
       height: 0

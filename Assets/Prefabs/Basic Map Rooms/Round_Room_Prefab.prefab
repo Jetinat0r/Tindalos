@@ -1,0 +1,522 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1952190225284559035
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3794964712556904645}
+  - component: {fileID: 2093250001693306397}
+  m_Layer: 0
+  m_Name: Round_Room_Prefab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3794964712556904645
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1952190225284559035}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1642515951794107496}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2093250001693306397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1952190225284559035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4125d9f05910644294a672a52afeb62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numFloors: 1
+  assignedFloor: -1
+  gridOffset: {x: 0, y: 0}
+  mapFloors:
+  - floorNum: 0
+    gridWidth: 10
+    gridHeight: 10
+    serializable:
+      HorizontalSize: 10
+      VerticalSizes: 0a0000000a0000000a0000000a0000000a0000000a0000000a0000000a0000000a0000000a000000
+      Array:
+      - Index0: 0
+        Index1: 0
+        Element: 0
+      - Index0: 0
+        Index1: 1
+        Element: 0
+      - Index0: 0
+        Index1: 2
+        Element: 0
+      - Index0: 0
+        Index1: 3
+        Element: 0
+      - Index0: 0
+        Index1: 4
+        Element: 0
+      - Index0: 0
+        Index1: 5
+        Element: 0
+      - Index0: 0
+        Index1: 6
+        Element: 0
+      - Index0: 0
+        Index1: 7
+        Element: 0
+      - Index0: 0
+        Index1: 8
+        Element: 0
+      - Index0: 0
+        Index1: 9
+        Element: 0
+      - Index0: 1
+        Index1: 0
+        Element: 0
+      - Index0: 1
+        Index1: 1
+        Element: 0
+      - Index0: 1
+        Index1: 2
+        Element: 0
+      - Index0: 1
+        Index1: 3
+        Element: 0
+      - Index0: 1
+        Index1: 4
+        Element: 0
+      - Index0: 1
+        Index1: 5
+        Element: 0
+      - Index0: 1
+        Index1: 6
+        Element: 0
+      - Index0: 1
+        Index1: 7
+        Element: 0
+      - Index0: 1
+        Index1: 8
+        Element: 0
+      - Index0: 1
+        Index1: 9
+        Element: 0
+      - Index0: 2
+        Index1: 0
+        Element: 0
+      - Index0: 2
+        Index1: 1
+        Element: 0
+      - Index0: 2
+        Index1: 2
+        Element: 0
+      - Index0: 2
+        Index1: 3
+        Element: 0
+      - Index0: 2
+        Index1: 4
+        Element: 0
+      - Index0: 2
+        Index1: 5
+        Element: 0
+      - Index0: 2
+        Index1: 6
+        Element: 0
+      - Index0: 2
+        Index1: 7
+        Element: 0
+      - Index0: 2
+        Index1: 8
+        Element: 0
+      - Index0: 2
+        Index1: 9
+        Element: 0
+      - Index0: 3
+        Index1: 0
+        Element: 0
+      - Index0: 3
+        Index1: 1
+        Element: 0
+      - Index0: 3
+        Index1: 2
+        Element: 0
+      - Index0: 3
+        Index1: 3
+        Element: 0
+      - Index0: 3
+        Index1: 4
+        Element: 0
+      - Index0: 3
+        Index1: 5
+        Element: 0
+      - Index0: 3
+        Index1: 6
+        Element: 0
+      - Index0: 3
+        Index1: 7
+        Element: 0
+      - Index0: 3
+        Index1: 8
+        Element: 0
+      - Index0: 3
+        Index1: 9
+        Element: 0
+      - Index0: 4
+        Index1: 0
+        Element: 0
+      - Index0: 4
+        Index1: 1
+        Element: 0
+      - Index0: 4
+        Index1: 2
+        Element: 0
+      - Index0: 4
+        Index1: 3
+        Element: 0
+      - Index0: 4
+        Index1: 4
+        Element: 0
+      - Index0: 4
+        Index1: 5
+        Element: 0
+      - Index0: 4
+        Index1: 6
+        Element: 0
+      - Index0: 4
+        Index1: 7
+        Element: 0
+      - Index0: 4
+        Index1: 8
+        Element: 0
+      - Index0: 4
+        Index1: 9
+        Element: 0
+      - Index0: 5
+        Index1: 0
+        Element: 0
+      - Index0: 5
+        Index1: 1
+        Element: 0
+      - Index0: 5
+        Index1: 2
+        Element: 0
+      - Index0: 5
+        Index1: 3
+        Element: 0
+      - Index0: 5
+        Index1: 4
+        Element: 0
+      - Index0: 5
+        Index1: 5
+        Element: 0
+      - Index0: 5
+        Index1: 6
+        Element: 0
+      - Index0: 5
+        Index1: 7
+        Element: 0
+      - Index0: 5
+        Index1: 8
+        Element: 0
+      - Index0: 5
+        Index1: 9
+        Element: 0
+      - Index0: 6
+        Index1: 0
+        Element: 0
+      - Index0: 6
+        Index1: 1
+        Element: 0
+      - Index0: 6
+        Index1: 2
+        Element: 0
+      - Index0: 6
+        Index1: 3
+        Element: 0
+      - Index0: 6
+        Index1: 4
+        Element: 0
+      - Index0: 6
+        Index1: 5
+        Element: 0
+      - Index0: 6
+        Index1: 6
+        Element: 0
+      - Index0: 6
+        Index1: 7
+        Element: 0
+      - Index0: 6
+        Index1: 8
+        Element: 0
+      - Index0: 6
+        Index1: 9
+        Element: 0
+      - Index0: 7
+        Index1: 0
+        Element: 0
+      - Index0: 7
+        Index1: 1
+        Element: 0
+      - Index0: 7
+        Index1: 2
+        Element: 0
+      - Index0: 7
+        Index1: 3
+        Element: 0
+      - Index0: 7
+        Index1: 4
+        Element: 0
+      - Index0: 7
+        Index1: 5
+        Element: 0
+      - Index0: 7
+        Index1: 6
+        Element: 0
+      - Index0: 7
+        Index1: 7
+        Element: 0
+      - Index0: 7
+        Index1: 8
+        Element: 0
+      - Index0: 7
+        Index1: 9
+        Element: 0
+      - Index0: 8
+        Index1: 0
+        Element: 0
+      - Index0: 8
+        Index1: 1
+        Element: 0
+      - Index0: 8
+        Index1: 2
+        Element: 0
+      - Index0: 8
+        Index1: 3
+        Element: 0
+      - Index0: 8
+        Index1: 4
+        Element: 0
+      - Index0: 8
+        Index1: 5
+        Element: 0
+      - Index0: 8
+        Index1: 6
+        Element: 0
+      - Index0: 8
+        Index1: 7
+        Element: 0
+      - Index0: 8
+        Index1: 8
+        Element: 0
+      - Index0: 8
+        Index1: 9
+        Element: 0
+      - Index0: 9
+        Index1: 0
+        Element: 0
+      - Index0: 9
+        Index1: 1
+        Element: 0
+      - Index0: 9
+        Index1: 2
+        Element: 0
+      - Index0: 9
+        Index1: 3
+        Element: 0
+      - Index0: 9
+        Index1: 4
+        Element: 0
+      - Index0: 9
+        Index1: 5
+        Element: 0
+      - Index0: 9
+        Index1: 6
+        Element: 0
+      - Index0: 9
+        Index1: 7
+        Element: 0
+      - Index0: 9
+        Index1: 8
+        Element: 0
+      - Index0: 9
+        Index1: 9
+        Element: 0
+    partialTileData: []
+    leftMostTile: 0
+    rightMostTile: 0
+    bottomMostTile: 0
+    topMostTile: 0
+    roomLines:
+    - <CurLineType>k__BackingField: 1
+      <CurDoorType>k__BackingField: 0
+      lineStart: {x: -6.6340866, y: 1.4221859}
+      lineEnd: {x: 6.659155, y: 1.363415}
+      bezierStartHandle: {x: -5.509624, y: 7.6395464}
+      bezierEndHandle: {x: 4.3346643, y: 9.350047}
+      floorNum: 0
+    - <CurLineType>k__BackingField: 0
+      <CurDoorType>k__BackingField: 0
+      lineStart: {x: 6.659155, y: 1.363415}
+      lineEnd: {x: 6.6764803, y: 0.6935299}
+      bezierStartHandle: {x: 1.1, y: 0.1}
+      bezierEndHandle: {x: 0.9, y: -0.1}
+      floorNum: 0
+    - <CurLineType>k__BackingField: 2
+      <CurDoorType>k__BackingField: 0
+      lineStart: {x: 6.6764803, y: 0.6935299}
+      lineEnd: {x: 6.6764803, y: -0.6189701}
+      bezierStartHandle: {x: 6.7830844, y: 0.67191666}
+      bezierEndHandle: {x: 6.5830846, y: 0.47191665}
+      floorNum: 0
+    - <CurLineType>k__BackingField: 0
+      <CurDoorType>k__BackingField: 0
+      lineStart: {x: 6.6764803, y: -0.6189701}
+      lineEnd: {x: 6.659312, y: -1.3716547}
+      bezierStartHandle: {x: 6.7733703, y: -0.387198}
+      bezierEndHandle: {x: 6.5733705, y: -0.587198}
+      floorNum: 0
+    - <CurLineType>k__BackingField: 1
+      <CurDoorType>k__BackingField: 0
+      lineStart: {x: 6.659312, y: -1.3716547}
+      lineEnd: {x: -6.6446676, y: -1.4114355}
+      bezierStartHandle: {x: 4.904539, y: -8.634601}
+      bezierEndHandle: {x: -4.898511, y: -8.6123495}
+      floorNum: 0
+    - <CurLineType>k__BackingField: 0
+      <CurDoorType>k__BackingField: 0
+      lineStart: {x: -6.6446676, y: -1.4114355}
+      lineEnd: {x: -6.651225, y: -0.6243295}
+      bezierStartHandle: {x: -1.528953, y: 0.4558254}
+      bezierEndHandle: {x: -1.728953, y: 0.2558254}
+      floorNum: 0
+    - <CurLineType>k__BackingField: 2
+      <CurDoorType>k__BackingField: 0
+      lineStart: {x: -6.651225, y: -0.6243295}
+      lineEnd: {x: -6.651225, y: 0.6881705}
+      bezierStartHandle: {x: -6.5545077, y: -0.55510086}
+      bezierEndHandle: {x: -6.7545075, y: -0.7551009}
+      floorNum: 0
+    - <CurLineType>k__BackingField: 0
+      <CurDoorType>k__BackingField: 0
+      lineStart: {x: -6.651225, y: 0.6881705}
+      lineEnd: {x: -6.6340866, y: 1.4221859}
+      bezierStartHandle: {x: -6.560951, y: 0.5606221}
+      bezierEndHandle: {x: -6.760951, y: 0.36062208}
+      floorNum: 0
+    points: []
+    interiorPoint: {x: 0, y: 0, z: 0}
+    doorways:
+    - startPoint: {x: 6.6764803, y: 0.6935299}
+      endPoint: {x: 6.6764803, y: -0.6189701}
+      xStartLine: 10
+      yStartLine: 6.935299
+      xEndLine: 10
+      yEndLine: 0
+      doorType: 0
+      width: 1.3125
+      height: 0
+      angle: 0
+    - startPoint: {x: -6.651225, y: -0.6243295}
+      endPoint: {x: -6.651225, y: 0.6881705}
+      xStartLine: 0
+      yStartLine: 0
+      xEndLine: 0
+      yEndLine: 6.881705
+      doorType: 0
+      width: 1.3125
+      height: 0
+      angle: 180
+  curInspectedFloor: 0
+  curPaintState: 2
+  curInspectorMode: 2
+  curInspectorLineType: 0
+--- !u!1001 &1243515710318367619
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 3794964712556904645}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 5d6bdefe31878f94ba5403ba1613c0a1,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5d6bdefe31878f94ba5403ba1613c0a1,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5d6bdefe31878f94ba5403ba1613c0a1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5d6bdefe31878f94ba5403ba1613c0a1,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5d6bdefe31878f94ba5403ba1613c0a1,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5d6bdefe31878f94ba5403ba1613c0a1,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5d6bdefe31878f94ba5403ba1613c0a1,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5d6bdefe31878f94ba5403ba1613c0a1,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5d6bdefe31878f94ba5403ba1613c0a1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5d6bdefe31878f94ba5403ba1613c0a1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5d6bdefe31878f94ba5403ba1613c0a1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5d6bdefe31878f94ba5403ba1613c0a1,
+        type: 3}
+      propertyPath: m_Name
+      value: RoundRoom
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5d6bdefe31878f94ba5403ba1613c0a1, type: 3}
+--- !u!4 &1642515951794107496 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5d6bdefe31878f94ba5403ba1613c0a1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1243515710318367619}
+  m_PrefabAsset: {fileID: 0}

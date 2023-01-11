@@ -33,7 +33,7 @@ public class RoomMapEditorGizmos : Editor
                 }
                 else
                 {
-                    room.CurFloor.interiorPoint = Vector3.zero;
+                    room.CurFloor.interiorPoint = new Vector3(0f, Floor.FloorHeight * room.mapFloors.FindIndex((x) => x == room.CurFloor), 0f);
                 }
 
                 break;
@@ -509,7 +509,7 @@ public class RoomMapEditorGizmos : Editor
             {
                 if (GUILayout.Button("Delete"))
                 {
-                    if (room.CurFloor.roomLines.Count > 3)
+                    if (room.CurFloor.roomLines.Count > 3 && curPointIndex != -1)
                     {
                         //Due to size restrictions, edge cases are mutually exclusive
                         if (curPointIndex == 0)

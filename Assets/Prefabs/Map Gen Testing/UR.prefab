@@ -429,35 +429,21 @@ MonoBehaviour:
     roomLines:
     - <CurLineType>k__BackingField: 2
       <CurDoorType>k__BackingField: 0
-      lineStart: {x: -0.5, y: 0.6}
-      lineEnd: {x: 0.5, y: 0.6}
+      lineStart: {x: -0.5, y: 0.5}
+      lineEnd: {x: 0.5, y: 0.5}
       bezierStartHandle: {x: 0.1, y: 0.1}
       bezierEndHandle: {x: -0.1, y: -0.1}
       floorNum: 0
-    - <CurLineType>k__BackingField: 0
-      <CurDoorType>k__BackingField: 0
-      lineStart: {x: 0.5, y: 0.6}
-      lineEnd: {x: 0.499111, y: 0.50120586}
-      bezierStartHandle: {x: 0.44749168, y: 0.6229553}
-      bezierEndHandle: {x: 0.24749169, y: 0.4229553}
-      floorNum: 0
-    - <CurLineType>k__BackingField: 0
-      <CurDoorType>k__BackingField: 0
-      lineStart: {x: 0.499111, y: 0.50120586}
-      lineEnd: {x: 0.6, y: 0.5}
-      bezierStartHandle: {x: 0.60411805, y: 0.60871655}
-      bezierEndHandle: {x: 0.40411803, y: 0.40871653}
-      floorNum: 0
     - <CurLineType>k__BackingField: 2
       <CurDoorType>k__BackingField: 0
-      lineStart: {x: 0.6, y: 0.5}
-      lineEnd: {x: 0.59999996, y: -0.5}
+      lineStart: {x: 0.5, y: 0.5}
+      lineEnd: {x: 0.49999997, y: -0.5}
       bezierStartHandle: {x: 1.1, y: 0.1}
       bezierEndHandle: {x: 0.9, y: -0.1}
       floorNum: 0
     - <CurLineType>k__BackingField: 0
       <CurDoorType>k__BackingField: 0
-      lineStart: {x: 0.59999996, y: -0.5}
+      lineStart: {x: 0.49999997, y: -0.5}
       lineEnd: {x: -0.5, y: -0.4999999}
       bezierStartHandle: {x: 0.6, y: -0.9}
       bezierEndHandle: {x: 0.4, y: -1.1}
@@ -465,15 +451,15 @@ MonoBehaviour:
     - <CurLineType>k__BackingField: 0
       <CurDoorType>k__BackingField: 0
       lineStart: {x: -0.5, y: -0.4999999}
-      lineEnd: {x: -0.5, y: 0.6}
+      lineEnd: {x: -0.5, y: 0.5}
       bezierStartHandle: {x: 0.032716192, y: 0.1672838}
       bezierEndHandle: {x: -0.1672838, y: -0.032716192}
       floorNum: 0
     points: []
     interiorPoint: {x: 0, y: 0, z: 0}
     doorways:
-    - startPoint: {x: -0.5, y: 0.6}
-      endPoint: {x: 0.5, y: 0.6}
+    - startPoint: {x: -0.5, y: 0.5}
+      endPoint: {x: 0.5, y: 0.5}
       xStartLine: 0
       yStartLine: 10
       xEndLine: 10
@@ -482,8 +468,8 @@ MonoBehaviour:
       width: 1
       height: 0
       angle: 90
-    - startPoint: {x: 0.6, y: 0.5}
-      endPoint: {x: 0.59999996, y: -0.5}
+    - startPoint: {x: 0.5, y: 0.5}
+      endPoint: {x: 0.49999997, y: -0.5}
       xStartLine: 10
       yStartLine: 10
       xEndLine: 10
@@ -494,5 +480,5 @@ MonoBehaviour:
       angle: 0
   curInspectedFloor: 0
   curPaintState: 2
-  curInspectorMode: 1
+  curInspectorMode: 2
   curInspectorLineType: 0

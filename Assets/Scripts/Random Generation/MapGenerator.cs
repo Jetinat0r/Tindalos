@@ -84,47 +84,56 @@ public class MapGenerator : MonoBehaviour
 
     private void GenerateMansion()
     {
-        for(int i = 0; i < numFloors; i++)
-        {
-            List<Room> generatedRooms = GenerateFloor(i);
-            for (int j = 0; j < generatedRooms.Count; j++)
-            {
-                generatedRooms[j].Init();
-            }
-        }
-
-        
-    }
-
-    private List<Room> GenerateFloor(int floor)
-    {
         //Generate a list to store successfully placed rooms
         List<Room> placedRooms = new List<Room>();
+
+        for (int i = 0; i < numFloors; i++)
+        {
+            GenerateFloor(i, ref placedRooms);
+        }
+
+        for (int j = 0; j < placedRooms.Count; j++)
+        {
+            placedRooms[j].Init();
+        }
+    }
+
+    private void GenerateFloor(int floor, ref List<Room> placedRooms)
+    {
+        int initialCount = placedRooms.Count;
 
         //Create a list to temporarily store the rooms on a floor. Can be populated with
         //  rooms from other floors if they are multi-story
         List<Room> roomsOnFloor = new List<Room>();
 
+        foreach (Room r in placedRooms)
+        {
+            int localFloor = floor - r.assignedFloor;
+            if (localFloor < r.numFloors && localFloor >= 0)
+            {
+                roomsOnFloor.Add(r);
+            }
+        }
+
         //Try placing the rooms for the floor
-        for(int i = 0; i < floorRoomCount[floor]; i++)
+        for (int i = 0; i < floorRoomCount[floor]; i++)
         {
             Room newRoom = Instantiate(roomPrefabs[Random.Range(0, roomPrefabs.Count)], Vector3.zero, Quaternion.identity);
+            newRoom.assignedFloor = floor;
 
-            if(TryPlaceRoom(newRoom, floor, ref placedRooms, ref placedRooms))
+            if(TryPlaceRoom(newRoom, floor, ref roomsOnFloor, ref placedRooms))
             {
                 placedRooms.Add(newRoom);
+                roomsOnFloor.Add(newRoom);
             }
             else
             {
                 //Debug.Log("Failed to place room!");
                 Destroy(newRoom.gameObject);
             }
-
         }
 
-        Debug.Log($"Successfully placed {{{placedRooms.Count}}} rooms!");
-        //Return all placed room
-        return placedRooms;
+        Debug.Log($"Successfully placed {{{placedRooms.Count - initialCount}}} rooms!");
     }
 
     //Returns true if the room is placed, false otherwise
@@ -134,21 +143,6 @@ public class MapGenerator : MonoBehaviour
         ref List<Room> placedRoomsOnFloor,
         ref List<Room> allPlacedRooms)
     {
-        //1. Pick a random room from placed rooms (if list is empty, no random is called and pos is set to world center
-        //2. Pick a random point in/on the unit circle
-        //3. Pick a random rotation according to availableAngle and rotate the room according to that
-        //4. Place a room at (selectedRoomPos + (PointInUnitCircle * maxDistanceBetweenRooms)) and with rotation as found in 3
-        //5. Check collisions
-        //6. If no collisions, return true, else go back to step 1
-        //      If out of iterations and the room is not placed, return false
-
-        //Calls to random
-        //1. 1 or 0
-        //2. 1 (maybe 2? idk how it works internally)
-        //3. 1
-
-        Floor curRoomFloor = newRoom.mapFloors[0];
-
         if (placedRoomsOnFloor.Count == 0)
         {
             //Place the first room wherever
@@ -163,13 +157,17 @@ public class MapGenerator : MonoBehaviour
         {
             //TODO: Do better
             Room selectedRoom = placedRoomsOnFloor[Random.Range(0, placedRoomsOnFloor.Count)];
-            if(selectedRoom.mapFloors[0].doorways.Count == 0)
+            if(selectedRoom.mapFloors[floor - selectedRoom.assignedFloor].doorways.Count == 0)
             {
                 //No doors on this room, try again!
                 continue;
             }
-            Doorway selectedDoorway = selectedRoom.mapFloors[0].doorways[Random.Range(0, selectedRoom.mapFloors[0].doorways.Count)];
 
+            //floor - selectedRoom.assignedFloor gets us the floor on level that we're looking at.
+            //This room is guaranteed to contain this floor
+            Doorway selectedDoorway = selectedRoom.mapFloors[floor - selectedRoom.assignedFloor].doorways[Random.Range(0, selectedRoom.mapFloors[floor - selectedRoom.assignedFloor].doorways.Count)];
+
+            //We grab the bottom floor of the new room
             Doorway newDoorway = newRoom.mapFloors[0].doorways[Random.Range(0, newRoom.mapFloors[0].doorways.Count)];
 
             //Ensure angles are compatible
@@ -186,7 +184,7 @@ public class MapGenerator : MonoBehaviour
 
             //Get the direction to push our new room in
             Vector3 offsetDir = new Vector3(Mathf.Cos(selectedDoorway.angle * Mathf.Rad2Deg), 0f, Mathf.Sin(selectedDoorway.angle * Mathf.Rad2Deg));
-            //TODO: make it actually offset
+            //Little bit of offset perpendicular to the doorway for fun and maybe profit?
             float offsetMultiplier = Random.Range(minDistanceBetweenRooms, maxDistanceBetweenRooms);
 
             //Offset a random amount
@@ -195,13 +193,13 @@ public class MapGenerator : MonoBehaviour
             Vector3 newRoomPos = selectedDoorwayPos - newDoorway.startPoint.ToVec3XZ() + offsetDir;
 
             //TODO: Check Collisions
-            if (CheckCollisions(allPlacedRooms, newRoom, newRoomPos))
+            if (CheckCollisions(allPlacedRooms, floor, newRoom, newRoomPos))
             {
                 //Place room
-                newRoom.transform.position = newRoomPos;
+                newRoom.transform.position = new Vector3(newRoomPos.x, Floor.FloorHeight * floor, newRoomPos.z);
 
                 //Remove closed doors
-                selectedRoom.mapFloors[0].doorways.Remove(selectedDoorway);
+                selectedRoom.mapFloors[floor - selectedRoom.assignedFloor].doorways.Remove(selectedDoorway);
                 newRoom.mapFloors[0].doorways.Remove(newDoorway);
 
                 //Set instance vars
@@ -215,88 +213,114 @@ public class MapGenerator : MonoBehaviour
         return false;
     }
 
-    private bool CheckCollisions(List<Room> allPlacedRooms, Room newRoom, Vector3 newRoomPos)
+    //Bottom floor is the bottom floor of the new room, in global space
+    private bool CheckCollisions(List<Room> allPlacedRooms, int bottomFloor, Room newRoom, Vector3 newRoomPos)
     {
-        //TODO: use bounding boxes to optimize placement
-        List<Vector3> newCollisionPoses = new List<Vector3>();
-        for (int i = 0; i < newRoom.mapFloors[0].roomLines.Count; i++)
+        for(int curFloor = 0; curFloor < newRoom.numFloors; curFloor++)
         {
-            newCollisionPoses.AddRange(newRoom.mapFloors[0].roomLines[i].GetCollisionPoints());
-        }
-
-        List<Vector3> simplifiedNewCollisionPoses = new List<Vector3>();
-        LineUtility.Simplify(newCollisionPoses, 0.000001f, simplifiedNewCollisionPoses);
-
-        Vector2 placedInteriorPoint = newRoom.mapFloors[0].interiorPoint.GetXZ();
-
-        foreach (Room placedRoom in allPlacedRooms)
-        {
-            List<Vector3> placedCollisionPoses = new List<Vector3>();
-            for (int i = 0; i < placedRoom.mapFloors[0].roomLines.Count; i++)
+            //TODO: use bounding boxes to optimize placement
+            List<Vector3> newCollisionPoses = new List<Vector3>();
+            for (int i = 0; i < newRoom.mapFloors[curFloor].roomLines.Count; i++)
             {
-                placedCollisionPoses.AddRange(placedRoom.mapFloors[0].roomLines[i].GetCollisionPoints());
+                newCollisionPoses.AddRange(newRoom.mapFloors[curFloor].roomLines[i].GetCollisionPoints());
             }
 
-            List<Vector3> simplifiedPlacedCollisionPoses = new List<Vector3>();
-            LineUtility.Simplify(placedCollisionPoses, 0.000001f, simplifiedPlacedCollisionPoses);
-
-            int newPointInsidePlacedCount = 0;
-            int placedPointInsideNewCount = 0;
-
-            Vector2 newInteriorPoint = placedRoom.mapFloors[0].interiorPoint.GetXZ();
-
-
-            //Check if any lines intersect
-            for (int i = 0; i < simplifiedPlacedCollisionPoses.Count - 1; i++)
+            for (int m = 1; m < newCollisionPoses.Count; m++)
             {
-                for (int j = 0; j < simplifiedNewCollisionPoses.Count - 1; j++)
+                if (newCollisionPoses[m - 1] == newCollisionPoses[m])
                 {
-                    if(LineCollisionUtils.LineIntersectsLine((placedRoom.transform.position + simplifiedPlacedCollisionPoses[i]).GetXZ(),
-                        (placedRoom.transform.position + simplifiedPlacedCollisionPoses[i + 1]).GetXZ(),
-                        (newRoomPos + simplifiedNewCollisionPoses[j]).GetXZ(),
-                        (newRoomPos + simplifiedNewCollisionPoses[j + 1]).GetXZ(),
-                        true))
-                    {
-                        return false;
-                    }
-
-                    if (LineCollisionUtils.LineIntersectsLine(placedRoom.transform.position.GetXZ() + placedInteriorPoint,
-                        placedRoom.transform.position.GetXZ() + placedInteriorPoint + new Vector2(100f, 0f),
-                        (newRoomPos + simplifiedNewCollisionPoses[j]).GetXZ(),
-                        (newRoomPos + simplifiedNewCollisionPoses[j + 1]).GetXZ(),
-                        true))
-                    {
-                        placedPointInsideNewCount++;
-                    }
-                }
-
-                if (LineCollisionUtils.LineIntersectsLine(newRoomPos.GetXZ() + newInteriorPoint,
-                        newRoomPos.GetXZ() + newInteriorPoint + new Vector2(100f, 0f),
-                        (placedRoom.transform.position + simplifiedPlacedCollisionPoses[i]).GetXZ(),
-                        (placedRoom.transform.position + simplifiedPlacedCollisionPoses[i + 1]).GetXZ(),
-                        true))
-                {
-                    newPointInsidePlacedCount++;
+                    newCollisionPoses.RemoveAt(m);
+                    m--;
                 }
             }
 
+            Vector2 placedInteriorPoint = newRoom.mapFloors[curFloor].interiorPoint.GetXZ();
 
-            //Check if a point of each is inside the other
-            if(newPointInsidePlacedCount % 2 == 1)
+            //The floor to be checked in global space
+            int checkingFloor = bottomFloor + curFloor;
+            foreach (Room placedRoom in allPlacedRooms)
             {
-                return false;
-            }
-            
-            if(placedPointInsideNewCount % 2 == 1)
-            {
-                return false;
+                int localFloor = checkingFloor - placedRoom.assignedFloor;
+                if (localFloor >= placedRoom.numFloors)
+                {
+                    //Falls outside range, don't bother checking
+                    continue;
+                }
+
+                List<Vector3> placedCollisionPoses = new List<Vector3>();
+                for (int i = 0; i < placedRoom.mapFloors[localFloor].roomLines.Count; i++)
+                {
+                    placedCollisionPoses.AddRange(placedRoom.mapFloors[localFloor].roomLines[i].GetCollisionPoints());
+                }
+
+                for (int m = 1; m < placedCollisionPoses.Count; m++)
+                {
+                    if (placedCollisionPoses[m - 1] == placedCollisionPoses[m])
+                    {
+                        placedCollisionPoses.RemoveAt(m);
+                        m--;
+                    }
+                }
+
+                int newPointInsidePlacedCount = 0;
+                int placedPointInsideNewCount = 0;
+
+                Vector2 newInteriorPoint = placedRoom.mapFloors[localFloor].interiorPoint.GetXZ();
+
+
+                //Check if any lines intersect
+                for (int i = 0; i < placedCollisionPoses.Count - 1; i++)
+                {
+                    for (int j = 0; j < newCollisionPoses.Count - 1; j++)
+                    {
+                        if (LineCollisionUtils.LineIntersectsLine((placedRoom.transform.position + placedCollisionPoses[i]).GetXZ(),
+                            (placedRoom.transform.position + placedCollisionPoses[i + 1]).GetXZ(),
+                            (newRoomPos + newCollisionPoses[j]).GetXZ(),
+                            (newRoomPos + newCollisionPoses[j + 1]).GetXZ(),
+                            true))
+                        {
+                            return false;
+                        }
+
+                        if (LineCollisionUtils.LineIntersectsLine(placedRoom.transform.position.GetXZ() + placedInteriorPoint,
+                            placedRoom.transform.position.GetXZ() + placedInteriorPoint + new Vector2(100f, 0f),
+                            (newRoomPos + newCollisionPoses[j]).GetXZ(),
+                            (newRoomPos + newCollisionPoses[j + 1]).GetXZ(),
+                            true))
+                        {
+                            placedPointInsideNewCount++;
+                        }
+                    }
+
+                    if (LineCollisionUtils.LineIntersectsLine(newRoomPos.GetXZ() + newInteriorPoint,
+                            newRoomPos.GetXZ() + newInteriorPoint + new Vector2(100f, 0f),
+                            (placedRoom.transform.position + placedCollisionPoses[i]).GetXZ(),
+                            (placedRoom.transform.position + placedCollisionPoses[i + 1]).GetXZ(),
+                            true))
+                    {
+                        newPointInsidePlacedCount++;
+                    }
+                }
+
+
+                //Check if a point of each is inside the other
+                if (newPointInsidePlacedCount % 2 == 1)
+                {
+                    return false;
+                }
+
+                if (placedPointInsideNewCount % 2 == 1)
+                {
+                    return false;
+                }
             }
         }
+        
 
         return true;
     }
 
-    private void ConnectRooms(List<Room> rooms)
+    private void ConnectLeftoverRooms(List<Room> rooms)
     {
 
     }

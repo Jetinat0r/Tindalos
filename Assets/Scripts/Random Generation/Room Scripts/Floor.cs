@@ -40,7 +40,7 @@ public class ConflictingTileData
 [Serializable]
 public class Floor : ISerializationCallbackReceiver
 {
-    public const float FloorHeight = 1f;
+    public const float FloorHeight = 2.785f;
 
     [SerializeField, HideInInspector]
     private int floorNum = 0;
@@ -58,8 +58,8 @@ public class Floor : ISerializationCallbackReceiver
     [SerializeField, HideInInspector]
     private Jagged2DArrayPackage<TileState> serializable;
     public TileState[][] tileGrid;
-    [SerializeField, HideInInspector]
-    public List<ConflictingTileData> partialTileData;
+    [SerializeField, HideInInspector, Obsolete("Deprecated; No longer in use")]
+    public List<ConflictingTileData> partialTileData = new();
 
     [SerializeField, HideInInspector]
     public int leftMostTile;

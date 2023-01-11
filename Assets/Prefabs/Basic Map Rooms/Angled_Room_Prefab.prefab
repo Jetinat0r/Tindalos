@@ -1,0 +1,229 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5879846095484514626
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 763586271140043390}
+  - component: {fileID: 1693895510358288867}
+  m_Layer: 0
+  m_Name: Angled_Room_Prefab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &763586271140043390
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5879846095484514626}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5188050106511772789}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1693895510358288867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5879846095484514626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4125d9f05910644294a672a52afeb62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numFloors: 1
+  assignedFloor: -1
+  gridOffset: {x: 0, y: 0}
+  mapFloors:
+  - floorNum: 0
+    gridWidth: 0
+    gridHeight: 0
+    serializable:
+      HorizontalSize: 0
+      VerticalSizes: 
+      Array: []
+    partialTileData: []
+    leftMostTile: 0
+    rightMostTile: 0
+    bottomMostTile: 0
+    topMostTile: 0
+    roomLines:
+    - <CurLineType>k__BackingField: 0
+      <CurDoorType>k__BackingField: 0
+      lineStart: {x: -2.3023276, y: 2.2979302}
+      lineEnd: {x: 2.2926335, y: 2.2965841}
+      bezierStartHandle: {x: 0.1, y: 0.1}
+      bezierEndHandle: {x: -0.1, y: -0.1}
+      floorNum: 0
+    - <CurLineType>k__BackingField: 0
+      <CurDoorType>k__BackingField: 0
+      lineStart: {x: 2.2926335, y: 2.2965841}
+      lineEnd: {x: 2.3054788, y: 0.6030074}
+      bezierStartHandle: {x: 1.1, y: 0.1}
+      bezierEndHandle: {x: 0.9, y: -0.1}
+      floorNum: 0
+    - <CurLineType>k__BackingField: 2
+      <CurDoorType>k__BackingField: 0
+      lineStart: {x: 2.3054788, y: 0.6030074}
+      lineEnd: {x: 2.3054788, y: -0.7094926}
+      bezierStartHandle: {x: 2.4, y: 1.4916064}
+      bezierEndHandle: {x: 2.2000003, y: 1.2916063}
+      floorNum: 0
+    - <CurLineType>k__BackingField: 0
+      <CurDoorType>k__BackingField: 0
+      lineStart: {x: 2.3054788, y: -0.7094926}
+      lineEnd: {x: 2.2930954, y: -2.2934892}
+      bezierStartHandle: {x: 2.4, y: 1.0027615}
+      bezierEndHandle: {x: 2.2000003, y: 0.80276144}
+      floorNum: 0
+    - <CurLineType>k__BackingField: 0
+      <CurDoorType>k__BackingField: 0
+      lineStart: {x: 2.2930954, y: -2.2934892}
+      lineEnd: {x: -2.2999997, y: -2.3000002}
+      bezierStartHandle: {x: 2.4, y: 0.25747332}
+      bezierEndHandle: {x: 2.2000003, y: 0.057473324}
+      floorNum: 0
+    - <CurLineType>k__BackingField: 1
+      <CurDoorType>k__BackingField: 0
+      lineStart: {x: -2.2999997, y: -2.3000002}
+      lineEnd: {x: -5.559575, y: -0.95604837}
+      bezierStartHandle: {x: -3.244779, y: -2.3647454}
+      bezierEndHandle: {x: -4.605535, y: -1.908524}
+      floorNum: 0
+    - <CurLineType>k__BackingField: 0
+      <CurDoorType>k__BackingField: 0
+      lineStart: {x: -5.559575, y: -0.95604837}
+      lineEnd: {x: -4.425537, y: 0.19091797}
+      bezierStartHandle: {x: -2.1999998, y: -1.3158427}
+      bezierEndHandle: {x: -2.3999996, y: -1.5158428}
+      floorNum: 0
+    - <CurLineType>k__BackingField: 2
+      <CurDoorType>k__BackingField: 0
+      lineStart: {x: -4.425537, y: 0.19091797}
+      lineEnd: {x: -3.4974594, y: 1.1189957}
+      bezierStartHandle: {x: -2.1999998, y: 0.13117495}
+      bezierEndHandle: {x: -2.3999996, y: -0.06882505}
+      floorNum: 0
+    - <CurLineType>k__BackingField: 0
+      <CurDoorType>k__BackingField: 0
+      lineStart: {x: -3.4974594, y: 1.1189957}
+      lineEnd: {x: -2.3023276, y: 2.2979302}
+      bezierStartHandle: {x: -2.1999998, y: 0.90291774}
+      bezierEndHandle: {x: -2.3999996, y: 0.7029177}
+      floorNum: 0
+    points: []
+    interiorPoint: {x: -0.6237744, y: -0.0009765625, z: -0.058708187}
+    doorways:
+    - startPoint: {x: 2.3054788, y: 0.6030074}
+      endPoint: {x: 2.3054788, y: -0.7094926}
+      xStartLine: 0
+      yStartLine: 0
+      xEndLine: 0
+      yEndLine: 0
+      doorType: 0
+      width: 1.3125
+      height: 0
+      angle: 0
+    - startPoint: {x: -4.425537, y: 0.19091797}
+      endPoint: {x: -3.4974594, y: 1.1189957}
+      xStartLine: 0
+      yStartLine: 0
+      xEndLine: 0
+      yEndLine: 0
+      doorType: 0
+      width: 1.3125001
+      height: 0
+      angle: 135
+  curInspectedFloor: 0
+  curPaintState: 2
+  curInspectorMode: 2
+  curInspectorLineType: 0
+--- !u!1001 &4644637732922108830
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 763586271140043390}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 85d74148d9e7e324bbd817bb0bccddbb,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 85d74148d9e7e324bbd817bb0bccddbb,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 85d74148d9e7e324bbd817bb0bccddbb,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 85d74148d9e7e324bbd817bb0bccddbb,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 85d74148d9e7e324bbd817bb0bccddbb,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 85d74148d9e7e324bbd817bb0bccddbb,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 85d74148d9e7e324bbd817bb0bccddbb,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 85d74148d9e7e324bbd817bb0bccddbb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 85d74148d9e7e324bbd817bb0bccddbb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 85d74148d9e7e324bbd817bb0bccddbb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 85d74148d9e7e324bbd817bb0bccddbb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 85d74148d9e7e324bbd817bb0bccddbb,
+        type: 3}
+      propertyPath: m_Name
+      value: AngledRoom
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 85d74148d9e7e324bbd817bb0bccddbb, type: 3}
+--- !u!4 &5188050106511772789 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 85d74148d9e7e324bbd817bb0bccddbb,
+    type: 3}
+  m_PrefabInstance: {fileID: 4644637732922108830}
+  m_PrefabAsset: {fileID: 0}

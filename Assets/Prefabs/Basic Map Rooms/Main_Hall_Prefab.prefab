@@ -1,0 +1,938 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3191958929663690468
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8599089860936688289}
+  - component: {fileID: 710162532517124586}
+  m_Layer: 0
+  m_Name: Main_Hall_Prefab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8599089860936688289
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3191958929663690468}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2146003776608874585}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &710162532517124586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3191958929663690468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4125d9f05910644294a672a52afeb62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numFloors: 2
+  assignedFloor: -1
+  gridOffset: {x: 0, y: 0}
+  mapFloors:
+  - floorNum: 0
+    gridWidth: 10
+    gridHeight: 10
+    serializable:
+      HorizontalSize: 10
+      VerticalSizes: 0a0000000a0000000a0000000a0000000a0000000a0000000a0000000a0000000a0000000a000000
+      Array:
+      - Index0: 0
+        Index1: 0
+        Element: 0
+      - Index0: 0
+        Index1: 1
+        Element: 0
+      - Index0: 0
+        Index1: 2
+        Element: 0
+      - Index0: 0
+        Index1: 3
+        Element: 0
+      - Index0: 0
+        Index1: 4
+        Element: 0
+      - Index0: 0
+        Index1: 5
+        Element: 0
+      - Index0: 0
+        Index1: 6
+        Element: 0
+      - Index0: 0
+        Index1: 7
+        Element: 0
+      - Index0: 0
+        Index1: 8
+        Element: 0
+      - Index0: 0
+        Index1: 9
+        Element: 0
+      - Index0: 1
+        Index1: 0
+        Element: 0
+      - Index0: 1
+        Index1: 1
+        Element: 0
+      - Index0: 1
+        Index1: 2
+        Element: 0
+      - Index0: 1
+        Index1: 3
+        Element: 0
+      - Index0: 1
+        Index1: 4
+        Element: 0
+      - Index0: 1
+        Index1: 5
+        Element: 0
+      - Index0: 1
+        Index1: 6
+        Element: 0
+      - Index0: 1
+        Index1: 7
+        Element: 0
+      - Index0: 1
+        Index1: 8
+        Element: 0
+      - Index0: 1
+        Index1: 9
+        Element: 0
+      - Index0: 2
+        Index1: 0
+        Element: 0
+      - Index0: 2
+        Index1: 1
+        Element: 0
+      - Index0: 2
+        Index1: 2
+        Element: 0
+      - Index0: 2
+        Index1: 3
+        Element: 0
+      - Index0: 2
+        Index1: 4
+        Element: 0
+      - Index0: 2
+        Index1: 5
+        Element: 0
+      - Index0: 2
+        Index1: 6
+        Element: 0
+      - Index0: 2
+        Index1: 7
+        Element: 0
+      - Index0: 2
+        Index1: 8
+        Element: 0
+      - Index0: 2
+        Index1: 9
+        Element: 0
+      - Index0: 3
+        Index1: 0
+        Element: 0
+      - Index0: 3
+        Index1: 1
+        Element: 0
+      - Index0: 3
+        Index1: 2
+        Element: 0
+      - Index0: 3
+        Index1: 3
+        Element: 0
+      - Index0: 3
+        Index1: 4
+        Element: 0
+      - Index0: 3
+        Index1: 5
+        Element: 0
+      - Index0: 3
+        Index1: 6
+        Element: 0
+      - Index0: 3
+        Index1: 7
+        Element: 0
+      - Index0: 3
+        Index1: 8
+        Element: 0
+      - Index0: 3
+        Index1: 9
+        Element: 0
+      - Index0: 4
+        Index1: 0
+        Element: 0
+      - Index0: 4
+        Index1: 1
+        Element: 0
+      - Index0: 4
+        Index1: 2
+        Element: 0
+      - Index0: 4
+        Index1: 3
+        Element: 0
+      - Index0: 4
+        Index1: 4
+        Element: 0
+      - Index0: 4
+        Index1: 5
+        Element: 0
+      - Index0: 4
+        Index1: 6
+        Element: 0
+      - Index0: 4
+        Index1: 7
+        Element: 0
+      - Index0: 4
+        Index1: 8
+        Element: 0
+      - Index0: 4
+        Index1: 9
+        Element: 0
+      - Index0: 5
+        Index1: 0
+        Element: 0
+      - Index0: 5
+        Index1: 1
+        Element: 0
+      - Index0: 5
+        Index1: 2
+        Element: 0
+      - Index0: 5
+        Index1: 3
+        Element: 0
+      - Index0: 5
+        Index1: 4
+        Element: 0
+      - Index0: 5
+        Index1: 5
+        Element: 0
+      - Index0: 5
+        Index1: 6
+        Element: 0
+      - Index0: 5
+        Index1: 7
+        Element: 0
+      - Index0: 5
+        Index1: 8
+        Element: 0
+      - Index0: 5
+        Index1: 9
+        Element: 0
+      - Index0: 6
+        Index1: 0
+        Element: 0
+      - Index0: 6
+        Index1: 1
+        Element: 0
+      - Index0: 6
+        Index1: 2
+        Element: 0
+      - Index0: 6
+        Index1: 3
+        Element: 0
+      - Index0: 6
+        Index1: 4
+        Element: 0
+      - Index0: 6
+        Index1: 5
+        Element: 0
+      - Index0: 6
+        Index1: 6
+        Element: 0
+      - Index0: 6
+        Index1: 7
+        Element: 0
+      - Index0: 6
+        Index1: 8
+        Element: 0
+      - Index0: 6
+        Index1: 9
+        Element: 0
+      - Index0: 7
+        Index1: 0
+        Element: 0
+      - Index0: 7
+        Index1: 1
+        Element: 0
+      - Index0: 7
+        Index1: 2
+        Element: 0
+      - Index0: 7
+        Index1: 3
+        Element: 0
+      - Index0: 7
+        Index1: 4
+        Element: 0
+      - Index0: 7
+        Index1: 5
+        Element: 0
+      - Index0: 7
+        Index1: 6
+        Element: 0
+      - Index0: 7
+        Index1: 7
+        Element: 0
+      - Index0: 7
+        Index1: 8
+        Element: 0
+      - Index0: 7
+        Index1: 9
+        Element: 0
+      - Index0: 8
+        Index1: 0
+        Element: 0
+      - Index0: 8
+        Index1: 1
+        Element: 0
+      - Index0: 8
+        Index1: 2
+        Element: 0
+      - Index0: 8
+        Index1: 3
+        Element: 0
+      - Index0: 8
+        Index1: 4
+        Element: 0
+      - Index0: 8
+        Index1: 5
+        Element: 0
+      - Index0: 8
+        Index1: 6
+        Element: 0
+      - Index0: 8
+        Index1: 7
+        Element: 0
+      - Index0: 8
+        Index1: 8
+        Element: 0
+      - Index0: 8
+        Index1: 9
+        Element: 0
+      - Index0: 9
+        Index1: 0
+        Element: 0
+      - Index0: 9
+        Index1: 1
+        Element: 0
+      - Index0: 9
+        Index1: 2
+        Element: 0
+      - Index0: 9
+        Index1: 3
+        Element: 0
+      - Index0: 9
+        Index1: 4
+        Element: 0
+      - Index0: 9
+        Index1: 5
+        Element: 0
+      - Index0: 9
+        Index1: 6
+        Element: 0
+      - Index0: 9
+        Index1: 7
+        Element: 0
+      - Index0: 9
+        Index1: 8
+        Element: 0
+      - Index0: 9
+        Index1: 9
+        Element: 0
+    partialTileData: []
+    leftMostTile: 0
+    rightMostTile: 0
+    bottomMostTile: 0
+    topMostTile: 0
+    roomLines:
+    - <CurLineType>k__BackingField: 0
+      <CurDoorType>k__BackingField: 0
+      lineStart: {x: -5.600739, y: 2.5675733}
+      lineEnd: {x: -4.158109, y: 2.583212}
+      bezierStartHandle: {x: 0.1, y: 0.1}
+      bezierEndHandle: {x: -0.1, y: -0.1}
+      floorNum: 0
+    - <CurLineType>k__BackingField: 2
+      <CurDoorType>k__BackingField: 0
+      lineStart: {x: -4.158109, y: 2.583212}
+      lineEnd: {x: -2.8456092, y: 2.583212}
+      bezierStartHandle: {x: -4.1572123, y: 2.7}
+      bezierEndHandle: {x: -4.357212, y: 2.5000002}
+      floorNum: 0
+    - <CurLineType>k__BackingField: 0
+      <CurDoorType>k__BackingField: 0
+      lineStart: {x: -2.8456092, y: 2.583212}
+      lineEnd: {x: 5.6006627, y: 2.5655901}
+      bezierStartHandle: {x: -2.6201088, y: 2.7}
+      bezierEndHandle: {x: -2.8201087, y: 2.5000002}
+      floorNum: 0
+    - <CurLineType>k__BackingField: 0
+      <CurDoorType>k__BackingField: 0
+      lineStart: {x: 5.6006627, y: 2.5655901}
+      lineEnd: {x: 5.6154904, y: 0.5569503}
+      bezierStartHandle: {x: 1.1, y: 0.1}
+      bezierEndHandle: {x: 0.9, y: -0.1}
+      floorNum: 0
+    - <CurLineType>k__BackingField: 2
+      <CurDoorType>k__BackingField: 0
+      lineStart: {x: 5.6154904, y: 0.5569503}
+      lineEnd: {x: 5.6154904, y: -0.7555497}
+      bezierStartHandle: {x: 5.7, y: 0.74733526}
+      bezierEndHandle: {x: 5.5, y: 0.5473352}
+      floorNum: 0
+    - <CurLineType>k__BackingField: 0
+      <CurDoorType>k__BackingField: 0
+      lineStart: {x: 5.6154904, y: -0.7555497}
+      lineEnd: {x: 5.6, y: -2.6}
+      bezierStartHandle: {x: 5.7, y: -0.42645195}
+      bezierEndHandle: {x: 5.5, y: -0.62645197}
+      floorNum: 0
+    - <CurLineType>k__BackingField: 0
+      <CurDoorType>k__BackingField: 0
+      lineStart: {x: 5.6, y: -2.6}
+      lineEnd: {x: -2.845564, y: -2.586062}
+      bezierStartHandle: {x: 0.6, y: -0.9}
+      bezierEndHandle: {x: 0.4, y: -1.1}
+      floorNum: 0
+    - <CurLineType>k__BackingField: 2
+      <CurDoorType>k__BackingField: 0
+      lineStart: {x: -2.845564, y: -2.586062}
+      lineEnd: {x: -4.158064, y: -2.586062}
+      bezierStartHandle: {x: 4.1771035, y: -1.799198}
+      bezierEndHandle: {x: 3.9771037, y: -1.9991981}
+      floorNum: 0
+    - <CurLineType>k__BackingField: 0
+      <CurDoorType>k__BackingField: 0
+      lineStart: {x: -4.158064, y: -2.586062}
+      lineEnd: {x: -5.618531, y: -2.5909271}
+      bezierStartHandle: {x: 3.5963356, y: -1.531942}
+      bezierEndHandle: {x: 3.3963358, y: -1.731942}
+      floorNum: 0
+    - <CurLineType>k__BackingField: 0
+      <CurDoorType>k__BackingField: 0
+      lineStart: {x: -5.618531, y: -2.5909271}
+      lineEnd: {x: -5.600739, y: 2.5675733}
+      bezierStartHandle: {x: 2.0971148, y: -0.8420351}
+      bezierEndHandle: {x: 1.8971149, y: -1.0420351}
+      floorNum: 0
+    points: []
+    interiorPoint: {x: 0, y: 0, z: 0}
+    doorways:
+    - startPoint: {x: -4.158109, y: 2.583212}
+      endPoint: {x: -2.8456092, y: 2.583212}
+      xStartLine: 0
+      yStartLine: 10
+      xEndLine: 0
+      yEndLine: 10
+      doorType: 0
+      width: 1.3125
+      height: 0
+      angle: 90
+    - startPoint: {x: 5.6154904, y: 0.5569503}
+      endPoint: {x: 5.6154904, y: -0.7555497}
+      xStartLine: 10
+      yStartLine: 5.569503
+      xEndLine: 10
+      yEndLine: 0
+      doorType: 0
+      width: 1.3125
+      height: 0
+      angle: 0
+    - startPoint: {x: -2.845564, y: -2.586062}
+      endPoint: {x: -4.158064, y: -2.586062}
+      xStartLine: 0
+      yStartLine: 0
+      xEndLine: 0
+      yEndLine: 0
+      doorType: 0
+      width: 1.3125
+      height: 0
+      angle: 270
+  - floorNum: 1
+    gridWidth: 10
+    gridHeight: 10
+    serializable:
+      HorizontalSize: 10
+      VerticalSizes: 0a0000000a0000000a0000000a0000000a0000000a0000000a0000000a0000000a0000000a000000
+      Array:
+      - Index0: 0
+        Index1: 0
+        Element: 0
+      - Index0: 0
+        Index1: 1
+        Element: 0
+      - Index0: 0
+        Index1: 2
+        Element: 0
+      - Index0: 0
+        Index1: 3
+        Element: 0
+      - Index0: 0
+        Index1: 4
+        Element: 0
+      - Index0: 0
+        Index1: 5
+        Element: 0
+      - Index0: 0
+        Index1: 6
+        Element: 0
+      - Index0: 0
+        Index1: 7
+        Element: 0
+      - Index0: 0
+        Index1: 8
+        Element: 0
+      - Index0: 0
+        Index1: 9
+        Element: 0
+      - Index0: 1
+        Index1: 0
+        Element: 0
+      - Index0: 1
+        Index1: 1
+        Element: 0
+      - Index0: 1
+        Index1: 2
+        Element: 0
+      - Index0: 1
+        Index1: 3
+        Element: 0
+      - Index0: 1
+        Index1: 4
+        Element: 0
+      - Index0: 1
+        Index1: 5
+        Element: 0
+      - Index0: 1
+        Index1: 6
+        Element: 0
+      - Index0: 1
+        Index1: 7
+        Element: 0
+      - Index0: 1
+        Index1: 8
+        Element: 0
+      - Index0: 1
+        Index1: 9
+        Element: 0
+      - Index0: 2
+        Index1: 0
+        Element: 0
+      - Index0: 2
+        Index1: 1
+        Element: 0
+      - Index0: 2
+        Index1: 2
+        Element: 0
+      - Index0: 2
+        Index1: 3
+        Element: 0
+      - Index0: 2
+        Index1: 4
+        Element: 0
+      - Index0: 2
+        Index1: 5
+        Element: 0
+      - Index0: 2
+        Index1: 6
+        Element: 0
+      - Index0: 2
+        Index1: 7
+        Element: 0
+      - Index0: 2
+        Index1: 8
+        Element: 0
+      - Index0: 2
+        Index1: 9
+        Element: 0
+      - Index0: 3
+        Index1: 0
+        Element: 0
+      - Index0: 3
+        Index1: 1
+        Element: 0
+      - Index0: 3
+        Index1: 2
+        Element: 0
+      - Index0: 3
+        Index1: 3
+        Element: 0
+      - Index0: 3
+        Index1: 4
+        Element: 0
+      - Index0: 3
+        Index1: 5
+        Element: 0
+      - Index0: 3
+        Index1: 6
+        Element: 0
+      - Index0: 3
+        Index1: 7
+        Element: 0
+      - Index0: 3
+        Index1: 8
+        Element: 0
+      - Index0: 3
+        Index1: 9
+        Element: 0
+      - Index0: 4
+        Index1: 0
+        Element: 0
+      - Index0: 4
+        Index1: 1
+        Element: 0
+      - Index0: 4
+        Index1: 2
+        Element: 0
+      - Index0: 4
+        Index1: 3
+        Element: 0
+      - Index0: 4
+        Index1: 4
+        Element: 0
+      - Index0: 4
+        Index1: 5
+        Element: 0
+      - Index0: 4
+        Index1: 6
+        Element: 0
+      - Index0: 4
+        Index1: 7
+        Element: 0
+      - Index0: 4
+        Index1: 8
+        Element: 0
+      - Index0: 4
+        Index1: 9
+        Element: 0
+      - Index0: 5
+        Index1: 0
+        Element: 0
+      - Index0: 5
+        Index1: 1
+        Element: 0
+      - Index0: 5
+        Index1: 2
+        Element: 0
+      - Index0: 5
+        Index1: 3
+        Element: 0
+      - Index0: 5
+        Index1: 4
+        Element: 0
+      - Index0: 5
+        Index1: 5
+        Element: 0
+      - Index0: 5
+        Index1: 6
+        Element: 0
+      - Index0: 5
+        Index1: 7
+        Element: 0
+      - Index0: 5
+        Index1: 8
+        Element: 0
+      - Index0: 5
+        Index1: 9
+        Element: 0
+      - Index0: 6
+        Index1: 0
+        Element: 0
+      - Index0: 6
+        Index1: 1
+        Element: 0
+      - Index0: 6
+        Index1: 2
+        Element: 0
+      - Index0: 6
+        Index1: 3
+        Element: 0
+      - Index0: 6
+        Index1: 4
+        Element: 0
+      - Index0: 6
+        Index1: 5
+        Element: 0
+      - Index0: 6
+        Index1: 6
+        Element: 0
+      - Index0: 6
+        Index1: 7
+        Element: 0
+      - Index0: 6
+        Index1: 8
+        Element: 0
+      - Index0: 6
+        Index1: 9
+        Element: 0
+      - Index0: 7
+        Index1: 0
+        Element: 0
+      - Index0: 7
+        Index1: 1
+        Element: 0
+      - Index0: 7
+        Index1: 2
+        Element: 0
+      - Index0: 7
+        Index1: 3
+        Element: 0
+      - Index0: 7
+        Index1: 4
+        Element: 0
+      - Index0: 7
+        Index1: 5
+        Element: 0
+      - Index0: 7
+        Index1: 6
+        Element: 0
+      - Index0: 7
+        Index1: 7
+        Element: 0
+      - Index0: 7
+        Index1: 8
+        Element: 0
+      - Index0: 7
+        Index1: 9
+        Element: 0
+      - Index0: 8
+        Index1: 0
+        Element: 0
+      - Index0: 8
+        Index1: 1
+        Element: 0
+      - Index0: 8
+        Index1: 2
+        Element: 0
+      - Index0: 8
+        Index1: 3
+        Element: 0
+      - Index0: 8
+        Index1: 4
+        Element: 0
+      - Index0: 8
+        Index1: 5
+        Element: 0
+      - Index0: 8
+        Index1: 6
+        Element: 0
+      - Index0: 8
+        Index1: 7
+        Element: 0
+      - Index0: 8
+        Index1: 8
+        Element: 0
+      - Index0: 8
+        Index1: 9
+        Element: 0
+      - Index0: 9
+        Index1: 0
+        Element: 0
+      - Index0: 9
+        Index1: 1
+        Element: 0
+      - Index0: 9
+        Index1: 2
+        Element: 0
+      - Index0: 9
+        Index1: 3
+        Element: 0
+      - Index0: 9
+        Index1: 4
+        Element: 0
+      - Index0: 9
+        Index1: 5
+        Element: 0
+      - Index0: 9
+        Index1: 6
+        Element: 0
+      - Index0: 9
+        Index1: 7
+        Element: 0
+      - Index0: 9
+        Index1: 8
+        Element: 0
+      - Index0: 9
+        Index1: 9
+        Element: 0
+    partialTileData: []
+    leftMostTile: 0
+    rightMostTile: 0
+    bottomMostTile: 0
+    topMostTile: 0
+    roomLines:
+    - <CurLineType>k__BackingField: 0
+      <CurDoorType>k__BackingField: 0
+      lineStart: {x: -5.603439, y: 2.5991008}
+      lineEnd: {x: 5.614884, y: 2.568009}
+      bezierStartHandle: {x: 0.1, y: 0.1}
+      bezierEndHandle: {x: -0.1, y: -0.1}
+      floorNum: 1
+    - <CurLineType>k__BackingField: 0
+      <CurDoorType>k__BackingField: 0
+      lineStart: {x: 5.614884, y: 2.568009}
+      lineEnd: {x: 5.6076994, y: 2.0859232}
+      bezierStartHandle: {x: 1.1, y: 0.1}
+      bezierEndHandle: {x: 0.9, y: -0.1}
+      floorNum: 1
+    - <CurLineType>k__BackingField: 2
+      <CurDoorType>k__BackingField: 0
+      lineStart: {x: 5.6076994, y: 2.0859232}
+      lineEnd: {x: 5.6076994, y: 0.7734232}
+      bezierStartHandle: {x: 5.714848, y: 2.317693}
+      bezierEndHandle: {x: 5.514848, y: 2.1176932}
+      floorNum: 1
+    - <CurLineType>k__BackingField: 0
+      <CurDoorType>k__BackingField: 0
+      lineStart: {x: 5.6076994, y: 0.7734232}
+      lineEnd: {x: 5.614544, y: -0.82432175}
+      bezierStartHandle: {x: 5.714774, y: 1.5910639}
+      bezierEndHandle: {x: 5.5147743, y: 1.3910638}
+      floorNum: 1
+    - <CurLineType>k__BackingField: 2
+      <CurDoorType>k__BackingField: 0
+      lineStart: {x: 5.614544, y: -0.82432175}
+      lineEnd: {x: 5.614544, y: -2.1368217}
+      bezierStartHandle: {x: 5.714559, y: -0.5329311}
+      bezierEndHandle: {x: 5.5145593, y: -0.73293114}
+      floorNum: 1
+    - <CurLineType>k__BackingField: 0
+      <CurDoorType>k__BackingField: 0
+      lineStart: {x: 5.614544, y: -2.1368217}
+      lineEnd: {x: 5.6143603, y: -2.592997}
+      bezierStartHandle: {x: 5.7144513, y: -1.5949291}
+      bezierEndHandle: {x: 5.5144515, y: -1.7949291}
+      floorNum: 1
+    - <CurLineType>k__BackingField: 0
+      <CurDoorType>k__BackingField: 0
+      lineStart: {x: 5.6143603, y: -2.592997}
+      lineEnd: {x: -5.612355, y: -2.574411}
+      bezierStartHandle: {x: 0.6, y: -0.9}
+      bezierEndHandle: {x: 0.4, y: -1.1}
+      floorNum: 1
+    - <CurLineType>k__BackingField: 0
+      <CurDoorType>k__BackingField: 0
+      lineStart: {x: -5.612355, y: -2.574411}
+      lineEnd: {x: -5.603439, y: 2.5991008}
+      bezierStartHandle: {x: 4.2552347, y: -1.8176486}
+      bezierEndHandle: {x: 4.055235, y: -2.0176487}
+      floorNum: 1
+    points: []
+    interiorPoint: {x: 0, y: 0, z: 0}
+    doorways:
+    - startPoint: {x: 5.6076994, y: 2.0859232}
+      endPoint: {x: 5.6076994, y: 0.7734232}
+      xStartLine: 10
+      yStartLine: 10
+      xEndLine: 10
+      yEndLine: 7.734232
+      doorType: 0
+      width: 1.3125
+      height: 0
+      angle: 0
+    - startPoint: {x: 5.614544, y: -0.82432175}
+      endPoint: {x: 5.614544, y: -2.1368217}
+      xStartLine: 10
+      yStartLine: 0
+      xEndLine: 10
+      yEndLine: 0
+      doorType: 0
+      width: 1.3125
+      height: 0
+      angle: 0
+  curInspectedFloor: 0
+  curPaintState: 2
+  curInspectorMode: 2
+  curInspectorLineType: 0
+--- !u!1001 &1892244590314280882
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8599089860936688289}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: bd75b02598bcad149a43a123789d7828,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bd75b02598bcad149a43a123789d7828,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bd75b02598bcad149a43a123789d7828,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bd75b02598bcad149a43a123789d7828,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bd75b02598bcad149a43a123789d7828,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bd75b02598bcad149a43a123789d7828,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bd75b02598bcad149a43a123789d7828,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bd75b02598bcad149a43a123789d7828,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bd75b02598bcad149a43a123789d7828,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bd75b02598bcad149a43a123789d7828,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bd75b02598bcad149a43a123789d7828,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bd75b02598bcad149a43a123789d7828,
+        type: 3}
+      propertyPath: m_Name
+      value: MainHall
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bd75b02598bcad149a43a123789d7828, type: 3}
+--- !u!4 &2146003776608874585 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: bd75b02598bcad149a43a123789d7828,
+    type: 3}
+  m_PrefabInstance: {fileID: 1892244590314280882}
+  m_PrefabAsset: {fileID: 0}
